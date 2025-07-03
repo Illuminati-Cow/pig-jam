@@ -14,9 +14,20 @@ config/name="pig-jam"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
+CsgToolkitAutoload="*res://addons/csg_toolkit/scripts/csg_toolkit_config.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+SoundManager="*res://addons/sound_manager/sound_manager.gd"
+
 [dotnet]
 
 project/assembly_name="pig-jam"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/SignalVisualizer/plugin.cfg", "res://addons/csg_converter/plugin.cfg", "res://addons/csg_toolkit/plugin.cfg", "res://addons/globalize-plugins/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/proto_shape/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
 
 [rendering]
 
