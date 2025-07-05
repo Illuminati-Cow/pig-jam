@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxayrol1h13v3"]
+
+[ext_resource type="ArrayMesh" uid="uid://udb4aufmxvve" path="res://models/indicator-square-c.obj" id="1_685bi"]
+
+[node name="MovementIndicator" type="MeshInstance3D"]
+mesh = ExtResource("1_685bi")

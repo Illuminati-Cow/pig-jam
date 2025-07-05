@@ -1,13 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://gy25w82lmvhy"]
+[gd_scene load_steps=5 format=3 uid="uid://gy25w82lmvhy"]
+
+[ext_resource type="Script" uid="uid://fja1vxw8bgi5" path="res://entities/player_controller.gd" id="1_merdl"]
+[ext_resource type="PackedScene" uid="uid://bxayrol1h13v3" path="res://entities/movement_indicator.tscn" id="2_e4p34"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t7ade"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_35d1g"]
 
 [node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_merdl")
+indicator_resource = ExtResource("2_e4p34")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_t7ade")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_35d1g")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
