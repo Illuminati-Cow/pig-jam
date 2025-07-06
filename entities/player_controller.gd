@@ -15,10 +15,9 @@ var indicator_resource: PackedScene
 var nav: NavigationAgent3D = $NavigationAgent3D
 
 var raycast_this_frame: bool = false
+var movement_was_input: bool = false
 var ray_origin: Vector2
 var indicator: Node3D
-
-const RAY_LENGTH = 1000.0
 
 func _ready():
 	indicator = indicator_resource.instantiate()
@@ -28,8 +27,21 @@ func _ready():
 	nav.debug_enabled = true
  
 func _input(event):
+	movement_was_input = true
+	if event.is_action("rotate_clockwise"):
+		rotate_y(rotate_speed)
+	elif event.is_action("rotate_counter-clockwise"):
+		rotate_y(-rotate_speed)
+	elif event.is_action("walk_forward"):
+		velocity.z = walk_speed
+	elif event.is_action("walk_backward"):
+		velocity.z = -walk_speed
+	else:
+		movement_was_input = false
+		
 	if event is not InputEventMouseButton or not event.pressed:
 		return
+		
 	match event.button_index:
 		MOUSE_BUTTON_RIGHT:
 			raycast_this_frame = true
@@ -39,23 +51,23 @@ func _input(event):
 func _physics_process(delta: float):
 	if raycast_this_frame:
 		raycast_this_frame = false
-		var camera := get_viewport().get_camera_3d()
-		var space_state = get_world_3d().direct_space_state
-		var from = camera.project_ray_origin(ray_origin)
-		var to = from + camera.project_ray_normal(ray_origin) * RAY_LENGTH
-		var query = PhysicsRayQueryParameters3D.create(from, to)
-		query.exclude = [self]
-		var results := space_state.intersect_ray(query)
+		var camera = get_viewport().get_camera_3d()
+		var params = PhysicsRayQueryParameters3D.new()
+		params.exclude = [self]
+		var results := Utilities.pointer_raycast(camera, ray_origin, 1000, params)
 		if results:
 			nav.target_position = results.position
 			indicator.global_position = results.position + Vector3.UP * 0.1
 			indicator.visible = true
 	
+	# FIX, ONLY RESET IF NAVIGATING AND THEN INPUT
 	if nav.is_navigation_finished():
 		indicator.visible = false
-		return
-		
-	var next_path_position: Vector3 = nav.get_next_path_position()
-	velocity = global_position.direction_to(next_path_position) * walk_speed
-	move_and_slide()
+		nav.target_position = position
+		movement_was_input = false
+		velocity = Vector3.ZERO
+	else:
+		var next_path_position: Vector3 = nav.get_next_path_position()
+		velocity = global_position.direction_to(next_path_position) * walk_speed
 	
+	move_and_slide()

@@ -9,6 +9,7 @@
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_merdl")
+walk_speed = 10.0
 indicator_resource = ExtResource("2_e4p34")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -18,4 +19,5 @@ shape = SubResource("CapsuleShape3D_t7ade")
 mesh = SubResource("CapsuleMesh_35d1g")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_height_offset = -0.5
 avoidance_enabled = true
