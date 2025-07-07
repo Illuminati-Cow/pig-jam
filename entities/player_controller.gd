@@ -1,12 +1,20 @@
 class_name PlayerController
 extends CharacterBody3D
 
+@export_category("Movement")
 @export
 var walk_speed: float = 1
+
+@export
+var backward_walk_speed_modifier: float = 0.5
 
 @export 
 var rotate_speed: float = 1
 
+@export
+var speed_dir_curve: Curve
+
+@export_category("Resources")
 @export
 var indicator_resource: PackedScene
 
@@ -15,7 +23,7 @@ var indicator_resource: PackedScene
 var nav: NavigationAgent3D = $NavigationAgent3D
 
 var raycast_this_frame: bool = false
-var movement_was_input: bool = false
+var navigating: bool = false
 var ray_origin: Vector2
 var indicator: Node3D
 
@@ -27,18 +35,6 @@ func _ready():
 	nav.debug_enabled = true
  
 func _input(event):
-	movement_was_input = true
-	if event.is_action("rotate_clockwise"):
-		rotate_y(rotate_speed)
-	elif event.is_action("rotate_counter-clockwise"):
-		rotate_y(-rotate_speed)
-	elif event.is_action("walk_forward"):
-		velocity.z = walk_speed
-	elif event.is_action("walk_backward"):
-		velocity.z = -walk_speed
-	else:
-		movement_was_input = false
-		
 	if event is not InputEventMouseButton or not event.pressed:
 		return
 		
@@ -46,7 +42,6 @@ func _input(event):
 		MOUSE_BUTTON_RIGHT:
 			raycast_this_frame = true
 			ray_origin = event.position
-			print(ray_origin)
 
 func _physics_process(delta: float):
 	if raycast_this_frame:
@@ -56,18 +51,41 @@ func _physics_process(delta: float):
 		params.exclude = [self]
 		var results := Utilities.pointer_raycast(camera, ray_origin, 1000, params)
 		if results:
-			nav.target_position = results.position
-			indicator.global_position = results.position + Vector3.UP * 0.1
-			indicator.visible = true
+			start_navigation(results.position)
 	
-	# FIX, ONLY RESET IF NAVIGATING AND THEN INPUT
-	if nav.is_navigation_finished():
-		indicator.visible = false
-		nav.target_position = position
-		movement_was_input = false
-		velocity = Vector3.ZERO
-	else:
+	if nav.is_navigation_finished() and navigating:
+		stop_navigation()
+	
+	var locomotion_input := Input.get_axis("walk_backward", "walk_forward")
+	var rotation_input := Input.get_axis("rotate_counter-clockwise", "rotate_clockwise")
+	
+	if locomotion_input != 0 || rotation_input != 0 and navigating:
+		stop_navigation()
+	
+	if navigating:
 		var next_path_position: Vector3 = nav.get_next_path_position()
-		velocity = global_position.direction_to(next_path_position) * walk_speed
+		var direction := global_position.direction_to(next_path_position)
+		var rot_delta: float = basis.z.signed_angle_to(direction, transform.basis.y)
+		rotation.y = rotate_toward(rotation.y, rotation.y + rot_delta, deg_to_rad(rotate_speed))
+		velocity = speed_dir_curve.sample_baked(basis.z.dot(direction)) * direction * walk_speed
+	else:
+		velocity = basis.z * locomotion_input * walk_speed\
+			* (backward_walk_speed_modifier if locomotion_input < 0 else 1)
+		rotate_y(-rotation_input * deg_to_rad(rotate_speed))
+		if !is_on_floor():
+			velocity += get_gravity()
 	
 	move_and_slide()
+
+func start_navigation(target_pos: Vector3):
+	velocity.x = 0
+	velocity.z = 0
+	nav.target_position = target_pos
+	indicator.global_position = target_pos + Vector3.UP * 0.1
+	indicator.visible = true
+	navigating = true
+
+func stop_navigation():
+	navigating = false
+	indicator.visible = false
+	velocity = Vector3.ZERO

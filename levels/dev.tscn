@@ -77,8 +77,9 @@ shadow_enabled = true
 environment = SubResource("Environment_x8peg")
 
 [node name="Player" parent="." instance=ExtResource("4_273jf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.84, 0)
 walk_speed = 5.0
+rotate_speed = 5.0
 
 [node name="PhantomCamera3D" type="Node3D" parent="."]
 physics_interpolation_mode = 1

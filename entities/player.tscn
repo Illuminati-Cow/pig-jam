@@ -1,15 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://gy25w82lmvhy"]
+[gd_scene load_steps=8 format=3 uid="uid://gy25w82lmvhy"]
 
 [ext_resource type="Script" uid="uid://fja1vxw8bgi5" path="res://entities/player_controller.gd" id="1_merdl"]
 [ext_resource type="PackedScene" uid="uid://bxayrol1h13v3" path="res://entities/movement_indicator.tscn" id="2_e4p34"]
+
+[sub_resource type="Curve" id="Curve_b0kkn"]
+_limits = [0.0, 1.0, -1.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t7ade"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_35d1g"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b0kkn"]
+albedo_color = Color(0.237081, 0.34685, 0.457129, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b0kkn"]
+material = SubResource("StandardMaterial3D_b0kkn")
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_merdl")
 walk_speed = 10.0
+speed_dir_curve = SubResource("Curve_b0kkn")
 indicator_resource = ExtResource("2_e4p34")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -17,6 +29,10 @@ shape = SubResource("CapsuleShape3D_t7ade")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_35d1g")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.568684, 0, 0, 0, 0.289971, 0, 0, 0, 0.31892, 0, 0.497879, 0.368685)
+mesh = SubResource("BoxMesh_b0kkn")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_height_offset = -0.5
