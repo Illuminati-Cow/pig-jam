@@ -18,9 +18,11 @@ var speed_dir_curve: Curve
 @export
 var indicator_resource: PackedScene
 
-
 @onready
 var nav: NavigationAgent3D = $NavigationAgent3D
+
+@onready
+var animation_player: AnimationTree = $AnimationPlayer/AnimationTree
 
 var raycast_this_frame: bool = false
 var navigating: bool = false
@@ -72,9 +74,9 @@ func _physics_process(delta: float):
 		velocity = basis.z * locomotion_input * walk_speed\
 			* (backward_walk_speed_modifier if locomotion_input < 0 else 1)
 		rotate_y(-rotation_input * deg_to_rad(rotate_speed))
-		if !is_on_floor():
-			velocity += get_gravity()
 	
+	if !is_on_floor():
+		velocity += get_gravity()
 	move_and_slide()
 
 func start_navigation(target_pos: Vector3):
