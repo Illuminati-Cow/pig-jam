@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://xvayq6cqitep"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c3dur"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c3dur"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_c3dur"]
+graph_offset = Vector2(-228.403, 15.4156)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_c3dur")
+nodes/Animation/position = Vector2(100, 140)
+node_connections = [&"output", 0, &"Animation"]
+
+[node name="Pig" type="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_c3dur")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_height_offset = 0.5
+avoidance_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="AnimationPlayer"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeBlendTree_c3dur")
+anim_player = NodePath("..")
