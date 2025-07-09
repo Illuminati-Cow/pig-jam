@@ -12,6 +12,7 @@ signal item_removed(item: ItemType)
 var inventory: Dictionary[ItemType, int] = {}
 
 func has_item(item: ItemType) -> bool:
+	SoundManager
 	return inventory.get(item, 0) > 0
 
 func get_item_count(item: ItemType) -> int:

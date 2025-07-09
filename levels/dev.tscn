@@ -1,6 +1,5 @@
-[gd_scene load_steps=22 format=3 uid="uid://pidibbjycllu"]
+[gd_scene load_steps=21 format=3 uid="uid://pidibbjycllu"]
 
-[ext_resource type="Script" uid="uid://xkdubtl3svml" path="res://levels/dev.gd" id="1_604n7"]
 [ext_resource type="PackedScene" uid="uid://dxw7cledbpiia" path="res://addons/proto-csgs/proto_csg_box_3d.tscn" id="1_x8peg"]
 [ext_resource type="Texture2D" uid="uid://cej3yoosomfd2" path="res://addons/proto-csgs/textures/dark/texture_13.png" id="2_2it8a"]
 [ext_resource type="Material" uid="uid://b12qc2augolq8" path="res://materials/prototype_material.tres" id="2_8etgp"]
@@ -46,7 +45,7 @@ metadata/_custom_type_script = "uid://b8hhnqsugykly"
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_273jf"]
 dof_blur_far_enabled = true
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_604n7"]
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_2it8a"]
 dof_blur_far_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_hvsbd"]
@@ -67,7 +66,6 @@ uv1_triplanar = true
 uv1_world_triplanar = true
 
 [node name="Dev" type="Node3D"]
-script = ExtResource("1_604n7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -98,7 +96,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 3, 4.67, 2.83)
-attributes = SubResource("CameraAttributesPractical_604n7")
+attributes = SubResource("CameraAttributesPractical_2it8a")
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
 process_priority = 300
