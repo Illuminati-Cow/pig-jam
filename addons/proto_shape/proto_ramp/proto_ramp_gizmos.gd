@@ -46,11 +46,13 @@ func init_gizmo(plugin: ProtoGizmoPlugin) -> void:
 	undo_redo = plugin.undo_redo
 	plugin.fine_snapping_changed.connect(func (fine_snapping: bool) -> void:
 		fine_snapping_enabled = fine_snapping
-		ramp.update_gizmos()
+		if ramp:
+			ramp.update_gizmos()
 	)
 	plugin.snapping_changed.connect(func (snapping: bool) -> void:
 		snapping_enabled = snapping
-		ramp.update_gizmos()
+		if ramp:
+			ramp.update_gizmos()
 	)
 
 # Debug purposes
