@@ -18,6 +18,16 @@ var speed_dir_curve: Curve
 @export
 var indicator_resource: PackedScene
 
+@export_category("Debug")
+@export
+var debug_path: bool:
+	get:
+		return nav.debug_enabled if nav else false
+	set(value):
+		if !is_node_ready():
+			return
+		nav.debug_enabled = value
+
 @onready
 var nav: NavigationAgent3D = $NavigationAgent3D
 
@@ -31,10 +41,7 @@ var indicator: Node3D
 
 func _ready():
 	indicator = indicator_resource.instantiate()
-	nav.path_desired_distance = 0.5
-	nav.target_desired_distance = 0.5
 	get_tree().root.add_child.call_deferred(indicator)
-	nav.debug_enabled = true
  
 func _input(event):
 	if event is not InputEventMouseButton or not event.pressed:
@@ -45,7 +52,7 @@ func _input(event):
 			raycast_this_frame = true
 			ray_origin = event.position
 
-func _physics_process(delta: float):
+func _physics_process(_delta: float):
 	if raycast_this_frame:
 		raycast_this_frame = false
 		var camera = get_viewport().get_camera_3d()
@@ -72,7 +79,7 @@ func _physics_process(delta: float):
 		velocity = speed_dir_curve.sample_baked(basis.z.dot(direction)) * direction * walk_speed
 	else:
 		velocity = basis.z * locomotion_input * walk_speed\
-			* (backward_walk_speed_modifier if locomotion_input < 0 else 1)
+			* (backward_walk_speed_modifier if locomotion_input < 0 else 1.)
 		rotate_y(-rotation_input * deg_to_rad(rotate_speed))
 	
 	if !is_on_floor():
@@ -91,3 +98,6 @@ func stop_navigation():
 	navigating = false
 	indicator.visible = false
 	velocity = Vector3.ZERO
+
+func _toggle_path_debug():
+	nav.debug_enabled = !nav.debug_enabled

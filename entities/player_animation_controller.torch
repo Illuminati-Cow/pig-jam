@@ -126,8 +126,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2050,
 "label": "Object",
-"target_class": "Object",
-"dv": null
+"target_class": "Object"
 }, {
 "pin_name": &"property",
 "type": 21,
@@ -283,7 +282,6 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2050,
 "target_class": "AnimationTree",
-"dv": null,
 "hint": 34,
 "hint_string": "AnimationTree",
 "usage": 4102
@@ -312,8 +310,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"target_class": "AnimationTree",
-"dv": null
+"target_class": "AnimationTree"
 }])
 
 [obj type="OScriptNodeVariableGet" id="OScriptNodeVariableGet_v2uy1"]
@@ -327,7 +324,6 @@ pin_data = Array[Dictionary]([{
 "flags": 2050,
 "label": "animation_tree",
 "target_class": "AnimationTree",
-"dv": null,
 "hint": 34,
 "hint_string": "AnimationTree",
 "usage": 4102
