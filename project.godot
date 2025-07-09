@@ -21,6 +21,7 @@ Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 CsgToolkitAutoload="*res://addons/csg_toolkit/scripts/csg_toolkit_config.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 SoundManager="*res://addons/sound_manager/sound_manager.gd"
+Inventory="*res://scripts/inventory.gd"
 
 [display]
 
