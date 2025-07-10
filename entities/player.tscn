@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bxayrol1h13v3" path="res://entities/movement_indicator.tscn" id="2_e4p34"]
 [ext_resource type="AnimationLibrary" uid="uid://c802molah45rw" path="res://animations/player_animations.res" id="3_e4p34"]
 [ext_resource type="Script" uid="uid://bs2pws6k4o2jv" path="res://entities/player_animation_controller.torch" id="4_qly61"]
-[ext_resource type="Texture2D" uid="uid://ctxfgjjyi1r52" path="res://materials/survivorFemaleA.png" id="4_rfe5m"]
+[ext_resource type="Texture2D" uid="uid://ctxfgjjyi1r52" path="res://textures/survivorFemaleA.png" id="4_rfe5m"]
 
 [sub_resource type="Curve" id="Curve_b0kkn"]
 _limits = [0.0, 1.0, -1.0, 1.0]
