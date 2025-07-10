@@ -3,11 +3,12 @@ extends Node
 
 
 const SoundEffectsPlayer = preload("./sound_effects.gd")
+const UiSoundEffectsPlayer = preload("./ui_sound_effects.gd")
 const AmbientSoundsPlayer = preload("./ambient_sounds.gd")
 const MusicPlayer = preload("./music.gd")
 
 var sound_effects: SoundEffectsPlayer = SoundEffectsPlayer.new(["Sounds", "SFX"], 8)
-var ui_sound_effects: SoundEffectsPlayer = SoundEffectsPlayer.new(["UI", "Interface", "Sounds", "SFX"], 8)
+var ui_sound_effects: UiSoundEffectsPlayer = UiSoundEffectsPlayer.new(["UI", "Interface", "Sounds", "SFX"], 8)
 var ambient_sounds: AmbientSoundsPlayer = AmbientSoundsPlayer.new(["Sounds", "SFX"], 1)
 var music: MusicPlayer = MusicPlayer.new(["Music"], 2)
 
@@ -69,15 +70,19 @@ func set_sound_volume(volume_between_0_and_1: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(ui_sound_effects.bus), linear_to_db(volume_between_0_and_1))
 
 
-func play_sound(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer:
+func play_sound(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer3D:
 	return sound_effects.play(resource, override_bus)
 
 
-func play_sound_with_pitch(resource: AudioStream, pitch: float = 1.0, override_bus: String = "") -> AudioStreamPlayer:
+func play_sound_with_pitch(resource: AudioStream, pitch: float = 1.0, override_bus: String = "") -> AudioStreamPlayer3D:
 	var player = sound_effects.play(resource, override_bus)
 	player.pitch_scale = pitch
 	return player
 
+func play_sound_with_position(resource: AudioStream, position: Vector3, override_bus: String = "") -> AudioStreamPlayer3D:
+	var player = sound_effects.play(resource, override_bus)
+	player.position = position
+	return player
 
 func stop_sound(resource: AudioStream) -> void:
 	return sound_effects.stop(resource)
