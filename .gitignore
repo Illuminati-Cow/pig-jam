@@ -3,3 +3,5 @@
 /android/
 *.TMP
 bin/
+builds/
+.idea/
