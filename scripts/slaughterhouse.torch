@@ -10,8 +10,8 @@ id = 2
 
 [obj type="OScriptGraph" id="OScriptGraph_74inb"]
 graph_name = &"EventGraph"
-offset = Vector2(15.9127, -220.62)
-zoom = 0.751315
+offset = Vector2(-51.7851, -274)
+zoom = 0.826446
 flags = 8
 nodes = Array[int]([2, 3, 4, 5, 6, 7])
 functions = Array[int]([2])
@@ -36,8 +36,7 @@ pin_data = Array[Dictionary]([{
 "dir": 1,
 "flags": 2050,
 "label": "SoundManager",
-"target_class": "Node",
-"dv": null
+"target_class": "Node"
 }])
 
 [obj type="OScriptNodeVariableSet" id="OScriptNodeVariableSet_r8h7o"]
@@ -52,7 +51,6 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2050,
 "target_class": "OSoundManager",
-"dv": null,
 "hint": 34,
 "hint_string": "OSoundManager",
 "usage": 4102
@@ -97,8 +95,7 @@ pin_data = Array[Dictionary]([{
 "dir": 1,
 "flags": 2050,
 "label": "as OSoundManager",
-"target_class": "OSoundManager",
-"dv": null
+"target_class": "OSoundManager"
 }])
 
 [obj type="OScriptNodeCallMemberFunction" id="OScriptNodeCallMemberFunction_nx4ro"]
@@ -144,14 +141,12 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2050,
 "label": "OSoundManager",
-"target_class": "OSoundManager",
-"dv": null
+"target_class": "OSoundManager"
 }, {
 "pin_name": &"resource",
 "type": 24,
 "flags": 2,
 "target_class": "AudioStream",
-"dv": null,
 "usage": 0
 }, {
 "pin_name": &"fade_in_duration",
@@ -172,14 +167,13 @@ pin_data = Array[Dictionary]([{
 "flags": 2,
 "label": "AudioStreamPlayer",
 "target_class": "AudioStreamPlayer",
-"dv": null,
 "usage": 0
 }])
 
 [obj type="OScriptNodePreload" id="OScriptNodePreload_cxsfk"]
 path = "res://audio/ambience/Track_1.wav"
 id = 7
-position = Vector2(720, 340)
+position = Vector2(780, 300)
 pin_data = Array[Dictionary]([{
 "pin_name": &"path",
 "type": 24,
@@ -187,7 +181,7 @@ pin_data = Array[Dictionary]([{
 "flags": 2050,
 "label": "res://audio/ambience/Track_1.wav",
 "target_class": "AudioStreamWAV",
-"dv": "",
+"dv": "res://audio/ambience/Track_1.wav",
 "gdv": ""
 }])
 

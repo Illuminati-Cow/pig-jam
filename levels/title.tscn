@@ -1,3 +1,65 @@
-[gd_scene format=3 uid="uid://cp83y54q6sna1"]
+[gd_scene load_steps=4 format=3 uid="uid://cp83y54q6sna1"]
+
+[ext_resource type="Theme" uid="uid://65buv1polm1k" path="res://settings/theme.tres" id="1_0byv1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e6com"]
+font_size = 128
+
+[sub_resource type="GDScript" id="GDScript_0byv1"]
+script/source = "extends Button
+
+var game_scene:= preload(\"res://levels/slaughterhouse.tscn\")
+
+func _on_pressed() -> void:
+	get_tree().change_scene_to_packed(game_scene)
+"
 
 [node name="Title" type="Node3D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Menu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -562.5
+offset_top = -257.0
+offset_right = 562.5
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "THE PIGS HUNGER"
+label_settings = SubResource("LabelSettings_e6com")
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = 309.0
+offset_right = 157.0
+offset_bottom = 414.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0byv1")
+text = "PLAY"
+script = SubResource("GDScript_0byv1")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+current = true
+
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]

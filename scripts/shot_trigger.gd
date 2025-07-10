@@ -106,4 +106,5 @@ func _get_property_list() -> Array[Dictionary]:
 				})
 		if linked_shot:
 			linked_shot.tree_exiting.connect(func(): linked_shot = null, CONNECT_ONE_SHOT)
+			linked_shot.active = false
 	return ret
