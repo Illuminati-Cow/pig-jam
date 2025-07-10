@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctxfgjjyi1r52"
-path.s3tc="res://.godot/imported/survivorFemaleA.png-ca3979735125b23dae165bfd0c00a025.s3tc.ctex"
+path.s3tc="res://.godot/imported/survivorFemaleA.png-4951deeb3d00d8598a6c828fa7525e1e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://materials/survivorFemaleA.png"
-dest_files=["res://.godot/imported/survivorFemaleA.png-ca3979735125b23dae165bfd0c00a025.s3tc.ctex"]
+source_file="res://textures/survivorFemaleA.png"
+dest_files=["res://.godot/imported/survivorFemaleA.png-4951deeb3d00d8598a6c828fa7525e1e.s3tc.ctex"]
 
 [params]
 
