@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://pidibbjycllu"]
+[gd_scene load_steps=28 format=3 uid="uid://pidibbjycllu"]
 
+[ext_resource type="Script" uid="uid://bad3i8cc41u0s" path="res://levels/dev.gd" id="1_hvsbd"]
 [ext_resource type="PackedScene" uid="uid://dxw7cledbpiia" path="res://addons/proto-csgs/proto_csg_box_3d.tscn" id="1_x8peg"]
 [ext_resource type="Texture2D" uid="uid://cej3yoosomfd2" path="res://addons/proto-csgs/textures/dark/texture_13.png" id="2_2it8a"]
 [ext_resource type="Material" uid="uid://b12qc2augolq8" path="res://materials/prototype_material.tres" id="2_8etgp"]
@@ -9,6 +10,8 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_lv7ry"]
 [ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="6_lv7ry"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_t7ade"]
+[ext_resource type="PackedScene" uid="uid://c3l2m7q14ftas" path="res://models/pig.fbx" id="11_hvsbd"]
+[ext_resource type="Script" uid="uid://bj7guedgcfnv2" path="res://scripts/hanging_pig.gd" id="11_mp74a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5g1ut"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -45,7 +48,7 @@ metadata/_custom_type_script = "uid://b8hhnqsugykly"
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_273jf"]
 dof_blur_far_enabled = true
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_2it8a"]
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_1sof2"]
 dof_blur_far_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_hvsbd"]
@@ -65,7 +68,24 @@ uv1_offset = Vector3(0.5, 0.5, 0.5)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
+[sub_resource type="TorusMesh" id="TorusMesh_hvsbd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hvsbd"]
+radius = 0.319217
+height = 1.67413
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mp74a"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_2it8a")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hvsbd"]
+size = Vector3(0.1, 0.31123, 0.1)
+
 [node name="Dev" type="Node3D"]
+script = ExtResource("1_hvsbd")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -75,13 +95,22 @@ shadow_enabled = true
 environment = SubResource("Environment_x8peg")
 
 [node name="Player" parent="." instance=ExtResource("4_273jf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 0)
-walk_speed = 5.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01, 0.987874, 3.252)
+input_ray_pickable = false
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+mass = 70.0
+acceleration = 50.0
+max_acceleration = 20.0
 rotate_speed = 5.0
+ride_height = 0.42
+ride_spring_strength = 200.0
+ride_spring_damper = 20.0
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 3, 4.67, 2.83)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 3.01, 4.65787, 6.082)
 top_level = true
 script = ExtResource("4_35d1g")
 follow_mode = 2
@@ -95,8 +124,8 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 3, 4.67, 2.83)
-attributes = SubResource("CameraAttributesPractical_2it8a")
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 3.01, 4.65787, 6.082)
+attributes = SubResource("CameraAttributesPractical_1sof2")
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
 process_priority = 300
@@ -138,3 +167,44 @@ metadata/_custom_type_script = "uid://b1unx03vcgyv6"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.003, -3.005)
 size = Vector3(3, 2, 6)
 material = SubResource("StandardMaterial3D_604n7")
+
+[node name="Rails" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.729172, 0)
+
+[node name="MeatHook" type="RigidBody3D" parent="Rails"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.7431, 4.05253, -3)
+input_ray_pickable = false
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+mass = 200.0
+center_of_mass_mode = 1
+script = ExtResource("11_mp74a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rails/MeatHook"]
+transform = Transform3D(0.205, 0, 0, 0, 0.205, 0, 0, 0, 0.205, 0, 0, 0)
+mesh = SubResource("TorusMesh_hvsbd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rails/MeatHook"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0682359, 9.53674e-07, -0.806539)
+shape = SubResource("CapsuleShape3D_hvsbd")
+
+[node name="pig" parent="Rails/MeatHook" instance=ExtResource("11_hvsbd")]
+transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, 1.44795e-14, 1, 7.35137e-08, -8.74228e-08, 7.35137e-08, -1, 0.00315356, -0.227475, -0.925344)
+
+[node name="RailX" parent="Rails" instance=ExtResource("1_x8peg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.7431, 4.14703, -3)
+size = Vector3(0.157227, 0.140137, 6)
+material = SubResource("StandardMaterial3D_mp74a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rails/RailX"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rails/RailX/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38419e-07, -0.105615, 3.04763)
+shape = SubResource("BoxShape3D_hvsbd")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Rails/RailX/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-07, -0.105615, -3.06054)
+shape = SubResource("BoxShape3D_hvsbd")

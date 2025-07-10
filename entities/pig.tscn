@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://xvayq6cqitep"]
+[gd_scene load_steps=5 format=3 uid="uid://xvayq6cqitep"]
+
+[ext_resource type="PackedScene" uid="uid://c3l2m7q14ftas" path="res://models/pig.fbx" id="1_cta62"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c3dur"]
+radius = 0.864845
+height = 3.86619
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c3dur"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_c3dur"]
-graph_offset = Vector2(-228.403, 15.4156)
+graph_offset = Vector2(-157.554, 157.62)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_c3dur")
 nodes/Animation/position = Vector2(100, 140)
 node_connections = [&"output", 0, &"Animation"]
@@ -13,7 +17,7 @@ node_connections = [&"output", 0, &"Animation"]
 [node name="Pig" type="CharacterBody3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.42015, -0.313972)
 shape = SubResource("CapsuleShape3D_c3dur")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
@@ -26,3 +30,34 @@ avoidance_enabled = true
 root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeBlendTree_c3dur")
 anim_player = NodePath("..")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.163849, 0.741037, 0.762924)
+
+[node name="pig" parent="." instance=ExtResource("1_cta62")]
+
+[node name="Skeleton3D" parent="pig/rig" index="0"]
+show_rest_only = true
+bones/5/position = Vector3(-4.42741e-13, 0.00328511, -1.44007e-09)
+bones/5/scale = Vector3(0.993666, 1.00383, 1.00263)
+bones/6/position = Vector3(3.27037e-12, 0.00189452, -6.70087e-10)
+bones/6/scale = Vector3(0.992711, 1.00433, 1.00321)
+bones/7/position = Vector3(-1.02171e-11, 0.000413386, -2.20034e-10)
+bones/7/scale = Vector3(0.999808, 0.999979, 1.00021)
+bones/9/position = Vector3(5.89193e-13, 0.00259506, -6.20628e-10)
+bones/9/scale = Vector3(0.999488, 1.00053, 1.00001)
+bones/52/position = Vector3(-1.84082e-12, -0.00800988, 1.54855e-05)
+bones/53/position = Vector3(-9.31323e-13, -9.5088e-10, -5.58797e-12)
+bones/53/scale = Vector3(1, 1, 1)
+bones/54/position = Vector3(-1.54666e-11, 0.00189452, -2.24936e-10)
+bones/54/scale = Vector3(1, 1, 1)
+bones/56/position = Vector3(-1.36163e-11, 0.000295477, -3.55685e-10)
+bones/56/rotation = Quaternion(0.0502612, -0.022177, 0.0106883, 0.998433)
+bones/56/scale = Vector3(1, 0.999999, 1)
+bones/57/position = Vector3(-1.39019e-09, 0.00015422, 0.00122273)
+bones/57/rotation = Quaternion(-0.122019, 8.0173e-07, -6.72297e-07, 0.992528)
+bones/57/scale = Vector3(1, 1, 1)
+bones/58/position = Vector3(-1.59321e-13, 5.142e-10, -5.1543e-10)
+bones/58/rotation = Quaternion(-0.326829, -1.25146e-07, -1.77524e-06, 0.945084)
+
+[editable path="pig"]
