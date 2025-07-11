@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://pidibbjycllu"]
+[gd_scene load_steps=30 format=3 uid="uid://pidibbjycllu"]
 
 [ext_resource type="Script" uid="uid://bad3i8cc41u0s" path="res://levels/dev.gd" id="1_hvsbd"]
 [ext_resource type="PackedScene" uid="uid://dxw7cledbpiia" path="res://addons/proto-csgs/proto_csg_box_3d.tscn" id="1_x8peg"]
@@ -86,6 +86,13 @@ uv1_world_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hvsbd"]
 size = Vector3(0.1, 0.31123, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1sof2"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_2it8a")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [node name="Dev" type="Node3D"]
 script = ExtResource("1_hvsbd")
@@ -217,7 +224,7 @@ shape = SubResource("BoxShape3D_hvsbd")
 [node name="RailX2" parent="Rails" instance=ExtResource("1_x8peg")]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -4.7431, 4.14703, -3)
 size = Vector3(0.157227, 0.140137, 6)
-material = SubResource("StandardMaterial3D_mp74a")
+material = SubResource("StandardMaterial3D_1sof2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rails/RailX2"]
 
