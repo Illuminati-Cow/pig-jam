@@ -9,13 +9,13 @@ var active_pusher: RigidBody3D
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area is Junction:
 		active_junction = area
-		print("Active junction: %s" % active_junction.name)
+		#print("Active junction: %s" % active_junction.name)
 
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	if area is Junction and active_junction == area:
 		active_junction = null
-		print("Active junction unset")
+		#print("Active junction unset")
 
 func _process(delta: float) -> void:
 	if !active_junction or !active_pusher:
@@ -54,8 +54,8 @@ func change_rails(push_dir: Vector3.Axis) -> void:
 			printerr("Axis is invalid")
 			
 	_snap_to_rail(push_dir)
-	var axis = ["X", "Y", "Z"]
-	print("Push Direction: %s" % axis[push_dir]) 
+	#var axis = ["X", "Y", "Z"]
+	#print("Push Direction: %s" % axis[push_dir]) 
 	if _rot_tween:
 		_rot_tween.kill()
 	_rot_tween = create_tween()
@@ -70,8 +70,8 @@ func change_rails(push_dir: Vector3.Axis) -> void:
 func _get_push_axis() -> Vector3.Axis:
 	var ground_pos := Vector3(global_position.x, 0, global_position.z)
 	var ground_pusher_pos := Vector3(active_pusher.global_position.x, 0, active_pusher.global_position.z)
-	var cardinal_dir := ground_pusher_pos.direction_to(ground_pos).abs().max_axis_index()
-	return cardinal_dir
+	var cardinal_dir := (ground_pusher_pos.direction_to(ground_pos) + active_pusher.basis.z) / 2
+	return cardinal_dir.abs().max_axis_index()
 
 func _snap_to_rail(push_dir: Vector3.Axis) -> void:
 	var x = active_junction.global_position.x if push_dir == Vector3.Axis.AXIS_Z else global_position.x
@@ -81,7 +81,6 @@ func _snap_to_rail(push_dir: Vector3.Axis) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body is not RigidBody3D:
-		print(body.name)
 		return
 	active_pusher = body
 	#print("Active Pusher: %s" % active_pusher.name)
