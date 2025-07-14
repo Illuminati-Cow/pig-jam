@@ -11,7 +11,6 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		active_junction = area
 		#print("Active junction: %s" % active_junction.name)
 
-
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	if area is Junction and active_junction == area:
 		active_junction = null

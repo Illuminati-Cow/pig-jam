@@ -69,6 +69,8 @@ func _ready() -> void:
 			position = get_parent().position
 
 func _on_body_entered(body: Node3D) -> void:
+	if body is not PlayerController:
+		return
 	camera.visible = true
 	camera.priority = shot_priority
 	if one_shot:
@@ -76,6 +78,8 @@ func _on_body_entered(body: Node3D) -> void:
 		_fired_timer.timeout.connect(func (): _fired_once = true)
 
 func _on_body_exited(body: Node3D) -> void:
+	if body is not PlayerController:
+		return
 	camera.priority = 0
 	camera.visible = false
 	_fired_timer.stop()

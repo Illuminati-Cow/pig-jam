@@ -1,7 +1,7 @@
 class_name Interactable
-extends Node
+extends Node3D
 
 signal interacted
 
 func interact():
-	pass
+	interacted.emit()

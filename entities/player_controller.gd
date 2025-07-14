@@ -134,6 +134,9 @@ func _physics_process(delta: float):
 	DebugDraw2D.set_text("needed_accel", "%2.2f" % needed_accel.length())
 
 func start_navigation(target_pos: Vector3):
+	if Engine.is_editor_hint() and Input.is_key_pressed(KEY_SHIFT):
+		global_position = target_pos
+		return
 	nav.target_position = target_pos
 	indicator.global_position = target_pos + Vector3.UP * 0.1
 	indicator.visible = true
