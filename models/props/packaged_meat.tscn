@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://depbkp8tyih5m"]
+
+[ext_resource type="PackedScene" uid="uid://471t02xwadqv" path="res://models/imports/PIG_Wrap_Meat.glb" id="1_wqw63"]
+
+[node name="packaged meat" instance=ExtResource("1_wqw63")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="Packaged meat_001" parent="." index="0"]
+transform = Transform3D(1.75814, 0, 0, 0, 0.168379, 0, 0, 0, 2.4758, 0, 0.256395, 0)
+
+[node name="wrap_001" parent="." index="1"]
+transform = Transform3D(1.79538, 0, 0, 0, 0.282259, 0, 0, 0, 2.57552, 0, 0.256395, 0)

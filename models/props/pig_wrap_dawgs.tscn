@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cipehbl15jbwq"]
+
+[ext_resource type="PackedScene" uid="uid://bn8sbrwsy7xum" path="res://models/imports/PIG_Wrap_Dawgs.glb" id="1_dhxcd"]
+
+[node name="PIG_Wrap_Dawgs" instance=ExtResource("1_dhxcd")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.0712559, 0)

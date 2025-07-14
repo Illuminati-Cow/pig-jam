@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://jepjmshtysp7"]
+
+[ext_resource type="PackedScene" uid="uid://bwy0nys3u8s06" path="res://models/imports/PIG_carcass.glb" id="1_hj8c6"]
+
+[node name="Carcass" instance=ExtResource("1_hj8c6")]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)

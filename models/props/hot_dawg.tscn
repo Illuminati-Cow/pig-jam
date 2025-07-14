@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://7mo6aan2i30q"]
+
+[ext_resource type="PackedScene" uid="uid://bn8sbrwsy7xum" path="res://models/imports/PIG_Wrap_Dawgs.glb" id="1_se3ji"]
+
+[node name="hot dawg" instance=ExtResource("1_se3ji")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="wrap_002" parent="." index="0"]
+transform = Transform3D(0.768821, 0, 0, 0, 0.227683, 0, 0, 0, 0.490503, 0, 0.189257, 0)
+
+[node name="Dawgs" parent="." index="1"]
+transform = Transform3D(-6.80417e-08, 1.85821, -6.80417e-08, 0, -8.12252e-08, -1.55661, -1.55661, -8.12252e-08, 2.9742e-15, 0, 0.189257, 0)

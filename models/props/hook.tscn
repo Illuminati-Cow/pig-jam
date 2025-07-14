@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4bqdap6clkl1"]
+
+[ext_resource type="PackedScene" uid="uid://2txxpbyqbejj" path="res://models/imports/PIG_meat_hook.glb" id="1_xm3yt"]
+
+[node name="hook" instance=ExtResource("1_xm3yt")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
