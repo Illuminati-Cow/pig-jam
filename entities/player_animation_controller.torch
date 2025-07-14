@@ -22,8 +22,8 @@ id = 4
 
 [obj type="OScriptGraph" id="OScriptGraph_vamt0"]
 graph_name = &"EventGraph"
-offset = Vector2(-181.403, 0)
-zoom = 0.232568
+offset = Vector2(-408.071, 129.719)
+zoom = 0.683013
 flags = 8
 nodes = Array[int]([0, 2, 3, 4, 5, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19])
 functions = Array[int]([2, 4])

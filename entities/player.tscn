@@ -28,10 +28,10 @@ animation = &"PlayerAnimations/player_idle"
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_qsoyl"]
 filter_enabled = true
-filters = ["", "Skeleton3D:Chest", "Skeleton3D:Head", "Skeleton3D:Hips", "Skeleton3D:HipsCtrl", "Skeleton3D:LeftArm", "Skeleton3D:LeftFoot", "Skeleton3D:LeftFootCtrl", "Skeleton3D:LeftFootIK", "Skeleton3D:LeftFootRollCtrl", "Skeleton3D:LeftForeArm", "Skeleton3D:LeftHand", "Skeleton3D:LeftHandIndex2", "Skeleton3D:LeftHandIndex3", "Skeleton3D:LeftHandThumb1", "Skeleton3D:LeftHandThumb2", "Skeleton3D:LeftHeelRoll", "Skeleton3D:LeftKneeCtrl", "Skeleton3D:LeftLeg", "Skeleton3D:LeftShoulder", "Skeleton3D:LeftToeRoll", "Skeleton3D:LeftToes", "Skeleton3D:LeftUpLeg", "Skeleton3D:Neck", "Skeleton3D:RightArm", "Skeleton3D:RightFoot", "Skeleton3D:RightFootCtrl", "Skeleton3D:RightFootIK", "Skeleton3D:RightFootRollCtrl", "Skeleton3D:RightForeArm", "Skeleton3D:RightHand", "Skeleton3D:RightHandIndex2", "Skeleton3D:RightHandIndex3", "Skeleton3D:RightHandThumb1", "Skeleton3D:RightHandThumb2", "Skeleton3D:RightHeelRoll", "Skeleton3D:RightKneeCtrl", "Skeleton3D:RightLeg", "Skeleton3D:RightShoulder", "Skeleton3D:RightToeRoll", "Skeleton3D:RightToes", "Skeleton3D:RightUpLeg", "Skeleton3D:Spine", "Skeleton3D:UpperChest"]
+filters = ["", ".", "Skeleton3D:Chest", "Skeleton3D:Head", "Skeleton3D:Hips", "Skeleton3D:HipsCtrl", "Skeleton3D:LeftArm", "Skeleton3D:LeftFoot", "Skeleton3D:LeftFootCtrl", "Skeleton3D:LeftFootIK", "Skeleton3D:LeftFootRollCtrl", "Skeleton3D:LeftForeArm", "Skeleton3D:LeftHand", "Skeleton3D:LeftHandIndex2", "Skeleton3D:LeftHandIndex3", "Skeleton3D:LeftHandThumb1", "Skeleton3D:LeftHandThumb2", "Skeleton3D:LeftHeelRoll", "Skeleton3D:LeftKneeCtrl", "Skeleton3D:LeftLeg", "Skeleton3D:LeftShoulder", "Skeleton3D:LeftToeRoll", "Skeleton3D:LeftToes", "Skeleton3D:LeftUpLeg", "Skeleton3D:Neck", "Skeleton3D:RightArm", "Skeleton3D:RightFoot", "Skeleton3D:RightFootCtrl", "Skeleton3D:RightFootIK", "Skeleton3D:RightFootRollCtrl", "Skeleton3D:RightForeArm", "Skeleton3D:RightHand", "Skeleton3D:RightHandIndex2", "Skeleton3D:RightHandIndex3", "Skeleton3D:RightHandThumb1", "Skeleton3D:RightHandThumb2", "Skeleton3D:RightHeelRoll", "Skeleton3D:RightKneeCtrl", "Skeleton3D:RightLeg", "Skeleton3D:RightShoulder", "Skeleton3D:RightToeRoll", "Skeleton3D:RightToes", "Skeleton3D:RightUpLeg", "Skeleton3D:Spine", "Skeleton3D:UpperChest"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_6nm46"]
-graph_offset = Vector2(-518.096, 27.237)
+graph_offset = Vector2(-451.308, 97.7488)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_qly61")
 nodes/Animation/position = Vector2(-110, 90)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_rfe5m")
@@ -220,7 +220,7 @@ run_speed = 5.0
 acceleration = 50.0
 max_acceleration = 20.0
 speed_dir_curve = SubResource("Curve_b0kkn")
-ride_height = 0.42
+ride_height = 0.32
 ride_spring_strength = 200.0
 ride_spring_damper = 20.0
 acceleration_dir_factor = SubResource("Curve_qly61")
@@ -676,7 +676,7 @@ external_skeleton = NodePath("../Skeleton3D")
 
 [node name="FootstepCastLeft" type="RayCast3D" parent="FootstepLeft"]
 transform = Transform3D(-0.0192738, 7.37256e-06, 0.00790592, 0.00789887, -0.000826532, 0.0192601, 0.000320447, 0.0208171, 0.000761911, 0, 0, 0)
-target_position = Vector3(0, -0.2, 0)
+target_position = Vector3(0, -0.5, 0)
 collision_mask = 4
 hit_from_inside = true
 
@@ -689,6 +689,13 @@ external_skeleton = NodePath("../Skeleton3D")
 
 [node name="FootstepCastRight" type="RayCast3D" parent="FootstepRight"]
 transform = Transform3D(-0.0192738, 7.37256e-06, 0.00790592, 0.00789887, -0.000826532, 0.0192601, 0.000320447, 0.0208171, 0.000761911, 0, 0, 0)
-target_position = Vector3(0, -0.2, 0)
+target_position = Vector3(0, -0.5, 0)
 collision_mask = 4
 hit_from_inside = true
+
+[node name="GroundCast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.238695, 0)
+target_position = Vector3(0, -0.5, 0)
+collision_mask = 4
+hit_from_inside = true
+debug_shape_custom_color = Color(0, 0.872664, 0, 1)

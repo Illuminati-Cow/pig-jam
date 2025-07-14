@@ -19,7 +19,12 @@ signal footstep(material: String)
 @export var speed_dir_curve: Curve
 
 @export_group("Physics")
-@export var ride_height: float
+@export var ride_height: float :
+	set(value):
+		ride_height = value
+		if groundcast:
+			groundcast.target_position.y = -value
+		
 @export var ride_spring_strength: float
 @export var ride_spring_damper: float
 @export var acceleration_dir_factor: Curve
@@ -46,6 +51,7 @@ var debug_path: bool:
 @onready var animation_player: AnimationTree = $AnimationPlayer/AnimationTree
 @onready var left_foot_raycast: RayCast3D = $FootstepLeft/FootstepCastLeft
 @onready var right_foot_raycast: RayCast3D = $FootstepRight/FootstepCastRight
+@onready var groundcast = $GroundCast
 
 var goal_velocity: Vector3
 var raycast_this_frame: bool = false
@@ -62,6 +68,9 @@ func _ready():
 	move_modifier = MoveMode.WALK
 	indicator = indicator_resource.instantiate()
 	get_tree().root.add_child.call_deferred(indicator)
+	right_foot_raycast.add_exception($".")
+	left_foot_raycast.add_exception($".")
+	groundcast.target_position.y = -ride_height
  
 func _input(event):
 	if event is not InputEventMouseButton or not event.pressed:
@@ -97,13 +106,13 @@ func _physics_process(delta: float):
 		rotate_y(-rotation_input * deg_to_rad(rotate_speed))
 		
 	# Ride force
-	var res := _ground_raycast()
-	var ground_dist: float = res.distance
-	var ground_position: Vector3 = res.position
-	if ground_dist != -1:
-		var ray_dir_vel := Vector3.DOWN.dot(linear_velocity)
+	groundcast.force_raycast_update()
+	if groundcast.is_colliding():
+		var ground_position: Vector3 = groundcast.get_collision_point()
+		var ground_dist : float = ground_position.distance_to(groundcast.global_position)
+		var ray_dir_vel_dot := Vector3.DOWN.dot(linear_velocity)
 		var x := ground_dist - ride_height
-		var spring_force := (x * ride_spring_strength) - (ray_dir_vel * ride_spring_damper)
+		var spring_force := (x * ride_spring_strength) - (ray_dir_vel_dot * ride_spring_damper)
 		apply_central_force(Vector3.DOWN * spring_force * mass)
 		DebugDraw2D.set_text("ground_force", "%2.2f" % spring_force)
 	else:
@@ -133,21 +142,7 @@ func start_navigation(target_pos: Vector3):
 func stop_navigation():
 	navigating = false
 	indicator.visible = false
-
-func _ground_raycast() -> Dictionary:
-	var bottom := collider.global_position - Vector3(0, collider.shape.height / 2 - 0.1, 0)
-	var ray := bottom - Vector3(0, 2 * ride_height, 0)
-	DebugDraw3D.draw_ray(bottom, Vector3.DOWN, ray.length(), Color(0, 1, 0))
-	var query := PhysicsRayQueryParameters3D.create(bottom, ray, 1)
-	query.collide_with_areas = false
-	query.exclude = [self]
-	var state := get_world_3d().direct_space_state
-	var results := state.intersect_ray(query)
-	if !results:
-		return {"position": Vector3.ZERO, "distance": -1}
-	var ground_pos: Vector3 = results.position
-	return {"position": results.position, "distance": ground_pos.distance_to(bottom)}
-
+	
 func _nav_raycast():
 	raycast_this_frame = false
 	var camera := get_viewport().get_camera_3d()
@@ -162,7 +157,7 @@ func do_footstep(is_left: bool) -> void:
 	var material = DEFAULT_MATERIAL
 	if is_left and left_foot_raycast.is_colliding():
 		material = left_foot_raycast.get_collider().get_meta("material", DEFAULT_MATERIAL)
+		footstep.emit(material.to_lower())
 	elif !is_left and right_foot_raycast.is_colliding():
 		material = right_foot_raycast.get_collider().get_meta("material", DEFAULT_MATERIAL)
-	print("Footstep %s" % material)
-	footstep.emit(material.to_lower())
+		footstep.emit(material.to_lower())
