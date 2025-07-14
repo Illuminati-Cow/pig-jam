@@ -200,7 +200,6 @@ pin_data = Array[Dictionary]([{
 "flags": 2050,
 "label": "SoundManager",
 "target_class": "OSoundManager",
-"dv": null,
 "hint": 34,
 "hint_string": "OSoundManager",
 "usage": 4102
@@ -245,14 +244,12 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2050,
 "label": "OSoundManager",
-"target_class": "OSoundManager",
-"dv": null
+"target_class": "OSoundManager"
 }, {
 "pin_name": &"resource",
 "type": 24,
 "flags": 2,
 "target_class": "AudioStream",
-"dv": null,
 "usage": 0
 }, {
 "pin_name": &"override_bus",
@@ -267,7 +264,6 @@ pin_data = Array[Dictionary]([{
 "flags": 2,
 "label": "AudioStreamPlayer",
 "target_class": "AudioStreamPlayer",
-"dv": null,
 "usage": 0
 }])
 
@@ -282,7 +278,7 @@ pin_data = Array[Dictionary]([{
 "flags": 2050,
 "label": "res://audio/ambience/Track_1.wav",
 "target_class": "AudioStreamWAV",
-"dv": "",
+"dv": "res://audio/ambience/Track_1.wav",
 "gdv": ""
 }])
 

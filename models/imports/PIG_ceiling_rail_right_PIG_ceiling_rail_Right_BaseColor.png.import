@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://viflncyisjow"
-path.s3tc="res://.godot/imported/PIG_Viscera_pile2_DefaultMaterial_BaseColor.png-4bae5939b298a37de5e9f12e1119be49.s3tc.ctex"
+uid="uid://b7sjgfpj8fybf"
+path.s3tc="res://.godot/imported/PIG_ceiling_rail_right_PIG_ceiling_rail_Right_BaseColor.png-e7e540e956281ef8fb2efc972d9a22c8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "03069563add396642a1e5e01c46ccfc6"
+}
 
 [deps]
 
-source_file="res://textures/PIG_Viscera_pile2_DefaultMaterial_BaseColor.png"
-dest_files=["res://.godot/imported/PIG_Viscera_pile2_DefaultMaterial_BaseColor.png-4bae5939b298a37de5e9f12e1119be49.s3tc.ctex"]
+source_file="res://models/imports/PIG_ceiling_rail_right_PIG_ceiling_rail_Right_BaseColor.png"
+dest_files=["res://.godot/imported/PIG_ceiling_rail_right_PIG_ceiling_rail_Right_BaseColor.png-e7e540e956281ef8fb2efc972d9a22c8.s3tc.ctex"]
 
 [params]
 
