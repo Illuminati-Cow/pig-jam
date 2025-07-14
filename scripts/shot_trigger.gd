@@ -108,7 +108,8 @@ func _get_property_list() -> Array[Dictionary]:
 				"hint_string": "ShotTrigger",
 				"usage": PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_SCRIPT_VARIABLE
 				})
-		if linked_shot:
-			linked_shot.tree_exiting.connect(func(): linked_shot = null, CONNECT_ONE_SHOT)
+		if linked_shot and is_instance_valid(linked_shot):
 			linked_shot.active = false
+		else:
+			linked_shot = null
 	return ret
