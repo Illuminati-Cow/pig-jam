@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://pidibbjycllu"]
+[gd_scene load_steps=26 format=3 uid="uid://pidibbjycllu"]
 
 [ext_resource type="Script" uid="uid://bad3i8cc41u0s" path="res://levels/dev.gd" id="1_hvsbd"]
 [ext_resource type="PackedScene" uid="uid://dxw7cledbpiia" path="res://addons/proto-csgs/proto_csg_box_3d.tscn" id="1_x8peg"]
@@ -10,8 +10,8 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_lv7ry"]
 [ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="6_lv7ry"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_t7ade"]
-[ext_resource type="PackedScene" uid="uid://c3l2m7q14ftas" path="res://models/pig.fbx" id="11_hvsbd"]
-[ext_resource type="Script" uid="uid://bj7guedgcfnv2" path="res://scripts/hanging_pig.gd" id="11_mp74a"]
+[ext_resource type="PackedScene" uid="uid://cixam5x57fa5u" path="res://entities/hooked_pig.tscn" id="11_mp74a"]
+[ext_resource type="PackedScene" uid="uid://ch4htauors71g" path="res://entities/props/hanger_rail.tscn" id="12_mp74a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5g1ut"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -68,24 +68,19 @@ uv1_offset = Vector3(0.5, 0.5, 0.5)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
-[sub_resource type="TorusMesh" id="TorusMesh_hvsbd"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hvsbd"]
-radius = 0.319217
-height = 1.67413
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_1sof2"]
-size = Vector3(0.1, 0.1, 0.1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mp74a"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1sof2"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("2_2it8a")
 uv1_offset = Vector3(0.5, 0.5, 0.5)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_hvsbd"]
-size = Vector3(0.1, 0.31123, 0.1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ip0e"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_2it8a")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [node name="Dev" type="Node3D"]
 script = ExtResource("1_hvsbd")
@@ -174,65 +169,13 @@ material = SubResource("StandardMaterial3D_604n7")
 [node name="Rails" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.729172, 0)
 
-[node name="MeatHook" type="RigidBody3D" parent="Rails"]
+[node name="MeatHook" parent="Rails" instance=ExtResource("11_mp74a")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.7431, 4.05253, -3)
-input_ray_pickable = false
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
-mass = 200.0
-center_of_mass_mode = 1
-script = ExtResource("11_mp74a")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Rails/MeatHook"]
-transform = Transform3D(0.205, 0, 0, 0, 0.205, 0, 0, 0, 0.205, 0, 0, 0)
-mesh = SubResource("TorusMesh_hvsbd")
+[node name="HangerRail" parent="Rails" instance=ExtResource("12_mp74a")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -5.4808, 4.14703, -3)
+surface_material_override/0 = SubResource("StandardMaterial3D_1sof2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Rails/MeatHook"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0682359, 9.53674e-07, -0.806539)
-shape = SubResource("CapsuleShape3D_hvsbd")
-
-[node name="pig" parent="Rails/MeatHook" instance=ExtResource("11_hvsbd")]
-transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, 1.44795e-14, 1, 7.35137e-08, -8.74228e-08, 7.35137e-08, -1, 0.00315356, -0.227475, -0.925344)
-
-[node name="Area3D" type="Area3D" parent="Rails/MeatHook"]
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Rails/MeatHook/Area3D"]
-shape = SubResource("BoxShape3D_1sof2")
-
-[node name="RailX" parent="Rails" instance=ExtResource("1_x8peg")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.7431, 4.14703, -3)
-size = Vector3(0.157227, 0.140137, 6)
-material = SubResource("StandardMaterial3D_mp74a")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Rails/RailX"]
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Rails/RailX/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-07, -0.105615, -3.06054)
-shape = SubResource("BoxShape3D_hvsbd")
-
-[node name="RailX2" parent="Rails" instance=ExtResource("1_x8peg")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -4.7431, 4.14703, -3)
-size = Vector3(0.157227, 0.140137, 6)
-material = SubResource("StandardMaterial3D_mp74a")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Rails/RailX2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Rails/RailX2/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38419e-07, -0.105615, 3.04763)
-shape = SubResource("BoxShape3D_hvsbd")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Rails/RailX2/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-07, -0.105615, -3.06054)
-shape = SubResource("BoxShape3D_hvsbd")
-
-[node name="IntersectionArea" type="Area3D" parent="Rails/RailX2"]
-monitoring = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Rails/RailX2/IntersectionArea"]
-shape = SubResource("BoxShape3D_1sof2")
-
-[connection signal="area_entered" from="Rails/MeatHook/Area3D" to="Rails/MeatHook" method="_on_area_3d_area_entered"]
+[node name="HangerRail2" parent="Rails" instance=ExtResource("12_mp74a")]
+transform = Transform3D(-7.35137e-08, 0, -1, 0, 1, 0, 1, 0, -7.35137e-08, -2.57854, 4.14703, -3)
+surface_material_override/0 = SubResource("StandardMaterial3D_6ip0e")

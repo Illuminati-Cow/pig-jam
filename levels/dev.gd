@@ -9,3 +9,7 @@ func play_ambience() -> void:
 		var track: AudioStream= tracks.pick_random()
 		var sound := SoundManager.play_ambient_sound(track, 10)
 		await sound.finished
+
+
+func _on_meat_hook_body_entered(body: Node) -> void:
+	pass # Replace with function body.
