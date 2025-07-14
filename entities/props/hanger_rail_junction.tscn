@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhr66jmk148bq"]
+
+[ext_resource type="Script" uid="uid://5b16508n4gfy" path="res://scripts/junction.gd" id="1_3l4su"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o3qqi"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Junction" type="Area3D"]
+monitoring = false
+linear_damp_space_override = 1
+linear_damp = 5.0
+script = ExtResource("1_3l4su")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_o3qqi")

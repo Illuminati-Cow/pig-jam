@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch4htauors71g"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1sof2"]
+size = Vector3(0.2, 0.2, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hvsbd"]
+size = Vector3(0.1, 0.102026, 0.0177734)
+
+[node name="HangerRail" type="MeshInstance3D"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_1sof2")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+shape = SubResource("BoxShape3D_hvsbd")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+shape = SubResource("BoxShape3D_hvsbd")

@@ -65,7 +65,13 @@ walk_backward={
 
 [layer_names]
 
+3d_physics/layer_1="Default"
 3d_physics/layer_2="Navigation"
+3d_physics/layer_3="Ground"
+
+[phantom_camera]
+
+tips/show_jitter_tips=false
 
 [physics]
 

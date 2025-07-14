@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://pidibbjycllu"]
+[gd_scene load_steps=28 format=3 uid="uid://pidibbjycllu"]
 
+[ext_resource type="Script" uid="uid://di5uw2k8bytm4" path="res://scripts/dev.torch" id="1_mp74a"]
 [ext_resource type="PackedScene" uid="uid://dxw7cledbpiia" path="res://addons/proto-csgs/proto_csg_box_3d.tscn" id="1_x8peg"]
 [ext_resource type="Texture2D" uid="uid://cej3yoosomfd2" path="res://addons/proto-csgs/textures/dark/texture_13.png" id="2_2it8a"]
 [ext_resource type="Material" uid="uid://b12qc2augolq8" path="res://materials/prototype_material.tres" id="2_8etgp"]
@@ -9,6 +10,9 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_lv7ry"]
 [ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="6_lv7ry"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_t7ade"]
+[ext_resource type="PackedScene" uid="uid://cixam5x57fa5u" path="res://entities/hooked_pig.tscn" id="11_mp74a"]
+[ext_resource type="PackedScene" uid="uid://ch4htauors71g" path="res://entities/props/hanger_rail.tscn" id="12_mp74a"]
+[ext_resource type="PackedScene" uid="uid://dhr66jmk148bq" path="res://entities/props/hanger_rail_junction.tscn" id="13_1sof2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5g1ut"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -45,7 +49,7 @@ metadata/_custom_type_script = "uid://b8hhnqsugykly"
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_273jf"]
 dof_blur_far_enabled = true
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_2it8a"]
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_1sof2"]
 dof_blur_far_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_hvsbd"]
@@ -58,6 +62,9 @@ agent_radius = 0.75
 [sub_resource type="BoxShape3D" id="BoxShape3D_g3ky8"]
 size = Vector3(119.997, 1, 120)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ip0e"]
+size = Vector3(2.0061, 2.37891, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_604n7"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("2_2it8a")
@@ -65,7 +72,22 @@ uv1_offset = Vector3(0.5, 0.5, 0.5)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ip0e"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_2it8a")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etbdi"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_2it8a")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
 [node name="Dev" type="Node3D"]
+script = ExtResource("1_mp74a")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -75,13 +97,14 @@ shadow_enabled = true
 environment = SubResource("Environment_x8peg")
 
 [node name="Player" parent="." instance=ExtResource("4_273jf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 0)
-walk_speed = 5.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01, 0.987874, 3.252)
+input_ray_pickable = false
+mass = 70.0
 rotate_speed = 5.0
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 3, 4.67, 2.83)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 3.01, 4.65787, 6.082)
 top_level = true
 script = ExtResource("4_35d1g")
 follow_mode = 2
@@ -95,8 +118,8 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 3, 4.67, 2.83)
-attributes = SubResource("CameraAttributesPractical_2it8a")
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 3.01, 4.65787, 6.082)
+attributes = SubResource("CameraAttributesPractical_1sof2")
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
 process_priority = 300
@@ -109,6 +132,7 @@ navigation_mesh = SubResource("NavigationMesh_hvsbd")
 
 [node name="Floor" type="StaticBody3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Floor"]
 transform = Transform3D(120, 0, 0, 0, 1, 0, 0, 0, 120, 0, 0, 0)
@@ -124,7 +148,7 @@ shape = SubResource("BoxShape3D_g3ky8")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4, 1, 0)
 script = ExtResource("3_hqxoo")
 type = 0
-collisions_enabled = true
+collisions_enabled = false
 width = 2.0
 height = 1.0
 depth = 2.001
@@ -134,7 +158,34 @@ fill = 1.0
 material = ExtResource("2_8etgp")
 metadata/_custom_type_script = "uid://b1unx03vcgyv6"
 
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/ProtoRamp"]
+collision_layer = 5
+metadata/material = "metal"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/ProtoRamp/StaticBody3D"]
+transform = Transform3D(1, 7.81024e-08, -4.81448e-08, -7.81024e-08, 0.449288, -0.893387, -4.81448e-08, 0.893387, 0.449288, -1.0058, 0.0187764, -0.841179)
+shape = SubResource("BoxShape3D_6ip0e")
+
 [node name="ProtoCSGBox3D3" parent="NavigationRegion3D" instance=ExtResource("1_x8peg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.003, -3.005)
 size = Vector3(3, 2, 6)
 material = SubResource("StandardMaterial3D_604n7")
+
+[node name="Rails" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.729172, 0)
+
+[node name="MeatHook" parent="Rails" instance=ExtResource("11_mp74a")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.7431, 4.05253, -3)
+
+[node name="HangerRail" parent="Rails" instance=ExtResource("12_mp74a")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -5.4808, 4.14703, -3)
+surface_material_override/0 = SubResource("StandardMaterial3D_6ip0e")
+
+[node name="Junction" parent="Rails/HangerRail" instance=ExtResource("13_1sof2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="HangerRail2" parent="Rails" instance=ExtResource("12_mp74a")]
+transform = Transform3D(-7.35137e-08, 0, -1, 0, 1, 0, 1, 0, -7.35137e-08, -2.57854, 4.14703, -3)
+surface_material_override/0 = SubResource("StandardMaterial3D_etbdi")
+
+[connection signal="footstep" from="Player" to="." method="_on_player_footstep"]
