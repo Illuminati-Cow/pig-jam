@@ -1,20 +1,13 @@
 class_name PlayerController
 extends RigidBody3D
 
-enum FootstepMaterial
-{
-	CONCRETE,
-	METAL,
-	WOOD,
-}
-
 enum MoveMode
 {
 	WALK,
 	RUN,
 }
 
-signal footstep(material: FootstepMaterial)
+signal footstep(material: String)
 
 @export_category("Movement")
 @export_range(0, 10, 0.25) var walk_speed: float = 1
@@ -51,6 +44,8 @@ var debug_path: bool:
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 @onready var collider: CollisionShape3D = $CollisionShape3D
 @onready var animation_player: AnimationTree = $AnimationPlayer/AnimationTree
+@onready var left_foot_raycast: RayCast3D = $FootstepLeft/FootstepCastLeft
+@onready var right_foot_raycast: RayCast3D = $FootstepRight/FootstepCastRight
 
 var goal_velocity: Vector3
 var raycast_this_frame: bool = false
@@ -95,7 +90,7 @@ func _physics_process(delta: float):
 		var direction := global_position.direction_to(next_path_position)
 		var rot_delta: float = basis.z.signed_angle_to(direction, transform.basis.y)
 		rotation.y = rotate_toward(rotation.y, rotation.y + rot_delta, deg_to_rad(rotate_speed))
-		#velocity = speed_dir_curve.sample_baked(basis.z.dot(direction)) * direction * walk_speed
+		locomotion_input = speed_dir_curve.sample_baked(basis.z.dot(direction))
 	else:
 		#velocity = basis.z * locomotion_input * walk_speed\
 			#* (backward_walk_speed_modifier if locomotion_input < 0 else 1.)
@@ -119,6 +114,7 @@ func _physics_process(delta: float):
 	var vel_dot: float = goal_vel.normalized().dot(ground_vel.normalized())
 	var accel := acceleration_dir_factor.sample_baked(vel_dot) * acceleration
 	goal_velocity = goal_velocity.move_toward(ground_vel + goal_vel, accel * delta)
+	goal_velocity *=  backward_walk_speed_modifier if locomotion_input < 0 else 1
 	var needed_accel := (goal_vel - ground_vel) / delta
 	var max_accel := acceleration_dir_factor.sample_baked(vel_dot) * max_acceleration
 	needed_accel = needed_accel.limit_length(max_accel)
@@ -161,8 +157,12 @@ func _nav_raycast():
 	if results:
 		start_navigation(results.position)
 
-func do_footstep():
-	# RAYCAST TO GET MATERIAL UNDER FOOT
-	var material = null
-	footstep.emit(material)
-	pass
+func do_footstep(is_left: bool) -> void:
+	const DEFAULT_MATERIAL = "concrete"
+	var material = DEFAULT_MATERIAL
+	if is_left and left_foot_raycast.is_colliding():
+		material = left_foot_raycast.get_collider().get_meta("material", DEFAULT_MATERIAL)
+	elif !is_left and right_foot_raycast.is_colliding():
+		material = right_foot_raycast.get_collider().get_meta("material", DEFAULT_MATERIAL)
+	print("Footstep %s" % material)
+	footstep.emit(material.to_lower())
