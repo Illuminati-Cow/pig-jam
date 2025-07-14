@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dw15440gdlplv"
-path="res://.godot/imported/PIG_Viscera_pile2_fin.fbx-cd37e738006e9d79421e515d833b5ed2.scn"
+uid="uid://d4m0wwewqosvh"
+path="res://.godot/imported/PIG_ceiling_rail_Straight&right.glb-abfdf21d5364287905a97cc7184a21c7.scn"
 
 [deps]
 
-source_file="res://models/PIG_Viscera_pile2_fin.fbx"
-dest_files=["res://.godot/imported/PIG_Viscera_pile2_fin.fbx-cd37e738006e9d79421e515d833b5ed2.scn"]
+source_file="res://models/imports/PIG_ceiling_rail_Straight&right.glb"
+dest_files=["res://.godot/imported/PIG_ceiling_rail_Straight&right.glb-abfdf21d5364287905a97cc7184a21c7.scn"]
 
 [params]
 
@@ -28,11 +28,10 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
+gltf/naming_version=1
+gltf/embedded_image_handling=1

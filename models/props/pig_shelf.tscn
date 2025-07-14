@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://e5u6ichghfvi"]
+
+[ext_resource type="PackedScene" uid="uid://dnd0gcheq6exb" path="res://models/imports/PIG_shelf.glb" id="1_lyjdh"]
+
+[node name="PIG_shelf" instance=ExtResource("1_lyjdh")]
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(1.24366, 0, 0, 0, 0.0286317, 0, 0, 0, 1, 0, 0.422251, 0)
+
+[node name="Node3D" type="Node3D" parent="." index="1"]

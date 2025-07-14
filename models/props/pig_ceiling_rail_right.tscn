@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgwiduxsts3g8"]
+
+[ext_resource type="PackedScene" uid="uid://dnkcyxwjwbn55" path="res://models/imports/PIG_ceiling_rail_right.glb" id="1_cggax"]
+
+[node name="PIG_ceiling_rail_right" instance=ExtResource("1_cggax")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+
+[node name="right corner" parent="." index="0"]
+transform = Transform3D(-1.34312e-06, 0, 0.997437, 0, 1.00743, 0, -1.02426, 0, -1.30794e-06, 0, 0, 0)

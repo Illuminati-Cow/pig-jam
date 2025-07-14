@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqwt7liu4t4k6"]
+
+[ext_resource type="PackedScene" uid="uid://ctu5yg4np2adt" path="res://models/imports/PIG_wood_box.glb" id="1_8i5co"]
+
+[node name="PIG_wood_box" instance=ExtResource("1_8i5co")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
