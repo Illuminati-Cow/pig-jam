@@ -212,8 +212,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"target_class": "Node3D",
-"dv": null
+"target_class": "Node3D"
 }])
 
 [obj type="OScriptNodeSceneNode" id="OScriptNodeSceneNode_6aw0b"]
@@ -226,8 +225,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"target_class": "Node3D",
-"dv": null
+"target_class": "Node3D"
 }])
 
 [obj type="OScriptNodeCallMemberFunction" id="OScriptNodeCallMemberFunction_e4s53"]
@@ -259,8 +257,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2050,
 "label": "Node",
-"target_class": "Node",
-"dv": null
+"target_class": "Node"
 }, {
 "pin_name": &"return_value",
 "type": 24,
@@ -268,7 +265,6 @@ pin_data = Array[Dictionary]([{
 "flags": 2,
 "label": "Tween",
 "target_class": "Tween",
-"dv": null,
 "hint": 17,
 "hint_string": "Tween"
 }])
@@ -323,8 +319,7 @@ pin_data = Array[Dictionary]([{
 "pin_name": &"object",
 "type": 24,
 "flags": 2,
-"target_class": "Object",
-"dv": null
+"target_class": "Object"
 }, {
 "pin_name": &"property",
 "type": 22,
@@ -380,7 +375,6 @@ pin_data = Array[Dictionary]([{
 "flags": 2050,
 "label": "PropertyTweener",
 "target_class": "PropertyTweener",
-"dv": null,
 "hint": 17,
 "hint_string": "PropertyTweener"
 }, {
@@ -422,19 +416,16 @@ position = Vector2(660, 760)
 pin_data = Array[Dictionary]([{
 "pin_name": &"a",
 "type": 3,
-"flags": 2,
-"dv": 0.0
+"flags": 2
 }, {
 "pin_name": &"b",
 "type": 9,
-"flags": 2,
-"dv": Vector3(0, 0, 0)
+"flags": 2
 }, {
 "pin_name": &"result",
 "type": 9,
 "dir": 1,
-"flags": 2,
-"dv": Vector3(0, 0, 0)
+"flags": 2
 }])
 
 [obj type="OScriptNodeCallMemberFunction" id="OScriptNodeCallMemberFunction_75kdm"]
@@ -466,8 +457,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2050,
 "label": "Node",
-"target_class": "Node",
-"dv": null
+"target_class": "Node"
 }, {
 "pin_name": &"return_value",
 "type": 24,
@@ -475,7 +465,6 @@ pin_data = Array[Dictionary]([{
 "flags": 2,
 "label": "Tween",
 "target_class": "Tween",
-"dv": null,
 "hint": 17,
 "hint_string": "Tween"
 }])
@@ -524,15 +513,13 @@ pin_data = Array[Dictionary]([{
 "flags": 2050,
 "label": "Tween",
 "target_class": "Tween",
-"dv": null,
 "hint": 17,
 "hint_string": "Tween"
 }, {
 "pin_name": &"object",
 "type": 24,
 "flags": 2,
-"target_class": "Object",
-"dv": null
+"target_class": "Object"
 }, {
 "pin_name": &"property",
 "type": 22,
@@ -586,8 +573,7 @@ position = Vector2(1740, 820)
 pin_data = Array[Dictionary]([{
 "pin_name": &"a",
 "type": 3,
-"flags": 2,
-"dv": 0.0
+"flags": 2
 }, {
 "pin_name": &"b",
 "type": 9,
@@ -596,8 +582,7 @@ pin_data = Array[Dictionary]([{
 "pin_name": &"result",
 "type": 9,
 "dir": 1,
-"flags": 2,
-"dv": Vector3(0, 0, 0)
+"flags": 2
 }])
 
 [obj type="OScriptNodeCallBuiltinFunction" id="OScriptNodeCallBuiltinFunction_3l4su"]
@@ -623,8 +608,7 @@ pin_data = Array[Dictionary]([{
 "pin_name": &"return_value",
 "type": 3,
 "dir": 1,
-"flags": 1026,
-"dv": 0.0
+"flags": 1026
 }])
 
 [obj type="OScriptNodeCallBuiltinFunction" id="OScriptNodeCallBuiltinFunction_6aw0b"]
@@ -650,8 +634,7 @@ pin_data = Array[Dictionary]([{
 "pin_name": &"return_value",
 "type": 3,
 "dir": 1,
-"flags": 1026,
-"dv": 0.0
+"flags": 1026
 }])
 
 [obj type="OScriptVariable" id="OScriptVariable_jp7c3"]
