@@ -175,7 +175,7 @@ material_override = ExtResource("7_4q7qq")
 size = Vector3(9.47346, 2.25281, 0.22168)
 
 [node name="CSGBox3D37" type="CSGBox3D" parent="Bounds"]
-transform = Transform3D(1, 0, 0, 0, 9.35118, 0, 0, 0, 1, -12.7172, 11.1007, -5.21428)
+transform = Transform3D(1, 0, 0, 0, 9.35118, 0, 0, 0, 1, -12.7172, 11.1007, -0.21428)
 material_override = ExtResource("7_4q7qq")
 size = Vector3(9.47346, 2.25281, 0.22168)
 
@@ -192,7 +192,12 @@ size = Vector3(11.1841, 2.25922, 0.40918)
 [node name="CSGBox3D34" type="CSGBox3D" parent="Bounds"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 9.35118, 0, -1, 0, -4.37114e-08, -17.5711, 11.0751, -7.79523)
 material_override = ExtResource("7_4q7qq")
-size = Vector3(9.23741, 2.25281, 0.22168)
+size = Vector3(15, 2.25281, 0.22168)
+
+[node name="CSGBox3D43" type="CSGBox3D" parent="Bounds"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 9.35118, 0, -1, 0, -4.37114e-08, -7.5711, 11.0751, -0.79523)
+material_override = ExtResource("7_4q7qq")
+size = Vector3(9.1, 2.25281, 0.22168)
 
 [node name="CSGBox3D35" type="CSGBox3D" parent="Bounds"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 9.35118, 0, -1, 0, -4.37114e-08, 2.79054, 15.3988, -8.13299)
@@ -229,10 +234,10 @@ use_collision = true
 size = Vector3(9.23741, 2.25281, 0.22168)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="NavigationRegion3D"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.7317, 0, 1, 0, -4.37114e-08, -17.2516, 2.9506, -8.02683)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.7317, 0, 1, 0, -4.37114e-08, -17.2516, 2.9506, -6.02683)
 material_override = ExtResource("6_7v8ig")
 use_collision = true
-size = Vector3(4.96158, 2.25281, 0.490234)
+size = Vector3(12, 2.25281, 0.490234)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="NavigationRegion3D"]
 transform = Transform3D(0.841624, 0, 0.540064, 0, 1.7317, 0, -0.540064, 0, 0.841624, -8.70428, 1.96677, -7.18175)
@@ -271,7 +276,7 @@ use_collision = true
 size = Vector3(2.63266, 1.50591, 0.74585)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1.7317, 0, 0, 0, 1, -12.8741, 2.9506, -5.44856)
+transform = Transform3D(1, 0, 0, 0, 1.7317, 0, 0, 0, 1, -12.8741, 2.9506, -0.44856)
 material_override = ExtResource("6_7v8ig")
 use_collision = true
 size = Vector3(9.23741, 2.25281, 0.22168)
@@ -333,7 +338,9 @@ material_override = SubResource("StandardMaterial3D_ga2bi")
 material_override = SubResource("StandardMaterial3D_ga2bi")
 
 [node name="CSGBox3D6" parent="NavigationRegion3D/Fridge" index="2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.7317, 0, 1, 0, -4.37114e-08, -8.36298, 2.9506, -3.8555)
 material_override = SubResource("StandardMaterial3D_ga2bi")
+size = Vector3(7.02088, 2.25281, 0.20752)
 
 [node name="CSGBox3D15" parent="NavigationRegion3D/Fridge" index="3"]
 material_override = SubResource("StandardMaterial3D_ga2bi")
