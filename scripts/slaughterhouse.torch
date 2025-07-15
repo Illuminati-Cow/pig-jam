@@ -1,4 +1,4 @@
-[orchestration type="OScript" load_steps=26 format=3 uid="uid://qgf4fvlghuru"]
+[orchestration type="OScript" load_steps=25 format=3 uid="uid://qgf4fvlghuru"]
 
 [obj type="OScriptFunction" id="OScriptFunction_gt3w7"]
 guid = "68DF7ED7-EFF5-4CC1-BDEC-778FD891F42D"
@@ -17,10 +17,10 @@ id = 8
 
 [obj type="OScriptGraph" id="OScriptGraph_74inb"]
 graph_name = &"EventGraph"
-offset = Vector2(1107.16, 312.391)
+offset = Vector2(173.727, 33.83)
 zoom = 0.826446
 flags = 8
-nodes = Array[int]([2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22])
+nodes = Array[int]([2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22])
 functions = Array[int]([2, 8])
 
 [obj type="OScriptNodeEvent" id="OScriptNodeEvent_cu8w2"]
@@ -154,6 +154,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2,
 "target_class": "AudioStream",
+"dv": null,
 "usage": 0
 }, {
 "pin_name": &"fade_in_duration",
@@ -175,21 +176,6 @@ pin_data = Array[Dictionary]([{
 "label": "AudioStreamPlayer",
 "target_class": "AudioStreamPlayer",
 "usage": 0
-}])
-
-[obj type="OScriptNodePreload" id="OScriptNodePreload_cxsfk"]
-path = "res://audio/ambience/Track_1.wav"
-id = 7
-position = Vector2(780, 300)
-pin_data = Array[Dictionary]([{
-"pin_name": &"path",
-"type": 24,
-"dir": 1,
-"flags": 2050,
-"label": "res://audio/ambience/Track_1.wav",
-"target_class": "AudioStreamWAV",
-"dv": "res://audio/ambience/Track_1.wav",
-"gdv": ""
 }])
 
 [obj type="OScriptNodeEvent" id="OScriptNodeEvent_25ab6"]
@@ -541,7 +527,6 @@ pin_data = Array[Dictionary]([{
 "flags": 2,
 "label": "PropertyTweener",
 "target_class": "PropertyTweener",
-"dv": null,
 "hint": 17,
 "hint_string": "PropertyTweener"
 }])
@@ -604,7 +589,7 @@ pin_data = Array[Dictionary]([{
 "pin_name": &"deg",
 "type": 3,
 "flags": 2,
-"dv": 90.0
+"dv": -90.0
 }, {
 "pin_name": &"return_value",
 "type": 3,
@@ -638,48 +623,19 @@ pin_data = Array[Dictionary]([{
 "flags": 1026
 }])
 
-[obj type="OScriptNodeCallMemberFunction" id="OScriptNodeCallMemberFunction_uplwg"]
-function_name = &"as_relative"
-target_class_name = "PropertyTweener"
-target_type = 24
-flags = 520
-method = {
-"name": &"as_relative",
-"return": {
-"type": 24,
-"class_name": &"PropertyTweener",
-"hint": 17,
-"hint_string": "PropertyTweener"
-}
-}
-chain = false
+[obj type="OScriptNodePreload" id="OScriptNodePreload_ll74j"]
+path = "res://audio/ambience/ambience.mp3"
 id = 22
-position = Vector2(2460, 580)
+position = Vector2(740, 360)
 pin_data = Array[Dictionary]([{
-"pin_name": &"ExecIn",
-"flags": 4
-}, {
-"pin_name": &"ExecOut",
-"dir": 1,
-"flags": 4
-}, {
-"pin_name": &"target",
+"pin_name": &"path",
 "type": 24,
+"dir": 1,
 "flags": 2050,
-"label": "PropertyTweener",
-"target_class": "PropertyTweener",
-"dv": null,
-"hint": 17,
-"hint_string": "PropertyTweener"
-}, {
-"pin_name": &"return_value",
-"type": 24,
-"dir": 1,
-"flags": 2,
-"label": "PropertyTweener",
-"target_class": "PropertyTweener",
-"hint": 17,
-"hint_string": "PropertyTweener"
+"label": "res://audio/ambience/ambience.mp3",
+"target_class": "AudioStreamMP3",
+"dv": "",
+"gdv": ""
 }])
 
 [obj type="OScriptVariable" id="OScriptVariable_jp7c3"]
@@ -692,6 +648,6 @@ type = 24
 base_type = &"Node3D"
 variables = Array[OScriptVariable]([SubResource("OScriptVariable_jp7c3")])
 functions = Array[OScriptFunction]([SubResource("OScriptFunction_gt3w7"), SubResource("OScriptFunction_f2h1y")])
-connections = Array[int]([5, 0, 4, 0, 2, 0, 5, 0, 4, 0, 6, 0, 8, 0, 11, 0, 11, 0, 12, 0, 12, 0, 13, 0, 21, 0, 15, 0, 13, 0, 16, 0, 16, 0, 17, 0, 20, 0, 19, 0, 17, 0, 22, 0, 5, 2, 4, 1, 3, 0, 5, 1, 4, 1, 6, 1, 9, 0, 11, 1, 11, 1, 12, 1, 12, 1, 13, 1, 14, 0, 15, 1, 10, 0, 16, 1, 16, 1, 17, 1, 18, 0, 19, 1, 17, 1, 22, 1, 7, 0, 6, 2, 9, 0, 12, 2, 10, 0, 17, 2, 15, 0, 12, 4, 19, 0, 17, 4])
-nodes = Array[OScriptNode]([SubResource("OScriptNodeEvent_cu8w2"), SubResource("OScriptNodeAutoload_rqq8y"), SubResource("OScriptNodeVariableSet_r8h7o"), SubResource("OScriptNodeTypeCast_gt3w7"), SubResource("OScriptNodeCallMemberFunction_nx4ro"), SubResource("OScriptNodePreload_cxsfk"), SubResource("OScriptNodeEvent_25ab6"), SubResource("OScriptNodeSceneNode_3l4su"), SubResource("OScriptNodeSceneNode_6aw0b"), SubResource("OScriptNodeCallMemberFunction_e4s53"), SubResource("OScriptNodeCallMemberFunction_cs123"), SubResource("OScriptNodeCallMemberFunction_g2xxw"), SubResource("OScriptNodeTypeConstant_owbdd"), SubResource("OScriptNodeOperator_ga2bi"), SubResource("OScriptNodeCallMemberFunction_75kdm"), SubResource("OScriptNodeCallMemberFunction_3nslk"), SubResource("OScriptNodeTypeConstant_lex12"), SubResource("OScriptNodeOperator_2n2gr"), SubResource("OScriptNodeCallBuiltinFunction_3l4su"), SubResource("OScriptNodeCallBuiltinFunction_6aw0b"), SubResource("OScriptNodeCallMemberFunction_uplwg")])
+connections = Array[int]([5, 0, 4, 0, 2, 0, 5, 0, 4, 0, 6, 0, 8, 0, 11, 0, 11, 0, 12, 0, 12, 0, 13, 0, 21, 0, 15, 0, 13, 0, 16, 0, 16, 0, 17, 0, 20, 0, 19, 0, 5, 2, 4, 1, 3, 0, 5, 1, 4, 1, 6, 1, 9, 0, 11, 1, 11, 1, 12, 1, 12, 1, 13, 1, 14, 0, 15, 1, 10, 0, 16, 1, 16, 1, 17, 1, 18, 0, 19, 1, 22, 0, 6, 2, 9, 0, 12, 2, 10, 0, 17, 2, 15, 0, 12, 4, 19, 0, 17, 4])
+nodes = Array[OScriptNode]([SubResource("OScriptNodeEvent_cu8w2"), SubResource("OScriptNodeAutoload_rqq8y"), SubResource("OScriptNodeVariableSet_r8h7o"), SubResource("OScriptNodeTypeCast_gt3w7"), SubResource("OScriptNodeCallMemberFunction_nx4ro"), SubResource("OScriptNodeEvent_25ab6"), SubResource("OScriptNodeSceneNode_3l4su"), SubResource("OScriptNodeSceneNode_6aw0b"), SubResource("OScriptNodeCallMemberFunction_e4s53"), SubResource("OScriptNodeCallMemberFunction_cs123"), SubResource("OScriptNodeCallMemberFunction_g2xxw"), SubResource("OScriptNodeTypeConstant_owbdd"), SubResource("OScriptNodeOperator_ga2bi"), SubResource("OScriptNodeCallMemberFunction_75kdm"), SubResource("OScriptNodeCallMemberFunction_3nslk"), SubResource("OScriptNodeTypeConstant_lex12"), SubResource("OScriptNodeOperator_2n2gr"), SubResource("OScriptNodeCallBuiltinFunction_3l4su"), SubResource("OScriptNodeCallBuiltinFunction_6aw0b"), SubResource("OScriptNodePreload_ll74j")])
 graphs = Array[OScriptGraph]([SubResource("OScriptGraph_74inb")])
