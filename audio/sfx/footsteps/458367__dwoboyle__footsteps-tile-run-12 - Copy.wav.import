@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cwynupwy0o7i4"
+path="res://.godot/imported/458367__dwoboyle__footsteps-tile-run-12 - Copy.wav-7116a490e4a2fd54f34ebcf50ba072a2.sample"
+
+[deps]
+
+source_file="res://audio/sfx/footsteps/458367__dwoboyle__footsteps-tile-run-12 - Copy.wav"
+dest_files=["res://.godot/imported/458367__dwoboyle__footsteps-tile-run-12 - Copy.wav-7116a490e4a2fd54f34ebcf50ba072a2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
