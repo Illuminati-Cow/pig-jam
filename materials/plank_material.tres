@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://361wym7p85g3"]
+
+[ext_resource type="Texture2D" uid="uid://dn05ic2wqmg2l" path="res://textures/planks3.png" id="1_2xyt2"]
+
+[resource]
+albedo_texture = ExtResource("1_2xyt2")
+metallic_texture = ExtResource("1_2xyt2")
+uv1_scale = Vector3(2.46, 2.46, 2.46)
