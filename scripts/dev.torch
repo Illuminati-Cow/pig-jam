@@ -1,4 +1,4 @@
-[orchestration type="OScript" load_steps=34 format=3 uid="uid://di5uw2k8bytm4"]
+[orchestration type="OScript" load_steps=33 format=3 uid="uid://di5uw2k8bytm4"]
 
 [obj type="OScriptFunction" id="OScriptFunction_gt3w7"]
 guid = "68DF7ED7-EFF5-4CC1-BDEC-778FD891F42D"
@@ -21,16 +21,16 @@ id = 9
 
 [obj type="OScriptGraph" id="OScriptGraph_74inb"]
 graph_name = &"EventGraph"
-offset = Vector2(-176.032, -121.135)
-zoom = 0.751315
+offset = Vector2(-471.995, -541.936)
+zoom = 0.232568
 flags = 8
-nodes = Array[int]([2, 3, 4, 5, 9, 10, 12, 13, 15, 16, 17, 18, 21, 22, 23, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39])
+nodes = Array[int]([2, 3, 4, 5, 9, 10, 12, 13, 15, 16, 17, 18, 21, 23, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39])
 functions = Array[int]([2, 9])
 
 [obj type="OScriptNodeEvent" id="OScriptNodeEvent_cu8w2"]
 function_id = "68DF7ED7-EFF5-4CC1-BDEC-778FD891F42D"
 id = 2
-position = Vector2(220, 160)
+position = Vector2(-360, -80)
 pin_data = Array[Dictionary]([{
 "pin_name": &"ExecOut",
 "dir": 1,
@@ -40,7 +40,7 @@ pin_data = Array[Dictionary]([{
 [obj type="OScriptNodeAutoload" id="OScriptNodeAutoload_rqq8y"]
 autoload = "SoundManager"
 id = 3
-position = Vector2(180, 280)
+position = Vector2(-400, 40)
 pin_data = Array[Dictionary]([{
 "pin_name": &"autoload",
 "type": 24,
@@ -53,7 +53,7 @@ pin_data = Array[Dictionary]([{
 [obj type="OScriptNodeVariableSet" id="OScriptNodeVariableSet_r8h7o"]
 variable_name = &"SoundManager"
 id = 4
-position = Vector2(880, 160)
+position = Vector2(300, -80)
 pin_data = Array[Dictionary]([{
 "pin_name": &"ExecIn",
 "flags": 4
@@ -83,7 +83,7 @@ pin_data = Array[Dictionary]([{
 [obj type="OScriptNodeTypeCast" id="OScriptNodeTypeCast_gt3w7"]
 type = "OSoundManager"
 id = 5
-position = Vector2(520, 160)
+position = Vector2(-60, -80)
 pin_data = Array[Dictionary]([{
 "pin_name": &"ExecIn",
 "flags": 4
@@ -128,7 +128,7 @@ pin_data = Array[Dictionary]([{
 pin_names/name_1 = "concrete"
 pin_names/name_2 = "metal"
 id = 10
-position = Vector2(460, 660)
+position = Vector2(960, 620)
 pin_data = Array[Dictionary]([{
 "pin_name": &"ExecIn",
 "flags": 4
@@ -156,7 +156,7 @@ pin_data = Array[Dictionary]([{
 [obj type="OScriptNodeVariableGet" id="OScriptNodeVariableGet_5frun"]
 variable_name = &"SoundManager"
 id = 12
-position = Vector2(880, 660)
+position = Vector2(1520, 1140)
 pin_data = Array[Dictionary]([{
 "pin_name": &"value",
 "type": 24,
@@ -199,7 +199,7 @@ method = {
 }
 chain = false
 id = 13
-position = Vector2(1140, 500)
+position = Vector2(2280, 400)
 pin_data = Array[Dictionary]([{
 "pin_name": &"ExecIn",
 "flags": 4
@@ -244,7 +244,7 @@ pin_data = Array[Dictionary]([{
 [obj type="OScriptNodeVariableSet" id="OScriptNodeVariableSet_onkwo"]
 variable_name = &"Player"
 id = 15
-position = Vector2(1180, 160)
+position = Vector2(600, -80)
 pin_data = Array[Dictionary]([{
 "pin_name": &"ExecIn",
 "flags": 4
@@ -275,7 +275,7 @@ pin_data = Array[Dictionary]([{
 node_path = NodePath("Player")
 target_class_name = "PlayerController"
 id = 16
-position = Vector2(900, 260)
+position = Vector2(320, 20)
 pin_data = Array[Dictionary]([{
 "pin_name": &"Player",
 "type": 24,
@@ -287,7 +287,7 @@ pin_data = Array[Dictionary]([{
 [obj type="OScriptNodeVariableGet" id="OScriptNodeVariableGet_s2g7h"]
 variable_name = &"Player"
 id = 17
-position = Vector2(880, 760)
+position = Vector2(1240, 1260)
 pin_data = Array[Dictionary]([{
 "pin_name": &"value",
 "type": 24,
@@ -314,7 +314,7 @@ method = {
 }
 chain = false
 id = 18
-position = Vector2(880, 700)
+position = Vector2(1540, 1260)
 pin_data = Array[Dictionary]([{
 "pin_name": &"target",
 "type": 24,
@@ -358,7 +358,7 @@ method = {
 }
 chain = false
 id = 21
-position = Vector2(1120, 880)
+position = Vector2(2240, 900)
 pin_data = Array[Dictionary]([{
 "pin_name": &"ExecIn",
 "flags": 4
@@ -398,44 +398,6 @@ pin_data = Array[Dictionary]([{
 "label": "AudioStreamPlayer3D",
 "target_class": "AudioStreamPlayer3D",
 "usage": 0
-}])
-
-[obj type="OScriptNodePrintString" id="OScriptNodePrintString_pb7l6"]
-id = 22
-position = Vector2(160, 560)
-pin_data = Array[Dictionary]([{
-"pin_name": &"ExecIn",
-"flags": 4
-}, {
-"pin_name": &"Text",
-"type": 4,
-"flags": 2,
-"dv": ""
-}, {
-"pin_name": &"PrintToScreen",
-"type": 1,
-"flags": 2,
-"dv": true
-}, {
-"pin_name": &"PrintToLog",
-"type": 1,
-"flags": 2,
-"dv": false
-}, {
-"pin_name": &"TextColor",
-"type": 20,
-"flags": 2,
-"dv": Color(1, 1, 1, 1)
-}, {
-"pin_name": &"Duration",
-"type": 3,
-"flags": 2,
-"dv": 2,
-"gdv": 0
-}, {
-"pin_name": &"ExecOut",
-"dir": 1,
-"flags": 4
 }])
 
 [obj type="OScriptNodeMakeArray" id="OScriptNodeMakeArray_owbdd"]
@@ -486,7 +448,7 @@ method = {
 }
 chain = false
 id = 26
-position = Vector2(680, 840)
+position = Vector2(1800, 900)
 pin_data = Array[Dictionary]([{
 "pin_name": &"ExecIn",
 "flags": 4
@@ -507,22 +469,22 @@ pin_data = Array[Dictionary]([{
 }])
 
 [obj type="OScriptNodePreload" id="OScriptNodePreload_aej4g"]
-path = "res://audio/sfx/2concrete_footstep.wav"
+path = "res://audio/sfx/footsteps/2concrete_footstep.wav"
 id = 28
-position = Vector2(80, 420)
+position = Vector2(80, 380)
 pin_data = Array[Dictionary]([{
 "pin_name": &"path",
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"label": "res://audio/sfx/2concrete_footstep.wav",
+"label": "res://audio/sfx/footsteps/2concrete_footstep.wav",
 "target_class": "AudioStreamWAV",
-"dv": "",
+"dv": "res://audio/sfx/footsteps/2concrete_footstep.wav",
 "gdv": ""
 }])
 
 [obj type="OScriptNodePreload" id="OScriptNodePreload_ua8dv"]
-path = "res://audio/sfx/3concrete_footstep.wav"
+path = "res://audio/sfx/footsteps/3concrete_footstep.wav"
 id = 29
 position = Vector2(80, 440)
 pin_data = Array[Dictionary]([{
@@ -530,45 +492,45 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"label": "res://audio/sfx/3concrete_footstep.wav",
+"label": "res://audio/sfx/footsteps/3concrete_footstep.wav",
 "target_class": "AudioStreamWAV",
-"dv": "",
+"dv": "res://audio/sfx/footsteps/3concrete_footstep.wav",
 "gdv": ""
 }])
 
 [obj type="OScriptNodePreload" id="OScriptNodePreload_5h2cy"]
-path = "res://audio/sfx/4concrete_footstep.wav"
+path = "res://audio/sfx/footsteps/4concrete_footstep.wav"
 id = 30
-position = Vector2(80, 460)
+position = Vector2(140, 540)
 pin_data = Array[Dictionary]([{
 "pin_name": &"path",
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"label": "res://audio/sfx/4concrete_footstep.wav",
+"label": "res://audio/sfx/footsteps/4concrete_footstep.wav",
 "target_class": "AudioStreamWAV",
-"dv": "",
+"dv": "res://audio/sfx/footsteps/4concrete_footstep.wav",
 "gdv": ""
 }])
 
 [obj type="OScriptNodePreload" id="OScriptNodePreload_yh4b6"]
-path = "res://audio/sfx/5concrete_footstep.wav"
+path = "res://audio/sfx/footsteps/5concrete_footstep.wav"
 id = 31
-position = Vector2(80, 480)
+position = Vector2(140, 600)
 pin_data = Array[Dictionary]([{
 "pin_name": &"path",
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"label": "res://audio/sfx/5concrete_footstep.wav",
+"label": "res://audio/sfx/footsteps/5concrete_footstep.wav",
 "target_class": "AudioStreamWAV",
-"dv": "",
+"dv": "res://audio/sfx/footsteps/5concrete_footstep.wav",
 "gdv": ""
 }])
 
 [obj type="OScriptNodeMakeArray" id="OScriptNodeMakeArray_xm3yt"]
 id = 32
-position = Vector2(440, 400)
+position = Vector2(1320, 240)
 pin_data = Array[Dictionary]([{
 "pin_name": &"Element_0",
 "flags": 2,
@@ -614,7 +576,7 @@ method = {
 }
 chain = false
 id = 33
-position = Vector2(680, 560)
+position = Vector2(1900, 400)
 pin_data = Array[Dictionary]([{
 "pin_name": &"ExecIn",
 "flags": 4
@@ -635,92 +597,92 @@ pin_data = Array[Dictionary]([{
 }])
 
 [obj type="OScriptNodePreload" id="OScriptNodePreload_4jcrd"]
-path = "res://audio/sfx/1concrete_footstep.wav"
+path = "res://audio/sfx/footsteps/1concrete_footstep.wav"
 id = 34
-position = Vector2(80, 400)
+position = Vector2(60, 260)
 pin_data = Array[Dictionary]([{
 "pin_name": &"path",
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"label": "res://audio/sfx/1concrete_footstep.wav",
+"label": "res://audio/sfx/footsteps/1concrete_footstep.wav",
 "target_class": "AudioStreamWAV",
-"dv": "res://audio/sfx/1concrete_footstep.wav",
+"dv": "res://audio/sfx/footsteps/1concrete_footstep.wav",
 "gdv": ""
 }])
 
 [obj type="OScriptNodePreload" id="OScriptNodePreload_xm3yt"]
-path = "res://audio/sfx/1metal_footstep.wav"
+path = "res://audio/sfx/footsteps/1metal_footstep.wav"
 id = 35
-position = Vector2(-180, 840)
+position = Vector2(-580, 760)
 pin_data = Array[Dictionary]([{
 "pin_name": &"path",
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"label": "res://audio/sfx/1metal_footstep.wav",
+"label": "res://audio/sfx/footsteps/1metal_footstep.wav",
 "target_class": "AudioStreamWAV",
-"dv": "",
+"dv": "res://audio/sfx/footsteps/1metal_footstep.wav",
 "gdv": ""
 }])
 
 [obj type="OScriptNodePreload" id="OScriptNodePreload_qo136"]
-path = "res://audio/sfx/2metal_footstep.wav"
+path = "res://audio/sfx/footsteps/2metal_footstep.wav"
 id = 36
-position = Vector2(-180, 880)
+position = Vector2(-580, 920)
 pin_data = Array[Dictionary]([{
 "pin_name": &"path",
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"label": "res://audio/sfx/2metal_footstep.wav",
+"label": "res://audio/sfx/footsteps/2metal_footstep.wav",
 "target_class": "AudioStreamWAV",
-"dv": "",
+"dv": "res://audio/sfx/footsteps/2metal_footstep.wav",
 "gdv": ""
 }])
 
 [obj type="OScriptNodePreload" id="OScriptNodePreload_3c3g0"]
-path = "res://audio/sfx/3metal_footstep.wav"
+path = "res://audio/sfx/footsteps/3metal_footstep.wav"
 id = 37
-position = Vector2(-180, 920)
+position = Vector2(-600, 1060)
 pin_data = Array[Dictionary]([{
 "pin_name": &"path",
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"label": "res://audio/sfx/3metal_footstep.wav",
+"label": "res://audio/sfx/footsteps/3metal_footstep.wav",
 "target_class": "AudioStreamWAV",
-"dv": "",
+"dv": "res://audio/sfx/footsteps/3metal_footstep.wav",
 "gdv": ""
 }])
 
 [obj type="OScriptNodePreload" id="OScriptNodePreload_kuxyw"]
-path = "res://audio/sfx/4metal_footstep.wav"
+path = "res://audio/sfx/footsteps/4metal_footstep.wav"
 id = 38
-position = Vector2(-180, 960)
+position = Vector2(-600, 1200)
 pin_data = Array[Dictionary]([{
 "pin_name": &"path",
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"label": "res://audio/sfx/4metal_footstep.wav",
+"label": "res://audio/sfx/footsteps/4metal_footstep.wav",
 "target_class": "AudioStreamWAV",
-"dv": "",
+"dv": "res://audio/sfx/footsteps/4metal_footstep.wav",
 "gdv": ""
 }])
 
 [obj type="OScriptNodePreload" id="OScriptNodePreload_nfpjj"]
-path = "res://audio/sfx/5metal_footstep.wav"
+path = "res://audio/sfx/footsteps/5metal_footstep.wav"
 id = 39
-position = Vector2(-180, 1000)
+position = Vector2(-600, 1320)
 pin_data = Array[Dictionary]([{
 "pin_name": &"path",
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"label": "res://audio/sfx/5metal_footstep.wav",
+"label": "res://audio/sfx/footsteps/5metal_footstep.wav",
 "target_class": "AudioStreamWAV",
-"dv": "",
+"dv": "res://audio/sfx/footsteps/5metal_footstep.wav",
 "gdv": ""
 }])
 
@@ -741,6 +703,6 @@ type = 24
 base_type = &"Node3D"
 variables = Array[OScriptVariable]([SubResource("OScriptVariable_jp7c3"), SubResource("OScriptVariable_tdrkl")])
 functions = Array[OScriptFunction]([SubResource("OScriptFunction_gt3w7"), SubResource("OScriptFunction_1sof2")])
-connections = Array[int]([5, 0, 4, 0, 2, 0, 5, 0, 22, 0, 10, 0, 33, 0, 13, 0, 4, 0, 15, 0, 17, 0, 18, 0, 26, 0, 21, 0, 9, 0, 22, 0, 35, 0, 23, 0, 10, 1, 26, 0, 34, 0, 32, 0, 10, 0, 33, 0, 5, 2, 4, 1, 3, 0, 5, 1, 9, 1, 10, 1, 12, 0, 13, 1, 16, 0, 15, 1, 12, 0, 21, 1, 9, 1, 22, 1, 36, 0, 23, 1, 23, 0, 26, 1, 28, 0, 32, 1, 32, 0, 33, 1, 33, 1, 13, 2, 26, 1, 21, 2, 37, 0, 23, 2, 29, 0, 32, 2, 18, 0, 13, 3, 18, 0, 21, 3, 38, 0, 23, 3, 30, 0, 32, 3, 39, 0, 23, 4, 31, 0, 32, 4])
-nodes = Array[OScriptNode]([SubResource("OScriptNodeEvent_cu8w2"), SubResource("OScriptNodeAutoload_rqq8y"), SubResource("OScriptNodeVariableSet_r8h7o"), SubResource("OScriptNodeTypeCast_gt3w7"), SubResource("OScriptNodeEvent_6ip0e"), SubResource("OScriptNodeSwitchString_etbdi"), SubResource("OScriptNodeVariableGet_5frun"), SubResource("OScriptNodeCallMemberFunction_qdcqs"), SubResource("OScriptNodeVariableSet_onkwo"), SubResource("OScriptNodeSceneNode_gquol"), SubResource("OScriptNodeVariableGet_s2g7h"), SubResource("OScriptNodeCallMemberFunction_6j5yl"), SubResource("OScriptNodeCallMemberFunction_6ip0e"), SubResource("OScriptNodePrintString_pb7l6"), SubResource("OScriptNodeMakeArray_owbdd"), SubResource("OScriptNodeCallMemberFunction_3nslk"), SubResource("OScriptNodePreload_aej4g"), SubResource("OScriptNodePreload_ua8dv"), SubResource("OScriptNodePreload_5h2cy"), SubResource("OScriptNodePreload_yh4b6"), SubResource("OScriptNodeMakeArray_xm3yt"), SubResource("OScriptNodeCallMemberFunction_aej4g"), SubResource("OScriptNodePreload_4jcrd"), SubResource("OScriptNodePreload_xm3yt"), SubResource("OScriptNodePreload_qo136"), SubResource("OScriptNodePreload_3c3g0"), SubResource("OScriptNodePreload_kuxyw"), SubResource("OScriptNodePreload_nfpjj")])
+connections = Array[int]([5, 0, 4, 0, 2, 0, 5, 0, 9, 0, 10, 0, 33, 0, 13, 0, 4, 0, 15, 0, 17, 0, 18, 0, 26, 0, 21, 0, 35, 0, 23, 0, 10, 1, 26, 0, 34, 0, 32, 0, 10, 0, 33, 0, 5, 2, 4, 1, 3, 0, 5, 1, 9, 1, 10, 1, 12, 0, 13, 1, 16, 0, 15, 1, 12, 0, 21, 1, 36, 0, 23, 1, 23, 0, 26, 1, 28, 0, 32, 1, 32, 0, 33, 1, 33, 1, 13, 2, 26, 1, 21, 2, 37, 0, 23, 2, 29, 0, 32, 2, 18, 0, 13, 3, 18, 0, 21, 3, 38, 0, 23, 3, 30, 0, 32, 3, 39, 0, 23, 4, 31, 0, 32, 4])
+nodes = Array[OScriptNode]([SubResource("OScriptNodeEvent_cu8w2"), SubResource("OScriptNodeAutoload_rqq8y"), SubResource("OScriptNodeVariableSet_r8h7o"), SubResource("OScriptNodeTypeCast_gt3w7"), SubResource("OScriptNodeEvent_6ip0e"), SubResource("OScriptNodeSwitchString_etbdi"), SubResource("OScriptNodeVariableGet_5frun"), SubResource("OScriptNodeCallMemberFunction_qdcqs"), SubResource("OScriptNodeVariableSet_onkwo"), SubResource("OScriptNodeSceneNode_gquol"), SubResource("OScriptNodeVariableGet_s2g7h"), SubResource("OScriptNodeCallMemberFunction_6j5yl"), SubResource("OScriptNodeCallMemberFunction_6ip0e"), SubResource("OScriptNodeMakeArray_owbdd"), SubResource("OScriptNodeCallMemberFunction_3nslk"), SubResource("OScriptNodePreload_aej4g"), SubResource("OScriptNodePreload_ua8dv"), SubResource("OScriptNodePreload_5h2cy"), SubResource("OScriptNodePreload_yh4b6"), SubResource("OScriptNodeMakeArray_xm3yt"), SubResource("OScriptNodeCallMemberFunction_aej4g"), SubResource("OScriptNodePreload_4jcrd"), SubResource("OScriptNodePreload_xm3yt"), SubResource("OScriptNodePreload_qo136"), SubResource("OScriptNodePreload_3c3g0"), SubResource("OScriptNodePreload_kuxyw"), SubResource("OScriptNodePreload_nfpjj")])
 graphs = Array[OScriptGraph]([SubResource("OScriptGraph_74inb")])

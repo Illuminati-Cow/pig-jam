@@ -1,6 +1,8 @@
-[gd_resource type="BehaviorTree" load_steps=8 format=3 uid="uid://wdwhug4t5kbb"]
+[gd_resource type="BehaviorTree" load_steps=19 format=3 uid="uid://wdwhug4t5kbb"]
 
+[ext_resource type="Script" uid="uid://3wa8yvn6irl3" path="res://ai/tasks/get_first_in_group.gd" id="1_nfivo"]
 [ext_resource type="Script" uid="uid://g2ajmmytp35b" path="res://ai/tasks/look_for_target.gd" id="1_uplwg"]
+[ext_resource type="Script" uid="uid://b384lgbcdf40m" path="res://ai/tasks/pursue_target.gd" id="4_0j0yg"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_24vqe"]
 var/target_pos/name = &"target_pos"
@@ -8,6 +10,10 @@ var/target_pos/type = 9
 var/target_pos/value = Vector3(0, 0, 0)
 var/target_pos/hint = 0
 var/target_pos/hint_string = ""
+var/target/name = &"target"
+var/target/type = 24
+var/target/hint = 34
+var/target/hint_string = "RigidBody3D"
 var/vision/name = &"vision"
 var/vision/type = 22
 var/vision/value = NodePath("Vision")
@@ -24,29 +30,66 @@ var/los/value = NodePath("Vision/RayCast3D")
 var/los/hint = 26
 var/los/hint_string = "RayCast3D"
 
+[sub_resource type="BBVariant" id="BBVariant_b1i8e"]
+saved_value = null
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_c8iiy"]
+variable = &"target"
+check_type = 5
+value = SubResource("BBVariant_b1i8e")
+
+[sub_resource type="BTAction" id="BTAction_3otah"]
+script = ExtResource("1_nfivo")
+group = &"player"
+output_var = &"target"
+
+[sub_resource type="BTRunLimit" id="BTRunLimit_uplwg"]
+children = [SubResource("BTAction_3otah")]
+
+[sub_resource type="BTSelector" id="BTSelector_jgo00"]
+children = [SubResource("BTCheckVar_c8iiy"), SubResource("BTRunLimit_uplwg")]
+
+[sub_resource type="BBVariant" id="BBVariant_0j0yg"]
+saved_value = null
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_b1i8e"]
+variable = &"target"
+check_type = 5
+value = SubResource("BBVariant_0j0yg")
+
 [sub_resource type="BTAction" id="BTAction_nfivo"]
 script = ExtResource("1_uplwg")
 target_position_var = &"target_pos"
+target_var = &"target"
 vision_cast_var = &"vision"
 hearing_cast_var = &"hearing"
 los_cast_var = &"los"
 
-[sub_resource type="BBVariant" id="BBVariant_nfivo"]
-type = 9
-saved_value = Vector3(0, 0, 0)
-resource_name = "<null>"
+[sub_resource type="BBFloat" id="BBFloat_c8iiy"]
+saved_value = 1.5
+resource_name = "1.5"
 
-[sub_resource type="BTCheckVar" id="BTCheckVar_3otah"]
-variable = &"target_pos"
-check_type = 5
-value = SubResource("BBVariant_nfivo")
+[sub_resource type="BBFloat" id="BBFloat_0j0yg"]
+saved_value = 20.0
+resource_name = "20.0"
 
-[sub_resource type="BTSequence" id="BTSequence_0j0yg"]
-children = [SubResource("BTAction_nfivo"), SubResource("BTCheckVar_3otah")]
+[sub_resource type="BBNode" id="BBNode_7r2l5"]
+saved_value = NodePath("NavigationAgent3D")
+resource_name = "NavigationAgent3D"
 
-[sub_resource type="BTSelector" id="BTSelector_uplwg"]
-children = [SubResource("BTSequence_0j0yg")]
+[sub_resource type="BTAction" id="BTAction_k81ed"]
+script = ExtResource("4_0j0yg")
+target_var = &"target"
+nav_var = SubResource("BBNode_7r2l5")
+desired_distance_var = SubResource("BBFloat_c8iiy")
+max_distance_var = SubResource("BBFloat_0j0yg")
+
+[sub_resource type="BTSequence" id="BTSequence_c8iiy"]
+children = [SubResource("BTCheckVar_b1i8e"), SubResource("BTAction_nfivo"), SubResource("BTAction_k81ed")]
+
+[sub_resource type="BTSequence" id="BTSequence_uplwg"]
+children = [SubResource("BTSelector_jgo00"), SubResource("BTSequence_c8iiy")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_24vqe")
-root_task = SubResource("BTSelector_uplwg")
+root_task = SubResource("BTSequence_uplwg")

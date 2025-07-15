@@ -40,6 +40,11 @@ project/assembly_name="pig-jam"
 
 enabled=PackedStringArray("res://addons/SignalVisualizer/plugin.cfg", "res://addons/csg_converter/plugin.cfg", "res://addons/csg_toolkit/plugin.cfg", "res://addons/globalize-plugins/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/proto_shape/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
 
+[global_group]
+
+pigs=""
+player=""
+
 [input]
 
 rotate_clockwise={
@@ -68,6 +73,7 @@ walk_backward={
 3d_physics/layer_1="Default"
 3d_physics/layer_2="Navigation"
 3d_physics/layer_3="Ground"
+3d_physics/layer_4="Player"
 
 [phantom_camera]
 

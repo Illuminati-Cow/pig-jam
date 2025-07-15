@@ -1,6 +1,5 @@
 extends RigidBody3D
 
-@onready var _area = $JunctionCollisionArea
 var _rot_tween: Tween
 
 var active_junction: Junction
@@ -16,7 +15,7 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 		active_junction = null
 		#print("Active junction unset")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !active_junction or !active_pusher:
 		return
 	var push_dir := _get_push_axis()
@@ -70,7 +69,7 @@ func _get_push_axis() -> Vector3.Axis:
 	var ground_pos := Vector3(global_position.x, 0, global_position.z)
 	var ground_pusher_pos := Vector3(active_pusher.global_position.x, 0, active_pusher.global_position.z)
 	var cardinal_dir := (ground_pusher_pos.direction_to(ground_pos) + active_pusher.basis.z) / 2
-	return cardinal_dir.abs().max_axis_index()
+	return cardinal_dir.abs().max_axis_index() as Vector3.Axis
 
 func _snap_to_rail(push_dir: Vector3.Axis) -> void:
 	var x = active_junction.global_position.x if push_dir == Vector3.Axis.AXIS_Z else global_position.x

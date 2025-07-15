@@ -154,7 +154,6 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2,
 "target_class": "AudioStream",
-"dv": null,
 "usage": 0
 }, {
 "pin_name": &"fade_in_duration",
@@ -634,7 +633,7 @@ pin_data = Array[Dictionary]([{
 "flags": 2050,
 "label": "res://audio/ambience/main_ambience.mp3",
 "target_class": "AudioStreamMP3",
-"dv": "",
+"dv": "res://audio/ambience/main_ambience.mp3",
 "gdv": ""
 }])
 

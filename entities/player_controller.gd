@@ -1,6 +1,7 @@
 class_name PlayerController extends PhysicsCharacterController3D
 
 signal footstep(material: String)
+signal died
 
 @export_category("Resources")
 @export var indicator_resource: PackedScene
@@ -70,7 +71,10 @@ func start_navigation(target_pos: Vector3):
 func stop_navigation():
 	navigating = false
 	indicator.visible = false
-	
+
+func kill():
+	died.emit()
+
 func do_footstep(is_left: bool) -> void:
 	const DEFAULT_MATERIAL = "concrete"
 	var material = DEFAULT_MATERIAL
@@ -90,9 +94,9 @@ func apply_ride_force() -> void:
 		var x := ground_dist - ride_height
 		var spring_force := (x * ride_spring_strength) - (ray_dir_vel_dot * ride_spring_damper)
 		apply_central_force(Vector3.DOWN * spring_force * mass)
-		DebugDraw2D.set_text("ground_force", "%2.2f" % spring_force)
-	else:
-		DebugDraw2D.set_text("ground_force", "not grounded")
+		#DebugDraw2D.set_text("ground_force", "%2.2f" % spring_force)
+	#else:
+		#DebugDraw2D.set_text("ground_force", "not grounded")
 
 func apply_locomotion_force(locomotion_input: float) -> void:
 	var ground_vel: Vector3 = Vector3(linear_velocity.x, 0, linear_velocity.z)
@@ -105,10 +109,10 @@ func apply_locomotion_force(locomotion_input: float) -> void:
 	var max_accel := acceleration_dir_factor.sample_baked(vel_dot) * max_acceleration
 	needed_accel = needed_accel.limit_length(max_accel)
 	apply_central_force(needed_accel * mass)
-	DebugDraw2D.set_text("ground_vel", "%2.2f" % ground_vel.length())
-	DebugDraw2D.set_text("goal_vel", "%2.2f" % goal_vel.length())
-	DebugDraw2D.set_text("goal_vel", "%2.2f" % goal_vel.length())
-	DebugDraw2D.set_text("needed_accel", "%2.2f" % needed_accel.length())
+	#DebugDraw2D.set_text("ground_vel", "%2.2f" % ground_vel.length())
+	#DebugDraw2D.set_text("goal_vel", "%2.2f" % goal_vel.length())
+	#DebugDraw2D.set_text("goal_vel", "%2.2f" % goal_vel.length())
+	#DebugDraw2D.set_text("needed_accel", "%2.2f" % needed_accel.length())
 
 func _nav_raycast():
 	raycast_this_frame = false

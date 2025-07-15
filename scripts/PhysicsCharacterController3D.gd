@@ -59,6 +59,8 @@ func _physics_process(_delta: float) -> void:
 	if nav.is_navigation_finished() and navigating:
 		stop_navigation()
 	
+	apply_ride_force()
+	
 	if !navigating:
 		return
 		
@@ -68,7 +70,6 @@ func _physics_process(_delta: float) -> void:
 	rotation.y = rotate_toward(rotation.y, rotation.y + rot_delta, deg_to_rad(rotate_speed))
 	var locomotion_input := speed_dir_curve.sample_baked(basis.z.dot(direction))
 	
-	apply_ride_force()
 	apply_locomotion_force(locomotion_input)
 
 func start_navigation(target_pos: Vector3) -> void:
@@ -90,7 +91,10 @@ func apply_ride_force() -> void:
 		var x := ground_dist - ride_height
 		var spring_force := (x * ride_spring_strength) - (ray_dir_vel_dot * ride_spring_damper)
 		apply_central_force(Vector3.DOWN * spring_force * mass)
-
+		DebugDraw2D.set_text("ground_force", "%2.2f" % spring_force)
+	else:
+		DebugDraw2D.set_text("ground_force", "not grounded")
+		
 func apply_locomotion_force(locomotion_input: float) -> void:
 	var ground_vel: Vector3 = Vector3(linear_velocity.x, 0, linear_velocity.z)
 	var goal_vel: Vector3 = basis.z * locomotion_input * move_modifier
