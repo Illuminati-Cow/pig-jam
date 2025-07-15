@@ -1,0 +1,52 @@
+[gd_resource type="BehaviorTree" load_steps=8 format=3 uid="uid://wdwhug4t5kbb"]
+
+[ext_resource type="Script" uid="uid://g2ajmmytp35b" path="res://ai/tasks/look_for_target.gd" id="1_uplwg"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_24vqe"]
+var/target_pos/name = &"target_pos"
+var/target_pos/type = 9
+var/target_pos/value = Vector3(0, 0, 0)
+var/target_pos/hint = 0
+var/target_pos/hint_string = ""
+var/vision/name = &"vision"
+var/vision/type = 22
+var/vision/value = NodePath("Vision")
+var/vision/hint = 26
+var/vision/hint_string = "ShapeCast3D"
+var/hearing/name = &"hearing"
+var/hearing/type = 22
+var/hearing/value = NodePath("Hearing")
+var/hearing/hint = 26
+var/hearing/hint_string = "ShapeCast3D"
+var/los/name = &"los"
+var/los/type = 22
+var/los/value = NodePath("Vision/RayCast3D")
+var/los/hint = 26
+var/los/hint_string = "RayCast3D"
+
+[sub_resource type="BTAction" id="BTAction_nfivo"]
+script = ExtResource("1_uplwg")
+target_position_var = &"target_pos"
+vision_cast_var = &"vision"
+hearing_cast_var = &"hearing"
+los_cast_var = &"los"
+
+[sub_resource type="BBVariant" id="BBVariant_nfivo"]
+type = 9
+saved_value = Vector3(0, 0, 0)
+resource_name = "<null>"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_3otah"]
+variable = &"target_pos"
+check_type = 5
+value = SubResource("BBVariant_nfivo")
+
+[sub_resource type="BTSequence" id="BTSequence_0j0yg"]
+children = [SubResource("BTAction_nfivo"), SubResource("BTCheckVar_3otah")]
+
+[sub_resource type="BTSelector" id="BTSelector_uplwg"]
+children = [SubResource("BTSequence_0j0yg")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_24vqe")
+root_task = SubResource("BTSelector_uplwg")

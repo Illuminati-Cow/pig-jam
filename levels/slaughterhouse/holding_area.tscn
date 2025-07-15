@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn4kwwsl88y00"]
+
+[ext_resource type="Texture2D" uid="uid://dmovrjkxfrhsk" path="res://textures/wood2_512.png" id="1_4tuul"]
+[ext_resource type="Material" uid="uid://361wym7p85g3" path="res://materials/plank_material.tres" id="3_wwxp2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmrig"]
+albedo_texture = ExtResource("1_4tuul")
+uv1_scale = Vector3(3.575, 3.575, 3.575)
+uv1_offset = Vector3(0.535, -0.255, 2.595)
+uv1_triplanar_sharpness = 5.85633e-05
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4tuul"]
+size = Vector3(9, 0.152344, 11)
+
+[node name="HoldingArea" type="Node3D"]
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12785, -0.4995, 0.196106)
+size = Vector3(8.44998, 0.001, 9.79358)
+material = SubResource("StandardMaterial3D_rmrig")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+collision_layer = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0743081, 0)
+shape = SubResource("BoxShape3D_4tuul")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13377, 3.18246, 5.19796)
+material_override = ExtResource("3_wwxp2")
+size = Vector3(8.80283, 7.36493, 0.32019)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1635, 3.18246, -4.80803)
+material_override = ExtResource("3_wwxp2")
+size = Vector3(8.74338, 7.36493, 0.32019)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.51601, 3.17558, 0.18704)
+material_override = ExtResource("3_wwxp2")
+size = Vector3(10.2644, 7.36493, 0.32019)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.162702, 0.374362, -0.171706)
+operation = 2
+size = Vector3(1, 2.03269, 1.69884)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.2261, 3.17558, 0.18704)
+material_override = ExtResource("3_wwxp2")
+size = Vector3(10.2644, 7.36493, 0.32019)
+material = ExtResource("3_wwxp2")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqb7ovdvaksqh"]
+[gd_scene load_steps=10 format=3 uid="uid://bqb7ovdvaksqh"]
 
 [ext_resource type="Material" uid="uid://b12qc2augolq8" path="res://materials/prototype_material.tres" id="1_lumq2"]
 [ext_resource type="PackedScene" uid="uid://ch4htauors71g" path="res://entities/props/hanger_rail.tscn" id="2_7tstf"]
@@ -16,6 +16,9 @@ signal abattoir_fridge_door_opened
 func _on_fridge_door_trigger_interacted() -> void:
 	abattoir_fridge_door_opened.emit()
 "
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f2h1y"]
+size = Vector3(4.24811, 0.0877686, 11.5459)
 
 [sub_resource type="GDScript" id="GDScript_e4w4d"]
 resource_name = "FridgeDoorTrigger"
@@ -46,6 +49,19 @@ material_override = ExtResource("1_lumq2")
 use_collision = true
 size = Vector3(1.87528, 2.25281, 0.20752)
 
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.7317, 0, 1, 0, -4.37114e-08, -2.66123, 0.949757, -8.01006)
+material_override = ExtResource("1_lumq2")
+use_collision = true
+size = Vector3(4.42671, 0.0837103, 11.611)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D7"]
+collision_layer = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D7/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.231354, -0.00100487, 0.0305212)
+shape = SubResource("BoxShape3D_f2h1y")
+
 [node name="CSGBox3D5" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.7317, 0, 1, 0, -4.37114e-08, -8.36298, 3.93475, -8.02593)
 material_override = ExtResource("1_lumq2")
@@ -66,7 +82,6 @@ size = Vector3(11.3161, 2.25281, 0.242188)
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.7317, 0, 0, 0, 1, -2.6672, 2.9506, -5.7396)
-visible = false
 material_override = ExtResource("1_lumq2")
 use_collision = true
 size = Vector3(11.3161, 2.25281, 0.242188)
@@ -105,69 +120,22 @@ material_override = ExtResource("1_lumq2")
 use_collision = true
 size = Vector3(0.629333, 1.11656, 0.0760498)
 
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="FridgeEndDoorRight/FridgeEndDoorRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305852, -0.572386, -0.100766)
+vertices = PackedVector3Array(0.615, 0, 0, 0, 0, 0, 0, 0, 0.2, 0.615, 0, 0.2)
+
 [node name="FridgeEndDoorLeft" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 3.03748, 2.16879, -8.57942)
 
-[node name="FridgeEndDoorRight" type="CSGBox3D" parent="FridgeEndDoorLeft"]
+[node name="FridgeEndDoorLeft" type="CSGBox3D" parent="FridgeEndDoorLeft"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1.7317, 0, -1, 0, -4.37114e-08, 0, -0.18496, -0.292583)
 material_override = ExtResource("1_lumq2")
 use_collision = true
 size = Vector3(0.629333, 1.11656, 0.0760498)
 
-[node name="HangingPig" parent="." instance=ExtResource("2_e4w4d")]
-transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -1.99905, 2.99975, -9.54652)
-axis_lock_linear_x = true
-axis_lock_linear_z = false
-
-[node name="HangingPig2" parent="." instance=ExtResource("2_e4w4d")]
-transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -0.999045, 2.99975, -8.544)
-axis_lock_linear_x = true
-axis_lock_linear_z = false
-
-[node name="HangingPig3" parent="." instance=ExtResource("2_e4w4d")]
-transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -1.99905, 2.99975, -8.88874)
-axis_lock_linear_x = true
-axis_lock_linear_z = false
-
-[node name="HangingPig4" parent="." instance=ExtResource("2_e4w4d")]
-transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -6.99904, 2.99975, -6.29562)
-axis_lock_linear_x = true
-axis_lock_linear_z = false
-
-[node name="HangingPig11" parent="." instance=ExtResource("2_e4w4d")]
-transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -6.99904, 2.99975, -7.21101)
-axis_lock_linear_x = true
-axis_lock_linear_z = false
-
-[node name="HangingPig5" parent="." instance=ExtResource("2_e4w4d")]
-transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -2.99904, 2.99975, -7.10624)
-axis_lock_linear_x = true
-axis_lock_linear_z = false
-
-[node name="HangingPig6" parent="." instance=ExtResource("2_e4w4d")]
-transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -4.99904, 2.99975, -8.93429)
-axis_lock_linear_x = true
-axis_lock_linear_z = false
-
-[node name="HangingPig7" parent="." instance=ExtResource("2_e4w4d")]
-transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -5.99904, 2.99975, -9.72801)
-axis_lock_linear_x = true
-axis_lock_linear_z = false
-
-[node name="HangingPig8" parent="." instance=ExtResource("2_e4w4d")]
-transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -6.99904, 2.99975, -8.9139)
-axis_lock_linear_x = true
-axis_lock_linear_z = false
-
-[node name="HangingPig9" parent="." instance=ExtResource("2_e4w4d")]
-transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, 1.00096, 2.99975, -9.39325)
-axis_lock_linear_x = true
-axis_lock_linear_z = false
-
-[node name="HangingPig10" parent="." instance=ExtResource("2_e4w4d")]
-transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, 2.00096, 2.99975, -8.71274)
-axis_lock_linear_x = true
-axis_lock_linear_z = false
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="FridgeEndDoorLeft"]
+transform = Transform3D(4.37114e-08, 0, -1, 0, 1.7317, 0, 1, 0, 4.37114e-08, 0.100053, -1.17237, -0.604377)
+vertices = PackedVector3Array(0.615, 0, 0, 0, 0, 0, 0, 0, 0.2, 0.615, 0, 0.2)
 
 [node name="CentralHangerRail" parent="." instance=ExtResource("2_7tstf")]
 transform = Transform3D(1.39091e-08, 0, -2.35984, 0, 1, 0, 1, 0, 3.28233e-08, -1.3429, 3.085, -7.972)
@@ -232,18 +200,76 @@ transform = Transform3D(-4.37114e-08, 0, -0.77, 0, 1, 0, 0.423757, 0, -1.42627e-
 [node name="Junction" parent="CentralHangerRail" instance=ExtResource("3_ipb87")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.39737)
 
-[node name="FridgeDoorTrigger" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.04121, 3, -8)
+[node name="Pigs" type="Node3D" parent="CentralHangerRail"]
+transform = Transform3D(1.39091e-08, 0, 1, 0, 1, 0, -0.423758, 0, 5.89409e-09, 7.972, -3.085, -0.569064)
+
+[node name="HangingPig" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -1.99905, 2.99975, -9.54652)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig2" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -0.999045, 2.99975, -8.544)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig3" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -1.99905, 2.99975, -8.88874)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig4" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -6.99904, 2.99975, -6.29562)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig11" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -6.99904, 2.99975, -7.21101)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig5" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -2.99904, 2.99975, -7.10624)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig6" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -4.99904, 2.99975, -8.93429)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig7" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -5.99904, 2.99975, -9.72801)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig8" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -6.99904, 2.99975, -8.9139)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig9" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, 1.00096, 2.99975, -9.39325)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig10" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, 2.00096, 2.99975, -8.71274)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="FridgeDoorTrigger" type="Node3D" parent="CentralHangerRail"]
+transform = Transform3D(1.39091e-08, 0, 1, 0, 1, 0, -0.423758, 0, 5.89409e-09, -0.0279999, -0.085, -1.8578)
 script = ExtResource("5_f2h1y")
 metadata/_custom_type_script = "uid://nja0mmweopro"
 
-[node name="Area3D" type="Area3D" parent="FridgeDoorTrigger"]
+[node name="Area3D" type="Area3D" parent="CentralHangerRail/FridgeDoorTrigger"]
 input_ray_pickable = false
 monitorable = false
 script = SubResource("GDScript_e4w4d")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FridgeDoorTrigger/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CentralHangerRail/FridgeDoorTrigger/Area3D"]
 shape = SubResource("BoxShape3D_e4w4d")
 
-[connection signal="interacted" from="FridgeDoorTrigger" to="." method="_on_fridge_door_trigger_interacted"]
-[connection signal="body_entered" from="FridgeDoorTrigger/Area3D" to="FridgeDoorTrigger/Area3D" method="_on_body_entered"]
+[connection signal="interacted" from="CentralHangerRail/FridgeDoorTrigger" to="." method="_on_fridge_door_trigger_interacted"]
+[connection signal="body_entered" from="CentralHangerRail/FridgeDoorTrigger/Area3D" to="CentralHangerRail/FridgeDoorTrigger/Area3D" method="_on_body_entered"]

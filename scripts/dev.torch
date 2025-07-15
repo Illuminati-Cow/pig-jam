@@ -21,7 +21,7 @@ id = 9
 
 [obj type="OScriptGraph" id="OScriptGraph_74inb"]
 graph_name = &"EventGraph"
-offset = Vector2(-176.032, -121.135)
+offset = Vector2(-135.237, 0)
 zoom = 0.751315
 flags = 8
 nodes = Array[int]([2, 3, 4, 5, 9, 10, 12, 13, 15, 16, 17, 18, 21, 22, 23, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39])
@@ -517,7 +517,7 @@ pin_data = Array[Dictionary]([{
 "flags": 2050,
 "label": "res://audio/sfx/2concrete_footstep.wav",
 "target_class": "AudioStreamWAV",
-"dv": "",
+"dv": "res://audio/sfx/2concrete_footstep.wav",
 "gdv": ""
 }])
 
@@ -532,7 +532,7 @@ pin_data = Array[Dictionary]([{
 "flags": 2050,
 "label": "res://audio/sfx/3concrete_footstep.wav",
 "target_class": "AudioStreamWAV",
-"dv": "",
+"dv": "res://audio/sfx/3concrete_footstep.wav",
 "gdv": ""
 }])
 
@@ -547,7 +547,7 @@ pin_data = Array[Dictionary]([{
 "flags": 2050,
 "label": "res://audio/sfx/4concrete_footstep.wav",
 "target_class": "AudioStreamWAV",
-"dv": "",
+"dv": "res://audio/sfx/4concrete_footstep.wav",
 "gdv": ""
 }])
 
@@ -562,7 +562,7 @@ pin_data = Array[Dictionary]([{
 "flags": 2050,
 "label": "res://audio/sfx/5concrete_footstep.wav",
 "target_class": "AudioStreamWAV",
-"dv": "",
+"dv": "res://audio/sfx/5concrete_footstep.wav",
 "gdv": ""
 }])
 
@@ -660,7 +660,7 @@ pin_data = Array[Dictionary]([{
 "flags": 2050,
 "label": "res://audio/sfx/1metal_footstep.wav",
 "target_class": "AudioStreamWAV",
-"dv": "",
+"dv": "res://audio/sfx/1metal_footstep.wav",
 "gdv": ""
 }])
 
@@ -675,7 +675,7 @@ pin_data = Array[Dictionary]([{
 "flags": 2050,
 "label": "res://audio/sfx/2metal_footstep.wav",
 "target_class": "AudioStreamWAV",
-"dv": "",
+"dv": "res://audio/sfx/2metal_footstep.wav",
 "gdv": ""
 }])
 
@@ -690,7 +690,7 @@ pin_data = Array[Dictionary]([{
 "flags": 2050,
 "label": "res://audio/sfx/3metal_footstep.wav",
 "target_class": "AudioStreamWAV",
-"dv": "",
+"dv": "res://audio/sfx/3metal_footstep.wav",
 "gdv": ""
 }])
 
@@ -705,7 +705,7 @@ pin_data = Array[Dictionary]([{
 "flags": 2050,
 "label": "res://audio/sfx/4metal_footstep.wav",
 "target_class": "AudioStreamWAV",
-"dv": "",
+"dv": "res://audio/sfx/4metal_footstep.wav",
 "gdv": ""
 }])
 
@@ -720,7 +720,7 @@ pin_data = Array[Dictionary]([{
 "flags": 2050,
 "label": "res://audio/sfx/5metal_footstep.wav",
 "target_class": "AudioStreamWAV",
-"dv": "",
+"dv": "res://audio/sfx/5metal_footstep.wav",
 "gdv": ""
 }])
 

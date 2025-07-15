@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://pidibbjycllu"]
+[gd_scene load_steps=30 format=3 uid="uid://pidibbjycllu"]
 
 [ext_resource type="Script" uid="uid://di5uw2k8bytm4" path="res://scripts/dev.torch" id="1_mp74a"]
 [ext_resource type="PackedScene" uid="uid://dxw7cledbpiia" path="res://addons/proto-csgs/proto_csg_box_3d.tscn" id="1_x8peg"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cixam5x57fa5u" path="res://entities/hooked_pig.tscn" id="11_mp74a"]
 [ext_resource type="PackedScene" uid="uid://ch4htauors71g" path="res://entities/props/hanger_rail.tscn" id="12_mp74a"]
 [ext_resource type="PackedScene" uid="uid://dhr66jmk148bq" path="res://entities/props/hanger_rail_junction.tscn" id="13_1sof2"]
+[ext_resource type="PackedScene" uid="uid://xvayq6cqitep" path="res://entities/pig.tscn" id="14_6ip0e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5g1ut"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -49,7 +50,7 @@ metadata/_custom_type_script = "uid://b8hhnqsugykly"
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_273jf"]
 dof_blur_far_enabled = true
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_1sof2"]
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_6ip0e"]
 dof_blur_far_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_hvsbd"]
@@ -72,19 +73,32 @@ uv1_offset = Vector3(0.5, 0.5, 0.5)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ip0e"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("2_2it8a")
-uv1_offset = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-uv1_world_triplanar = true
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etbdi"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("2_2it8a")
 uv1_offset = Vector3(0.5, 0.5, 0.5)
 uv1_triplanar = true
 uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o3qqi"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_2it8a")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="GDScript" id="GDScript_etbdi"]
+resource_name = "BTTreeView"
+script/source = "extends BehaviorTreeView
+
+var bt
+
+func _ready() -> void:
+	bt = $\"../../Pig\".get_node(^\"BTPlayer\")
+	
+func _physics_process(delta: float) -> void:
+	update_tree(BehaviorTreeData.create_from_bt_instance(bt.get_bt_instance()))
+"
 
 [node name="Dev" type="Node3D"]
 script = ExtResource("1_mp74a")
@@ -97,13 +111,12 @@ shadow_enabled = true
 environment = SubResource("Environment_x8peg")
 
 [node name="Player" parent="." instance=ExtResource("4_273jf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01, 0.987874, 3.252)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01, 1.8746, 3.252)
 input_ray_pickable = false
-rotate_speed = 5.0
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 3.01, 4.65787, 6.082)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 3.01, 5.5446, 6.082)
 top_level = true
 script = ExtResource("4_35d1g")
 follow_mode = 2
@@ -117,8 +130,8 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 3.01, 4.65787, 6.082)
-attributes = SubResource("CameraAttributesPractical_1sof2")
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 3.01, 5.5446, 6.082)
+attributes = SubResource("CameraAttributesPractical_6ip0e")
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
 process_priority = 300
@@ -178,13 +191,34 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.743
 
 [node name="HangerRail" parent="Rails" instance=ExtResource("12_mp74a")]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -5.4808, 4.14703, -3)
-surface_material_override/0 = SubResource("StandardMaterial3D_6ip0e")
+surface_material_override/0 = SubResource("StandardMaterial3D_etbdi")
 
 [node name="Junction" parent="Rails/HangerRail" instance=ExtResource("13_1sof2")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="HangerRail2" parent="Rails" instance=ExtResource("12_mp74a")]
 transform = Transform3D(-7.35137e-08, 0, -1, 0, 1, 0, 1, 0, -7.35137e-08, -2.57854, 4.14703, -3)
-surface_material_override/0 = SubResource("StandardMaterial3D_etbdi")
+surface_material_override/0 = SubResource("StandardMaterial3D_o3qqi")
+
+[node name="Pig" parent="." instance=ExtResource("14_6ip0e")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3.02829, 0.919417, 5.76316)
+run_speed = 5.0
+max_acceleration = 20.0
+ride_height = 1.0
+ride_spring_strength = 600.0
+debug_path = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="BehaviorTreeView" type="BehaviorTreeView" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.778
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.760132
+grow_horizontal = 0
+grow_vertical = 2
+script = SubResource("GDScript_etbdi")
 
 [connection signal="footstep" from="Player" to="." method="_on_player_footstep"]

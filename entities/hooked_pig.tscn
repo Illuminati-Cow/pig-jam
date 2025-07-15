@@ -32,6 +32,10 @@ max_contacts_reported = 5
 linear_damp = 2.0
 script = ExtResource("1_2rule")
 
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.95013e-08, -1.13246)
+radius = 0.4
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.205, 0, 0, 0, 0.205, 0, 0, 0, 0.205, 0, 0, 0)
 mesh = SubResource("TorusMesh_hvsbd")
