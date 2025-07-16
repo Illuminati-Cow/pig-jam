@@ -186,7 +186,7 @@ transform = Transform3D(0.999999, 0.000382883, -0.00169445, -0.0003819, 1, 0.000
 debug_path = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.754154, 0.487915, -0.439535, -0.0691876, 0.72462, 0.685667, 0.653043, -0.486688, 0.580233, -16.6353, 5.47623, -0.736013)
+transform = Transform3D(-0.920697, -0.308647, 0.238862, -0.0611813, 0.718603, 0.692725, -0.385454, 0.623175, -0.680499, -16.6353, 5.47623, -0.736013)
 attributes = SubResource("CameraAttributesPractical_ga2bi")
 fov = 57.3
 
@@ -308,7 +308,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.0816, 0.626827, 2.00056)
 
 [node name="ShelvesTopDownShot" type="Node3D" parent="."]
 physics_interpolation_mode = 1
-transform = Transform3D(-0.712223, -0.284459, 0.641733, 0.00725627, 0.911178, 0.411948, -0.701916, 0.298056, -0.646898, -14.7022, 4.86566, -10.5001)
+transform = Transform3D(-0.981223, -0.13508, 0.137675, -0.0271065, 0.803294, 0.594965, -0.190962, 0.580062, -0.791872, -15.7543, 3.85861, -10.2557)
 script = ExtResource("2_4q7qq")
 tween_resource = ExtResource("11_7osvu")
 camera_3d_resource = SubResource("Resource_g1xdf")
@@ -432,7 +432,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98959, 0.441833, 0.705482)
 shape = SubResource("BoxShape3D_75kdm")
 
 [node name="ShelvesLeft" type="Node3D" parent="."]
-transform = Transform3D(0.754154, 0.487915, -0.439535, -0.0691876, 0.72462, 0.685667, 0.653043, -0.486688, 0.580233, -16.6353, 5.47623, -0.736013)
+transform = Transform3D(-0.920697, -0.308647, 0.238862, -0.0611813, 0.718603, 0.692725, -0.385454, 0.623175, -0.680499, -16.6353, 5.47623, -0.736013)
 script = ExtResource("2_4q7qq")
 priority = 1
 tween_resource = SubResource("Resource_lex12")
