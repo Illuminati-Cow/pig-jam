@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1540d8xb7nnj"]
+
+[ext_resource type="PackedScene" uid="uid://dnd0gcheq6exb" path="res://models/imports/PIG_shelf.glb" id="1_xrqgb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lyjdh"]
+size = Vector3(1, 45, 1)
+
+[node name="PIG_shelf" instance=ExtResource("1_xrqgb")]
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(1.30272, 0, 0, 0, 0.0286317, 0, 0, 0, 0.486549, 0, 0.422251, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
+transform = Transform3D(1.99993, 0, 0, 0, 1.99993, 0, 0, 0, 1.99988, 0, 31.499, 0)
+shape = SubResource("BoxShape3D_lyjdh")
+
+[node name="Node3D" type="Node3D" parent="." index="1"]
