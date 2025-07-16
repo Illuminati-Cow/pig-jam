@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dubxigc1flb3f"]
+[gd_scene load_steps=42 format=3 uid="uid://dubxigc1flb3f"]
 
 [ext_resource type="Script" uid="uid://qgf4fvlghuru" path="res://scripts/slaughterhouse.torch" id="1_7v8ig"]
 [ext_resource type="PackedScene" uid="uid://gy25w82lmvhy" path="res://entities/player.tscn" id="1_oxja1"]
@@ -85,7 +85,25 @@ metadata/_custom_type_script = "uid://b8hhnqsugykly"
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_1x0pk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7v8ig"]
-size = Vector3(1.15918, 1.43799, 4.77203)
+size = Vector3(1.15918, 1.43799, 6.05202)
+
+[sub_resource type="Resource" id="Resource_lex12"]
+script = ExtResource("3_71xrq")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2n2gr"]
+size = Vector3(2.46861, 1.35004, 3.89287)
+
+[sub_resource type="Resource" id="Resource_3nslk"]
+script = ExtResource("3_71xrq")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lex12"]
+size = Vector3(4.1133, 1.05704, 2.372)
 
 [sub_resource type="Resource" id="Resource_y6me3"]
 script = ExtResource("3_71xrq")
@@ -166,15 +184,6 @@ metadata/_custom_type_script = "uid://b8hhnqsugykly"
 [sub_resource type="BoxShape3D" id="BoxShape3D_75kdm"]
 size = Vector3(4.92731, 1.88367, 5.85225)
 
-[sub_resource type="Resource" id="Resource_lex12"]
-script = ExtResource("3_71xrq")
-duration = 1.0
-transition = 0
-ease = 2
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2n2gr"]
-size = Vector3(3.45721, 1.35004, 5.40471)
-
 [node name="SlaughterhouseExterior" type="Node3D"]
 script = ExtResource("1_7v8ig")
 
@@ -186,7 +195,7 @@ transform = Transform3D(0.999999, 0.000382883, -0.00169445, -0.0003819, 1, 0.000
 debug_path = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.920697, -0.308647, 0.238862, -0.0611813, 0.718603, 0.692725, -0.385454, 0.623175, -0.680499, -16.6353, 5.47623, -0.736013)
+transform = Transform3D(-0.981223, -0.13508, 0.137675, -0.0271065, 0.803294, 0.594965, -0.190962, 0.580062, -0.791872, -15.7543, 3.85861, -10.2557)
 attributes = SubResource("CameraAttributesPractical_ga2bi")
 fov = 57.3
 
@@ -306,7 +315,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 3.72529e-09, 0, -3.72529e-09, 1, 0, 0, -9
 [node name="HoldingArea" parent="NavigationRegion3D" instance=ExtResource("11_ga2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.0816, 0.626827, 2.00056)
 
-[node name="ShelvesTopDownShot" type="Node3D" parent="."]
+[node name="ShelvesIntroShot" type="Node3D" parent="."]
 physics_interpolation_mode = 1
 transform = Transform3D(-0.981223, -0.13508, 0.137675, -0.0271065, 0.803294, 0.594965, -0.190962, 0.580062, -0.791872, -15.7543, 3.85861, -10.2557)
 script = ExtResource("2_4q7qq")
@@ -318,13 +327,49 @@ follow_damping = true
 look_at_offset = Vector3(0, -4.945, 0)
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="ShotTrigger" parent="ShelvesTopDownShot" node_paths=PackedStringArray("camera") instance=ExtResource("10_y6me3")]
+[node name="ShotTrigger" parent="ShelvesIntroShot" node_paths=PackedStringArray("camera") instance=ExtResource("10_y6me3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.639, 1.45178, -9.04458)
 camera = NodePath("..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ShelvesTopDownShot/ShotTrigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.73096, 0.218994, 0.639195)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShelvesIntroShot/ShotTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.73096, 0.218994, 1.27919)
 shape = SubResource("BoxShape3D_7v8ig")
+
+[node name="ShelvesLeftShot" type="Node3D" parent="."]
+transform = Transform3D(0.792886, 0.456561, -0.403589, -0.0611813, 0.718603, 0.692725, 0.606292, -0.524559, 0.597703, -16.6353, 5.47623, -0.736013)
+script = ExtResource("2_4q7qq")
+tween_resource = SubResource("Resource_lex12")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="ShotTrigger" type="Area3D" parent="ShelvesLeftShot" node_paths=PackedStringArray("camera")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6353, 4.65488, -0.736013)
+top_level = true
+script = ExtResource("16_ga2bi")
+camera = NodePath("..")
+active = true
+metadata/_custom_type_script = "uid://cohg2kme4o2te"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShelvesLeftShot/ShotTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.886951, -2.94805, -1.78559)
+shape = SubResource("BoxShape3D_2n2gr")
+
+[node name="ShelvesRightShot" type="Node3D" parent="."]
+transform = Transform3D(-0.157599, -0.558088, 0.814678, 0.0503177, 0.819378, 0.571042, -0.986221, 0.130988, -0.101051, -8.75047, 4.84805, -9.91233)
+script = ExtResource("2_4q7qq")
+tween_resource = SubResource("Resource_3nslk")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="ShotTrigger" type="Area3D" parent="ShelvesRightShot" node_paths=PackedStringArray("camera")]
+transform = Transform3D(-0.157599, -0.558088, 0.814678, 0.0503177, 0.819378, 0.571042, -0.986221, 0.130988, -0.101051, -8.75047, 5.07509, -9.91233)
+top_level = true
+script = ExtResource("16_ga2bi")
+camera = NodePath("..")
+active = true
+metadata/_custom_type_script = "uid://cohg2kme4o2te"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShelvesRightShot/ShotTrigger"]
+transform = Transform3D(-0.157598, 0.0503175, -0.986221, -0.558088, 0.819378, 0.130988, 0.814678, 0.571041, -0.101051, -1.21086, -0.460309, -5.38283)
+shape = SubResource("BoxShape3D_lex12")
 
 [node name="FridgeDollyShot" type="Node3D" parent="." node_paths=PackedStringArray("follow_target", "follow_path")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.58085, 2.45148, -5.915)
@@ -430,25 +475,6 @@ camera = NodePath("..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AbattoirOpeningShot/ShotTrigger"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98959, 0.441833, 0.705482)
 shape = SubResource("BoxShape3D_75kdm")
-
-[node name="ShelvesLeft" type="Node3D" parent="."]
-transform = Transform3D(-0.920697, -0.308647, 0.238862, -0.0611813, 0.718603, 0.692725, -0.385454, 0.623175, -0.680499, -16.6353, 5.47623, -0.736013)
-script = ExtResource("2_4q7qq")
-priority = 1
-tween_resource = SubResource("Resource_lex12")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="ShotTrigger" type="Area3D" parent="ShelvesLeft" node_paths=PackedStringArray("camera")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6353, 4.65488, -0.736013)
-top_level = true
-script = ExtResource("16_ga2bi")
-camera = NodePath("..")
-active = true
-metadata/_custom_type_script = "uid://cohg2kme4o2te"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ShelvesLeft/ShotTrigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38125, -2.94805, -2.54151)
-shape = SubResource("BoxShape3D_2n2gr")
 
 [connection signal="abattoir_fridge_door_opened" from="NavigationRegion3D/Fridge" to="." method="_on_fridge_abattoir_fridge_door_opened"]
 
