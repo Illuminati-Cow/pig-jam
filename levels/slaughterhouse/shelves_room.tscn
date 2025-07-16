@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cf3k8djntuu4e"]
+[gd_scene load_steps=6 format=3 uid="uid://cf3k8djntuu4e"]
 
 [ext_resource type="Material" uid="uid://b12qc2augolq8" path="res://materials/prototype_material.tres" id="1_c7na4"]
 [ext_resource type="Texture2D" uid="uid://cej3yoosomfd2" path="res://addons/proto-csgs/textures/dark/texture_13.png" id="2_tye7w"]
+[ext_resource type="PackedScene" uid="uid://b2vur0845eo44" path="res://models/props/barrel.tscn" id="3_woq20"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_woq20"]
 resource_local_to_scene = true
@@ -82,3 +83,6 @@ collision_mask = 5
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D12/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0334244, -0.00100487, 0.171757)
 shape = SubResource("BoxShape3D_tye7w")
+
+[node name="barrel" parent="." instance=ExtResource("3_woq20")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -14.7854, 1.02401, -2.26175)
