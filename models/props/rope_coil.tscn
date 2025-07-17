@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8twud700j2qs"]
+
+[ext_resource type="PackedScene" uid="uid://nlq6oqsuafee" path="res://models/imports/PIG_rope_coil.glb" id="1_g3cw3"]
+
+[node name="PIG_rope_coil" instance=ExtResource("1_g3cw3")]
+
+[node name="Circle_002" parent="." index="0"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)

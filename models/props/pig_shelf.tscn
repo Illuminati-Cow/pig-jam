@@ -20,80 +20,86 @@ shape = SubResource("BoxShape3D_lyjdh")
 
 [node name="Node3D" type="Node3D" parent="." index="1"]
 
-[node name="second_shelf" parent="." index="2" instance=ExtResource("2_v757w")]
-transform = Transform3D(0.15, 0, -0.000240838, 0, 0.15, 0, 0.000240838, 0, 0.15, 0.347221, 1.06857, -0.0448065)
+[node name="first_shelf" type="Node3D" parent="." index="2"]
 
-[node name="second_shelf4" parent="." index="3" instance=ExtResource("2_v757w")]
-transform = Transform3D(0.14987, 0, 0.00624997, 0, 0.15, 0, -0.00624997, 0, 0.14987, 0.938627, 1.06857, -0.00358224)
-
-[node name="second_shelf2" parent="." index="4" instance=ExtResource("2_v757w")]
-transform = Transform3D(0.148372, 0, 0.0220394, 0, 0.15, 0, -0.0220394, 0, 0.148372, -0.263286, 1.06857, -0.0594738)
-
-[node name="first_shelf" parent="." index="5" instance=ExtResource("2_v757w")]
+[node name="meat" parent="first_shelf" index="0" instance=ExtResource("2_v757w")]
 transform = Transform3D(-0.048439, 0, 0.141964, 0, 0.15, 0, -0.141964, 0, -0.048439, 0.0590799, 1.84658, -0.0177456)
 
-[node name="packaged meat4" parent="." index="6" instance=ExtResource("2_v757w")]
-transform = Transform3D(-0.148732, 0, 0.0194647, 0, 0.15, 0, -0.0194647, 0, -0.148732, 0.747676, 0.448993, -0.0177456)
-
-[node name="packaged meat5" parent="." index="7" instance=ExtResource("2_v757w")]
-transform = Transform3D(0.149813, 0, -0.00747911, 0, 0.15, 0, 0.00747911, 0, 0.149813, 0.101821, 0.448993, -0.0177456)
-
-[node name="second_shelf3" parent="." index="8" instance=ExtResource("2_v757w")]
-transform = Transform3D(0.149842, 0, 0.00687507, 0, 0.15, 0, -0.00687507, 0, 0.149842, -0.884419, 1.06857, -0.0142336)
-
-[node name="first_shelf2" parent="." index="9" instance=ExtResource("3_d0j56")]
+[node name="dawg" parent="first_shelf" index="1" instance=ExtResource("3_d0j56")]
 transform = Transform3D(0.192715, 0, -0.053488, 0, 0.2, 0, 0.053488, 0, 0.192715, 0.988128, 1.8574, 0.0368378)
 
-[node name="first_shelf3" parent="." index="10" instance=ExtResource("3_d0j56")]
+[node name="dawg2" parent="first_shelf" index="2" instance=ExtResource("3_d0j56")]
 transform = Transform3D(0.19432, 0, 0.0473269, 0, 0.2, 0, -0.0473269, 0, 0.19432, 0.890421, 1.8574, -0.239725)
 
-[node name="first_shelf4" parent="." index="11" instance=ExtResource("3_d0j56")]
+[node name="dawg3" parent="first_shelf" index="3" instance=ExtResource("3_d0j56")]
 transform = Transform3D(0.104431, 0, -0.17057, 0, 0.2, 0, 0.17057, 0, 0.104431, -0.772708, 1.8574, 0.186708)
 
-[node name="first_shelf5" parent="." index="12" instance=ExtResource("3_d0j56")]
+[node name="dawg4" parent="first_shelf" index="4" instance=ExtResource("3_d0j56")]
 transform = Transform3D(-0.19274, 0, -0.0533972, 0, 0.2, 0, 0.0533972, 0, -0.19274, 0.501022, 1.8574, 0.30209)
 
-[node name="first_shelf6" parent="." index="13" instance=ExtResource("3_d0j56")]
+[node name="dawg5" parent="first_shelf" index="5" instance=ExtResource("3_d0j56")]
 transform = Transform3D(0.0373425, 0, 0.196483, 0, 0.2, 0, -0.196483, 0, 0.0373425, -1.01964, 1.8574, 0.228459)
 
-[node name="first_shelf7" parent="." index="14" instance=ExtResource("3_d0j56")]
+[node name="dawg6" parent="first_shelf" index="6" instance=ExtResource("3_d0j56")]
 transform = Transform3D(0.193993, 0, 0.0486485, 0, 0.2, 0, -0.0486485, 0, 0.193993, -0.65933, 1.8574, -0.284455)
 
-[node name="first_shelf8" parent="." index="15" instance=ExtResource("3_d0j56")]
+[node name="dawg7" parent="first_shelf" index="7" instance=ExtResource("3_d0j56")]
 transform = Transform3D(-0.155073, 0, -0.126303, 0, 0.2, 0, 0.126303, 0, -0.155073, -1.05094, 1.8574, -0.264207)
 
-[node name="first_shelf9" parent="." index="16" instance=ExtResource("3_d0j56")]
+[node name="dawg8" parent="first_shelf" index="8" instance=ExtResource("3_d0j56")]
 transform = Transform3D(0.0477982, 0, -0.194204, 0, 0.2, 0, 0.194204, 0, 0.0477982, 0.631654, 1.8574, -0.225508)
 
-[node name="first_shelf10" parent="." index="17" instance=ExtResource("3_d0j56")]
+[node name="dawg9" parent="first_shelf" index="9" instance=ExtResource("3_d0j56")]
 transform = Transform3D(0.1945, 0, -0.0465805, 0, 0.2, 0, 0.0465805, 0, 0.1945, 0.725248, 1.94774, -0.225508)
 
-[node name="first_shelf11" parent="." index="18" instance=ExtResource("3_d0j56")]
+[node name="dawg10" parent="first_shelf" index="10" instance=ExtResource("3_d0j56")]
 transform = Transform3D(0.169293, 0, -0.10649, 0, 0.2, 0, 0.10649, 0, 0.169293, -0.939689, 1.93151, 0.151436)
 
-[node name="3dog1" parent="." index="19" instance=ExtResource("3_d0j56")]
-transform = Transform3D(0.104431, 0, -0.17057, 0, 0.2, 0, 0.17057, 0, 0.104431, -0.772708, 0.452764, 0.0352003)
+[node name="second_shelf" type="Node3D" parent="." index="3"]
 
-[node name="3dog4" parent="." index="20" instance=ExtResource("3_d0j56")]
+[node name="meat" parent="second_shelf" index="0" instance=ExtResource("2_v757w")]
+transform = Transform3D(0.15, 0, -0.000240838, 0, 0.15, 0, 0.000240838, 0, 0.15, 0.347221, 1.06857, -0.0448065)
+
+[node name="meat2" parent="second_shelf" index="1" instance=ExtResource("2_v757w")]
+transform = Transform3D(0.14987, 0, 0.00624997, 0, 0.15, 0, -0.00624997, 0, 0.14987, 0.938627, 1.06857, -0.00358224)
+
+[node name="meat3" parent="second_shelf" index="2" instance=ExtResource("2_v757w")]
+transform = Transform3D(0.148372, 0, 0.0220394, 0, 0.15, 0, -0.0220394, 0, 0.148372, -0.263286, 1.06857, -0.0594738)
+
+[node name="meat4" parent="second_shelf" index="3" instance=ExtResource("2_v757w")]
+transform = Transform3D(0.149842, 0, 0.00687507, 0, 0.15, 0, -0.00687507, 0, 0.149842, -0.884419, 1.06857, -0.0142336)
+
+[node name="third_shelf" type="Node3D" parent="." index="4"]
+
+[node name="dawg" parent="third_shelf" index="0" instance=ExtResource("3_d0j56")]
 transform = Transform3D(0.19893, 0, 0.0206626, 0, 0.2, 0, -0.0206626, 0, 0.19893, -0.961001, 0.452764, -0.226309)
 
-[node name="3dog5" parent="." index="21" instance=ExtResource("3_d0j56")]
+[node name="dawg2" parent="third_shelf" index="1" instance=ExtResource("3_d0j56")]
 transform = Transform3D(0.0893395, 0, -0.178937, 0, 0.2, 0, 0.178937, 0, 0.0893395, -0.660046, 0.452764, -0.184946)
 
-[node name="3dog6" parent="." index="22" instance=ExtResource("3_d0j56")]
+[node name="dawg3" parent="third_shelf" index="2" instance=ExtResource("3_d0j56")]
 transform = Transform3D(-0.00358117, 0, 0.199968, 0, 0.2, 0, -0.199968, 0, -0.00358117, -0.866204, 0.621332, -0.0813286)
 
-[node name="3dog9" parent="." index="23" instance=ExtResource("3_d0j56")]
+[node name="dawg4" parent="third_shelf" index="3" instance=ExtResource("3_d0j56")]
 transform = Transform3D(0.192193, 0, -0.0553322, 0, 0.2, 0, 0.0553322, 0, 0.192193, -0.405133, 0.452764, 0.181842)
 
-[node name="3dog8" parent="." index="24" instance=ExtResource("3_d0j56")]
+[node name="dawg5" parent="third_shelf" index="4" instance=ExtResource("3_d0j56")]
 transform = Transform3D(0.198922, 0, 0.020739, 0, 0.2, 0, -0.020739, 0, 0.198922, -0.92346, 0.452764, 0.381765)
 
-[node name="3dog2" parent="." index="25" instance=ExtResource("3_d0j56")]
+[node name="dawg6" parent="third_shelf" index="5" instance=ExtResource("3_d0j56")]
 transform = Transform3D(-0.101844, 0, 0.172127, 0, 0.2, 0, -0.172127, 0, -0.101844, -0.982314, 0.452764, 0.0769505)
 
-[node name="3dog3" parent="." index="26" instance=ExtResource("3_d0j56")]
+[node name="dawg7" parent="third_shelf" index="6" instance=ExtResource("3_d0j56")]
 transform = Transform3D(0.19383, 0, -0.049295, 0, 0.2, 0, 0.049295, 0, 0.19383, -0.939689, 0.526872, -0.0236268)
 
-[node name="3dog7" parent="." index="27" instance=ExtResource("3_d0j56")]
+[node name="dawg8" parent="third_shelf" index="7" instance=ExtResource("3_d0j56")]
 transform = Transform3D(0.154274, 0, -0.127278, 0, 0.2, 0, 0.127278, 0, 0.154274, -0.769348, 0.526872, -0.176931)
+
+[node name="dawg9" parent="third_shelf" index="8" instance=ExtResource("3_d0j56")]
+transform = Transform3D(0.104431, 0, -0.17057, 0, 0.2, 0, 0.17057, 0, 0.104431, -0.772708, 0.452764, 0.0352003)
+
+[node name="meat" parent="third_shelf" index="9" instance=ExtResource("2_v757w")]
+transform = Transform3D(-0.148732, 0, 0.0194647, 0, 0.15, 0, -0.0194647, 0, -0.148732, 0.747676, 0.448993, -0.0177456)
+
+[node name="meat2" parent="third_shelf" index="10" instance=ExtResource("2_v757w")]
+transform = Transform3D(0.149813, 0, -0.00747911, 0, 0.15, 0, 0.00747911, 0, 0.149813, 0.101821, 0.448993, -0.0177456)
