@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dubxigc1flb3f"]
+[gd_scene load_steps=39 format=3 uid="uid://dubxigc1flb3f"]
 
 [ext_resource type="Script" uid="uid://qgf4fvlghuru" path="res://scripts/slaughterhouse.torch" id="1_7v8ig"]
 [ext_resource type="PackedScene" uid="uid://gy25w82lmvhy" path="res://entities/player.tscn" id="1_oxja1"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://1m25e47hkgrn" path="res://entities/shot_trigger.tscn" id="10_y6me3"]
 [ext_resource type="Resource" uid="uid://c8jo2bxt0buv4" path="res://animations/cuts/hard_cut.tres" id="11_7osvu"]
 [ext_resource type="PackedScene" uid="uid://cn4kwwsl88y00" path="res://levels/slaughterhouse/holding_area.tscn" id="11_ga2bi"]
-[ext_resource type="Script" uid="uid://cohg2kme4o2te" path="res://scripts/shot_trigger.gd" id="16_ga2bi"]
 
 [sub_resource type="Environment" id="Environment_0miny"]
 background_mode = 1
@@ -36,7 +35,7 @@ fog_depth_begin = 5.0
 fog_depth_end = 24.2
 adjustment_contrast = 1.15
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ga2bi"]
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_owbdd"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_e434m"]
 vertices = PackedVector3Array(-13.8984, 1.17685, -7.02683, -14.1984, 1.17685, -7.02683, -14.2984, 1.17685, -6.52683, -13.8984, 1.17685, -5.42683, -15.6984, 1.17685, -6.32683, -15.9984, 1.17685, -6.52683, -16.4984, 1.17685, -1.12683, -14.5984, 1.17685, -6.32683, -13.5984, 1.17685, -5.12683, -13.6984, 1.17685, -1.12683, -16.0984, 1.17685, -9.92683, -16.4984, 1.17685, -9.92683, -8.3984, 1.17685, -7.92683, -8.3984, 1.17685, -8.02683, -8.9984, 1.17685, -8.22683, -9.0984, 1.17685, -7.72683, -10.4984, 1.17685, -8.82683, -10.1984, 1.17685, -8.62683, -10.1984, 1.17685, -9.02683, -8.9984, 1.17685, -5.92683, -8.9984, 1.17685, -6.42683, -9.3984, 1.17685, -6.62683, -10.0984, 1.17685, -6.02683, -9.4984, 1.17685, -9.22683, -8.9984, 1.17685, -9.62683, -8.9984, 1.17685, -9.92683, -9.7984, 1.17685, -9.92683, -9.7984, 1.17685, -9.42683, -11.8984, 1.17685, -8.42683, -11.4984, 1.17685, -8.82683, -12.1984, 1.17685, -8.72683, -11.9984, 1.17685, -8.42683, -9.4984, 1.17685, -8.82683, -14.1984, 1.17685, -9.12683, -13.4984, 1.17685, -8.82683, -13.7984, 1.17685, -8.62683, -9.4984, 1.17685, -7.22683, -11.9984, 1.17685, -5.42683, -11.8984, 1.17685, -5.42683, -7.8984, 1.17685, -7.82683, -7.6984, 1.17685, -8.52683, 2.4016, 1.17685, -9.62683, -7.6984, 1.17685, -9.62683, -7.6984, 1.17685, -7.52683, 2.4016, 1.17685, -6.42683, -7.6984, 1.17685, -6.42683, 6.3016, 1.17685, -9.32683, 6.6016, 1.17685, -9.62683, 5.6016, 1.17685, -9.62683, 4.4016, 1.17685, -9.32683, 4.1016, 1.17685, -9.62683, 3.7016, 1.17685, -9.62683, 3.7016, 1.17685, -7.02683, 5.3016, 1.17685, -9.32683, 6.4016, 1.37685, -8.72683, 6.03493, 1.17685, -8.92683, 6.3016, 1.37685, -7.02683, 6.4016, 1.37685, -7.42683, 5.49362, 1.17685, -7.82365, 7.3016, 1.87685, -7.52683, 7.3016, 1.87685, -8.62683, 9.9016, 4.57685, -9.62683, 9.9016, 4.57685, -8.52683, 10.3016, 4.57685, -8.52683, 10.3016, 4.57685, -9.62683, 12.1016, 1.17685, -0.42683, 12.2016, 1.17685, 0.27317, 13.3016, 1.17685, 0.27317, 13.5016, 1.17685, 0.37317, 15.8016, 1.17685, 0.673169, 16.6016, 1.17685, 0.57317, 13.6016, 1.27685, 0.87317, 15.5016, 1.17685, 0.973169, 11.6016, 1.17685, -0.62683, 19.7016, 1.17685, 0.57317, 19.7016, 1.17685, -9.62683, 11.6016, 1.17685, -9.62683, 9.3016, 2.07685, -6.32683, 9.5016, 2.07685, -5.82683, 9.8016, 2.07685, -6.02683, 8.5016, 2.07685, -7.12683, 8.5016, 2.07685, -6.42683, 10.6016, 2.07685, -5.82683, 8.3016, 2.07685, -7.42683, 8.3016, 2.07685, -8.72683, 8.5016, 2.07685, -9.42683, 10.6016, 2.07685, -9.42683, 8.9016, 1.17685, 0.673169, 8.9016, 1.17685, 0.27317, 8.5016, 1.17685, -0.0268307, 8.0016, 1.17685, 0.77317, 8.5016, 1.17685, -5.42683, 7.7016, 1.17685, -5.52683, 7.5016, 1.17685, -5.82683, 7.5016, 1.17685, -6.52683, 6.6016, 1.17685, -6.52683, 7.8016, 1.17685, 1.07317, 3.7016, 1.17685, 1.57317, 7.8016, 1.17685, 1.67317, -12.3984, 1.17685, -5.02683, -11.4984, 1.17685, -5.02683, -8.9984, 1.17685, -1.12683, -10.4984, 1.17685, -5.02683, -10.0984, 1.17685, -5.42683, -7.6984, 1.17685, -5.02683, -7.6984, 1.17685, -4.22683, -7.3984, 1.17685, -4.22683, -7.3984, 1.17685, -5.02683, 1.7016, 1.37685, -0.326831, 0.601603, 1.17685, -0.42683, 0.601603, 1.17685, -0.0268307, 2.3016, 1.37685, -0.0268307, 2.3016, 1.17685, -3.02683, 2.0016, 1.17685, -3.02683, 2.0016, 1.17685, -0.526831, 2.3016, 1.17685, -0.526831, 20.9016, 0.276847, 5.57317, 20.9016, 0.276847, 7.17317, 29.0016, 0.276847, 7.17317, 29.0016, 0.276847, -2.82683, 21.0016, 0.276847, -2.82683, 9.5016, 4.37685, -1.62683, 9.5016, 4.37685, -0.62683, 10.6016, 4.37685, -0.62683, 10.6016, 4.37685, -1.62683, 9.6016, 1.17685, -1.12683, 9.6016, 1.17685, -0.72683, 10.5016, 1.17685, -0.72683, 10.5016, 1.17685, -1.12683, 11.0016, 2.47685, 2.97317, 11.1016, 2.47685, 3.27317, 11.3016, 2.47685, 2.57317, 10.7016, 2.47685, 2.87317, 10.6016, 2.27685, 1.37317, 11.6016, 2.47685, 2.37317, 11.6016, 2.47685, 1.27317, 11.2016, 2.47685, 0.87317, 10.6683, 2.27685, 2.37317, 11.2016, 2.47685, 0.37317, 9.9016, 2.27685, 0.37317, 9.9016, 2.27685, 1.17317, 13.3016, 1.47685, 2.37317, 13.3016, 1.47685, 1.27317, 12.1683, 2.27685, 2.37317, 12.1683, 2.27685, 1.27317, 15.9016, 1.17685, 2.17317, 16.8016, 1.17685, 2.17317, 16.8016, 1.17685, 1.77317, 15.6016, 1.17685, 1.67317, 13.6016, 1.27685, 2.87317, 15.5016, 1.17685, 2.77317, 15.4016, 1.17685, 1.37317, 15.6016, 1.17685, 2.37317, 8.9016, 1.17685, 4.07317, 8.9016, 1.17685, 2.97317, 8.2016, 1.17685, 2.97317, 8.6016, 1.17685, 4.37317, 7.9016, 1.17685, 2.77317, 8.6016, 1.37685, 4.67317, 3.7016, 1.17685, 4.67317, 4.89563, 1.27685, 3.56954, 16.8016, 3.67685, 1.57317, 16.8016, 3.67685, 2.37317, 19.7016, 5.37685, 2.37317, 19.7016, 5.37685, 1.57317, 17.8016, 1.87685, 1.77317, 17.8016, 1.87685, 2.17317, 20.6016, 3.47685, 2.17317, 20.6016, 3.47685, 1.77317, 12.1016, 1.17685, 4.07317, 11.3016, 1.17685, 4.27317, 11.3016, 1.17685, 4.67317, 13.3016, 1.17685, 3.37317, 12.2016, 1.17685, 3.37317, 16.4016, 1.17685, 4.67317, 16.5016, 1.17685, 3.37317, 15.7016, 1.17685, 3.27317, 19.7016, 1.17685, 4.67317, 19.7016, 1.17685, 3.37317)
@@ -87,23 +86,11 @@ metadata/_custom_type_script = "uid://b8hhnqsugykly"
 [sub_resource type="BoxShape3D" id="BoxShape3D_7v8ig"]
 size = Vector3(1.15918, 1.43799, 6.05202)
 
-[sub_resource type="Resource" id="Resource_lex12"]
-script = ExtResource("3_71xrq")
-duration = 1.0
-transition = 0
-ease = 2
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2n2gr"]
-size = Vector3(2.46861, 1.35004, 3.89287)
-
-[sub_resource type="Resource" id="Resource_3nslk"]
-script = ExtResource("3_71xrq")
-duration = 1.0
-transition = 0
-ease = 2
+[sub_resource type="BoxShape3D" id="BoxShape3D_3nslk"]
+size = Vector3(3.45142, 1.40967, 2.12573)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lex12"]
-size = Vector3(4.1133, 1.05704, 2.372)
+size = Vector3(1.08502, 0.966309, 2.44016)
 
 [sub_resource type="Resource" id="Resource_y6me3"]
 script = ExtResource("3_71xrq")
@@ -196,7 +183,7 @@ debug_path = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.981223, -0.13508, 0.137675, -0.0271065, 0.803294, 0.594965, -0.190962, 0.580062, -0.791872, -15.7543, 3.85861, -10.2557)
-attributes = SubResource("CameraAttributesPractical_ga2bi")
+attributes = SubResource("CameraAttributesPractical_owbdd")
 fov = 57.3
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
@@ -338,37 +325,29 @@ shape = SubResource("BoxShape3D_7v8ig")
 [node name="ShelvesLeftShot" type="Node3D" parent="."]
 transform = Transform3D(0.792886, 0.456561, -0.403589, -0.0611813, 0.718603, 0.692725, 0.606292, -0.524559, 0.597703, -16.6353, 5.47623, -0.736013)
 script = ExtResource("2_4q7qq")
-tween_resource = SubResource("Resource_lex12")
+tween_resource = ExtResource("11_7osvu")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="ShotTrigger" type="Area3D" parent="ShelvesLeftShot" node_paths=PackedStringArray("camera")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6353, 4.65488, -0.736013)
-top_level = true
-script = ExtResource("16_ga2bi")
+[node name="ShotTrigger" parent="ShelvesLeftShot" node_paths=PackedStringArray("camera") instance=ExtResource("10_y6me3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6353, 5.47623, -0.736013)
 camera = NodePath("..")
-active = true
-metadata/_custom_type_script = "uid://cohg2kme4o2te"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ShelvesLeftShot/ShotTrigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.886951, -2.94805, -1.78559)
-shape = SubResource("BoxShape3D_2n2gr")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40775, -3.68555, -2.12451)
+shape = SubResource("BoxShape3D_3nslk")
 
 [node name="ShelvesRightShot" type="Node3D" parent="."]
-transform = Transform3D(-0.157599, -0.558088, 0.814678, 0.0503177, 0.819378, 0.571042, -0.986221, 0.130988, -0.101051, -8.75047, 4.84805, -9.91233)
+transform = Transform3D(-0.575109, 0.179155, -0.798219, 0.0085363, 0.976987, 0.213129, 0.818033, 0.115759, -0.563403, -14.2151, 3.60814, -9.8481)
 script = ExtResource("2_4q7qq")
-tween_resource = SubResource("Resource_3nslk")
+tween_resource = ExtResource("11_7osvu")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="ShotTrigger" type="Area3D" parent="ShelvesRightShot" node_paths=PackedStringArray("camera")]
-transform = Transform3D(-0.157599, -0.558088, 0.814678, 0.0503177, 0.819378, 0.571042, -0.986221, 0.130988, -0.101051, -8.75047, 5.07509, -9.91233)
-top_level = true
-script = ExtResource("16_ga2bi")
-camera = NodePath("..")
-active = true
-metadata/_custom_type_script = "uid://cohg2kme4o2te"
+[node name="ShotTrigger" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("10_y6me3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2367, 1.5933, -8.51904)
+camera = NodePath("../ShelvesRightShot")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ShelvesRightShot/ShotTrigger"]
-transform = Transform3D(-0.157598, 0.0503175, -0.986221, -0.558088, 0.819378, 0.130988, 0.814678, 0.571041, -0.101051, -1.21086, -0.460309, -5.38283)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShotTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20947, -0.067627, 0.63428)
 shape = SubResource("BoxShape3D_lex12")
 
 [node name="FridgeDollyShot" type="Node3D" parent="." node_paths=PackedStringArray("follow_target", "follow_path")]
