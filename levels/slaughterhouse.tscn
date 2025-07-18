@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dubxigc1flb3f"]
+[gd_scene load_steps=41 format=3 uid="uid://dubxigc1flb3f"]
 
 [ext_resource type="Script" uid="uid://qgf4fvlghuru" path="res://scripts/slaughterhouse.torch" id="1_7v8ig"]
 [ext_resource type="PackedScene" uid="uid://gy25w82lmvhy" path="res://entities/player.tscn" id="1_oxja1"]
@@ -86,11 +86,56 @@ metadata/_custom_type_script = "uid://b8hhnqsugykly"
 [sub_resource type="BoxShape3D" id="BoxShape3D_7v8ig"]
 size = Vector3(1.15918, 1.43799, 6.05202)
 
+[sub_resource type="Resource" id="Resource_3nslk"]
+script = ExtResource("4_y6me3")
+keep_aspect = 1
+cull_mask = 1048575
+h_offset = 0.0
+v_offset = 0.0
+projection = 0
+fov = 57.3
+size = 1.0
+frustum_offset = Vector2(0, 0)
+near = 0.05
+far = 4000.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_3nslk"]
-size = Vector3(3.45142, 1.40967, 2.12573)
+size = Vector3(4.24219, 1.40967, 5.96909)
+
+[sub_resource type="Resource" id="Resource_lex12"]
+script = ExtResource("4_y6me3")
+keep_aspect = 1
+cull_mask = 1048575
+h_offset = 0.0
+v_offset = 0.0
+projection = 0
+fov = 57.3
+size = 1.0
+frustum_offset = Vector2(0, 0)
+near = 0.05
+far = 4000.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lex12"]
-size = Vector3(1.08502, 0.966309, 2.44016)
+size = Vector3(5.9942, 0.966309, 2.52562)
+
+[sub_resource type="Resource" id="Resource_2n2gr"]
+script = ExtResource("4_y6me3")
+keep_aspect = 1
+cull_mask = 1048575
+h_offset = 0.0
+v_offset = 0.0
+projection = 0
+fov = 57.3
+size = 1.0
+frustum_offset = Vector2(0, 0)
+near = 0.05
+far = 4000.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7osvu"]
+size = Vector3(1.70235, 1.86731, 1.47498)
 
 [sub_resource type="Resource" id="Resource_y6me3"]
 script = ExtResource("3_71xrq")
@@ -98,14 +143,14 @@ duration = 0.5
 transition = 1
 ease = 1
 
-[sub_resource type="Resource" id="Resource_7v8ig"]
+[sub_resource type="Resource" id="Resource_kbjfv"]
 script = ExtResource("4_y6me3")
 keep_aspect = 1
 cull_mask = 1048575
 h_offset = 0.0
 v_offset = 0.0
 projection = 0
-fov = 85.0
+fov = 57.3
 size = 1.0
 frustum_offset = Vector2(0, 0)
 near = 0.05
@@ -122,26 +167,20 @@ point_count = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_y6me3"]
 size = Vector3(9.43066, 2.07898, 4.32849)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7osvu"]
-size = Vector3(1.70235, 1.86731, 1.47498)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_rqq8y"]
-size = Vector3(1.23886, 1, 4.28271)
-
 [sub_resource type="Resource" id="Resource_75kdm"]
 script = ExtResource("3_71xrq")
 duration = 1.0
 transition = 0
 ease = 2
 
-[sub_resource type="Resource" id="Resource_r8h7o"]
+[sub_resource type="Resource" id="Resource_bx8v1"]
 script = ExtResource("4_y6me3")
 keep_aspect = 1
 cull_mask = 1048575
 h_offset = 0.0
 v_offset = 0.0
 projection = 0
-fov = 77.0
+fov = 57.3
 size = 1.0
 frustum_offset = Vector2(0, 0)
 near = 0.05
@@ -149,7 +188,7 @@ far = 4000.0
 metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_owbdd"]
-size = Vector3(0.712583, 1, 1.60063)
+size = Vector3(1.43979, 1, 4.25709)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ga2bi"]
 size = Vector3(8.7434, 1, 4.50652)
@@ -169,7 +208,7 @@ far = 4000.0
 metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_75kdm"]
-size = Vector3(4.92731, 1.88367, 5.85225)
+size = Vector3(5.79337, 1.88367, 11.1649)
 
 [node name="SlaughterhouseExterior" type="Node3D"]
 script = ExtResource("1_7v8ig")
@@ -194,6 +233,7 @@ script = ExtResource("5_7osvu")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Bounds" type="Node3D" parent="."]
+visible = false
 script = ExtResource("6_71xrq")
 
 [node name="CSGBox3D33" type="CSGBox3D" parent="Bounds"]
@@ -326,6 +366,7 @@ shape = SubResource("BoxShape3D_7v8ig")
 transform = Transform3D(0.792886, 0.456561, -0.403589, -0.0611813, 0.718603, 0.692725, 0.606292, -0.524559, 0.597703, -16.6353, 5.47623, -0.736013)
 script = ExtResource("2_4q7qq")
 tween_resource = ExtResource("11_7osvu")
+camera_3d_resource = SubResource("Resource_3nslk")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="ShotTrigger" parent="ShelvesLeftShot" node_paths=PackedStringArray("camera") instance=ExtResource("10_y6me3")]
@@ -333,13 +374,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6353, 5.47623, -0.736013)
 camera = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ShelvesLeftShot/ShotTrigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40775, -3.68555, -2.12451)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80313, -3.68555, -2.83852)
 shape = SubResource("BoxShape3D_3nslk")
 
 [node name="ShelvesRightShot" type="Node3D" parent="."]
-transform = Transform3D(-0.575109, 0.179155, -0.798219, 0.0085363, 0.976987, 0.213129, 0.818033, 0.115759, -0.563403, -14.2151, 3.60814, -9.8481)
+transform = Transform3D(-0.715775, 0.396396, -0.574923, -0.010359, 0.817163, 0.576314, 0.698255, 0.418467, -0.580799, -14.1913, 4.75754, -9.76153)
 script = ExtResource("2_4q7qq")
 tween_resource = ExtResource("11_7osvu")
+camera_3d_resource = SubResource("Resource_lex12")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="ShotTrigger" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("10_y6me3")]
@@ -347,8 +389,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2367, 1.5933, -8.51904)
 camera = NodePath("../ShelvesRightShot")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ShotTrigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20947, -0.067627, 0.63428)
+transform = Transform3D(0.999985, 0, -0.00553267, 0, 1, 0, 0.00553267, 0, 0.999985, 0.468917, -0.067627, 0.676788)
 shape = SubResource("BoxShape3D_lex12")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ShotTrigger"]
+transform = Transform3D(-0.0056723, 0, -0.999984, 0, 1, 0, 0.999984, 0, -0.0056723, 1.76941, -0.067627, 4.9139)
+shape = SubResource("BoxShape3D_lex12")
+
+[node name="FridgeCorridorShot" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.06, 2.91997, -7.97048)
+top_level = true
+script = ExtResource("2_4q7qq")
+follow_mode = 5
+follow_target = NodePath("../Player")
+tween_resource = ExtResource("11_7osvu")
+tween_on_load = false
+inactive_update_mode = 1
+camera_3d_resource = SubResource("Resource_2n2gr")
+follow_offset = Vector3(0, 1.75, 0)
+follow_axis_lock = 6
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="ShotTrigger" parent="FridgeCorridorShot" node_paths=PackedStringArray("camera") instance=ExtResource("10_y6me3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.90362, 2.76925, -8.25155)
+shot_priority = 0
+camera = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FridgeCorridorShot/ShotTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.657429, -1.18864, 0.259927)
+shape = SubResource("BoxShape3D_7osvu")
+debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="FridgeDollyShot" type="Node3D" parent="." node_paths=PackedStringArray("follow_target", "follow_path")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.58085, 2.45148, -5.915)
@@ -359,7 +429,7 @@ follow_target = NodePath("../Player")
 follow_path = NodePath("Path3D")
 tween_resource = SubResource("Resource_y6me3")
 tween_on_load = false
-camera_3d_resource = SubResource("Resource_7v8ig")
+camera_3d_resource = SubResource("Resource_kbjfv")
 follow_damping = true
 follow_axis_lock = 2
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
@@ -379,53 +449,23 @@ active = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0936, 0.53949, -1.85266)
 shape = SubResource("BoxShape3D_y6me3")
 
-[node name="FridgeCorridorShot" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.06, 2.91997, -7.97048)
-top_level = true
-script = ExtResource("2_4q7qq")
-follow_mode = 5
-follow_target = NodePath("../Player")
-tween_resource = ExtResource("11_7osvu")
-tween_on_load = false
-inactive_update_mode = 1
-follow_offset = Vector3(0, 1.75, 0)
-follow_axis_lock = 6
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="ShotTrigger" parent="FridgeCorridorShot" node_paths=PackedStringArray("camera", "linked_shot") instance=ExtResource("10_y6me3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.90362, 2.76925, -8.25155)
-shot_priority = 2
-one_shot = true
-camera = NodePath("..")
-linked_shot = NodePath("../../FridgeDollyShot/ShotTrigger")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FridgeCorridorShot/ShotTrigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.657429, -1.18864, 0.259927)
-shape = SubResource("BoxShape3D_7osvu")
-debug_color = Color(0, 0.6, 0.701961, 1)
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="FridgeCorridorShot/ShotTrigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11448, -1.18864, 0.28898)
-shape = SubResource("BoxShape3D_rqq8y")
-debug_color = Color(0, 0.6, 0.701961, 1)
-
 [node name="FridgeCornerShot" type="Node3D" parent="."]
-transform = Transform3D(-0.132987, -0.250111, 0.959041, 1.49011e-08, 0.967635, 0.252352, -0.991117, 0.0335596, -0.128683, 2.72856, 4.66896, -9.97774)
+transform = Transform3D(0.145484, -0.243672, 0.958884, -0.00341848, 0.969066, 0.246778, -0.989354, -0.0391802, 0.140151, 2.72856, 2.69327, -6.24931)
 script = ExtResource("2_4q7qq")
 look_at_mode = 3
 tween_resource = SubResource("Resource_75kdm")
-camera_3d_resource = SubResource("Resource_r8h7o")
+camera_3d_resource = SubResource("Resource_bx8v1")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="ShotTriggerInitial" parent="FridgeCornerShot" node_paths=PackedStringArray("camera", "linked_shot") instance=ExtResource("10_y6me3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45836, 2.04273, -7.89301)
-shot_priority = 2
+shot_priority = 0
 one_shot = true
 camera = NodePath("..")
 linked_shot = NodePath("../ShotTrigger2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FridgeCornerShot/ShotTriggerInitial"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00293326, -0.690938, -0.0400915)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.366535, -0.690938, -0.0817232)
 shape = SubResource("BoxShape3D_owbdd")
 
 [node name="ShotTrigger2" parent="FridgeCornerShot" node_paths=PackedStringArray("camera") instance=ExtResource("10_y6me3")]
@@ -452,7 +492,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.61892, 1.36944, -7.94607)
 camera = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AbattoirOpeningShot/ShotTrigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98959, 0.441833, 0.705482)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76153, 0.441833, 0.705482)
+shape = SubResource("BoxShape3D_75kdm")
+
+[node name="AbattoirOpeningShot" type="Node3D" parent="AbattoirOpeningShot"]
+transform = Transform3D(-0.602459, 0.150611, -0.783812, -0.527849, 0.66143, 0.532814, 0.598683, 0.734732, -0.318983, -10.3284, 8.07084, -7.96834)
+script = ExtResource("2_4q7qq")
+tween_resource = ExtResource("11_7osvu")
+tween_on_load = false
+camera_3d_resource = SubResource("Resource_ga2bi")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="ShotTrigger" parent="AbattoirOpeningShot/AbattoirOpeningShot" node_paths=PackedStringArray("camera") instance=ExtResource("10_y6me3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.44534, 3.24562, -3.46883)
+camera = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AbattoirOpeningShot/AbattoirOpeningShot/ShotTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43329, -2.02906, 3.0409)
 shape = SubResource("BoxShape3D_75kdm")
 
 [connection signal="abattoir_fridge_door_opened" from="NavigationRegion3D/Fridge" to="." method="_on_fridge_abattoir_fridge_door_opened"]
