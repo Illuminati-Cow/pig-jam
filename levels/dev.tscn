@@ -1,9 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://pidibbjycllu"]
+[gd_scene load_steps=31 format=3 uid="uid://pidibbjycllu"]
 
 [ext_resource type="Script" uid="uid://di5uw2k8bytm4" path="res://scripts/dev.torch" id="1_mp74a"]
 [ext_resource type="PackedScene" uid="uid://dxw7cledbpiia" path="res://addons/proto-csgs/proto_csg_box_3d.tscn" id="1_x8peg"]
 [ext_resource type="Texture2D" uid="uid://cej3yoosomfd2" path="res://addons/proto-csgs/textures/dark/texture_13.png" id="2_2it8a"]
-[ext_resource type="Material" uid="uid://b12qc2augolq8" path="res://materials/prototype_material.tres" id="2_8etgp"]
 [ext_resource type="Script" uid="uid://b1unx03vcgyv6" path="res://addons/proto_shape/proto_ramp/proto_ramp.gd" id="3_hqxoo"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_35d1g"]
 [ext_resource type="PackedScene" uid="uid://gy25w82lmvhy" path="res://entities/player.tscn" id="4_273jf"]
@@ -47,20 +46,7 @@ near = 0.05
 far = 4000.0
 metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_hvsbd"]
-vertices = PackedVector3Array(2.75, 1.5, -6.83704, 4.5, 1.5, -6.83704, 4.5, 1.5, -59.337, 2.25, 1.5, -6.33704, -59.25, 1.5, -59.337, -59.25, 1.5, -4.33704, 2.25, 1.5, -4.33704, 7, 1.5, -6.33704, 7, 1.5, -4.83704, 59.25, 1.5, -5.08704, 6.5, 1.5, -6.83704, 59.25, 1.5, -59.337, 3.75, 3.5, -5.33704, 3.75, 3.5, -0.587036, 5.25, 3.5, -0.587036, 5.25, 3.5, -5.33704, 4, 1.5, -5.08704, 4, 1.5, -0.837036, 5.25, 1.5, -0.837036, 5.25, 1.5, -5.08704, 7, 1.5, -0.0870361, 59.25, 1.5, 0.162964, -59.25, 1.5, -1.58704, 2.25, 1.5, -1.58704, 3.75, 1.5, 59.163, 3.75, 1.5, 1.66296, 2.25, 1.5, 0.412964, -59.25, 1.5, 59.163, 7, 1.5, 1.41296, 6.5, 1.5, 1.66296, 6.5, 1.5, 59.163, 59.25, 1.5, 59.163, 4.75, 2, 0.912964, 4.5, 1.75, 1.66296)
-polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(0, 3, 2), PackedInt32Array(2, 3, 4), PackedInt32Array(4, 3, 5), PackedInt32Array(3, 6, 5), PackedInt32Array(9, 8, 7), PackedInt32Array(10, 1, 2), PackedInt32Array(7, 10, 9), PackedInt32Array(9, 10, 11), PackedInt32Array(11, 10, 2), PackedInt32Array(15, 14, 12), PackedInt32Array(12, 14, 13), PackedInt32Array(19, 18, 16), PackedInt32Array(16, 18, 17), PackedInt32Array(8, 9, 20), PackedInt32Array(20, 9, 21), PackedInt32Array(5, 6, 22), PackedInt32Array(22, 6, 23), PackedInt32Array(25, 24, 26), PackedInt32Array(26, 24, 27), PackedInt32Array(26, 27, 22), PackedInt32Array(22, 23, 26), PackedInt32Array(28, 20, 21), PackedInt32Array(28, 21, 29), PackedInt32Array(29, 21, 30), PackedInt32Array(30, 21, 31), PackedInt32Array(32, 29, 33), PackedInt32Array(33, 29, 30), PackedInt32Array(33, 30, 24), PackedInt32Array(24, 25, 33)]
-agent_radius = 0.75
-
-[sub_resource type="BoxMesh" id="BoxMesh_5g1ut"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_g3ky8"]
-size = Vector3(119.997, 1, 120)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_6ip0e"]
-size = Vector3(2.0061, 2.37891, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_604n7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1sof2"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("2_2it8a")
 uv1_offset = Vector3(0.5, 0.5, 0.5)
@@ -68,13 +54,6 @@ uv1_triplanar = true
 uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ip0e"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("2_2it8a")
-uv1_offset = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-uv1_world_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etbdi"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("2_2it8a")
 uv1_offset = Vector3(0.5, 0.5, 0.5)
@@ -94,6 +73,82 @@ func _physics_process(delta: float) -> void:
 	update_tree(BehaviorTreeData.create_from_bt_instance(bt.get_bt_instance()))
 "
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_o3qqi"]
+vertices = PackedVector3Array(6.13326, 2.17728, -34.5067, 5.83326, 2.17728, -34.3067, 5.83326, 2.17728, -33.7067, 17.0333, 2.17728, -33.7067, 17.0333, 2.17728, -34.2067, 16.5333, 2.17728, -34.4067, 16.5333, 2.17728, -33.5067, 6.13326, 2.17728, -33.5067, 16.5333, 2.17728, -32.2067, 6.13326, 2.17728, -32.2067, 16.5333, 2.17728, -35.8067, 6.13326, 2.17728, -35.8067, 17.4333, 2.17728, -33.5067, 21.7333, 2.17728, -32.4067, 21.7333, 2.17728, -35.8067, 17.4333, 2.17728, -34.4067, 17.4333, 2.17728, -35.8067, 17.4333, 2.17728, -32.3067, 26.0333, 2.17728, -26.3067, 26.0333, 2.17728, -25.7067, 33.9333, 2.17728, -25.8067, 25.4333, 2.17728, -26.5067, 33.9333, 2.17728, -35.8067, 25.4333, 2.17728, -35.8067, 23.3333, 3.07728, -32.0067, 23.3333, 3.07728, -31.4067, 24.8333, 3.07728, -31.5067, 23.1333, 3.07728, -32.2067, 24.8333, 3.07728, -35.6067, 22.3333, 3.07728, -35.6067, 22.3333, 3.07728, -32.2067, 24.0333, 2.17728, -21.1067, 24.0333, 2.17728, -21.9067, 23.2333, 2.17728, -21.9067, 17.4333, 2.17728, -21.1067, 23.0333, 2.17728, -22.1067, 23.0333, 2.17728, -25.8067, 22.7333, 2.17728, -26.0067, 21.7333, 2.17728, -31.8067, 21.9333, 2.17728, -31.6067, 22.7333, 2.17728, -31.6067, 23.3333, 3.07728, -28.4067, 24.8333, 3.07728, -28.4067, 14.3333, 2.17728, -29.2067, 14.3333, 2.17728, -25.9067, 16.5333, 2.17728, -25.9067, 16.5333, 2.17728, -29.2067, 23.3333, 5.37728, -27.8067, 23.3333, 5.37728, -26.4067, 24.8333, 5.37728, -26.4067, 24.8333, 5.37728, -27.8067, 23.4333, 2.17728, -27.3067, 23.4333, 2.17728, -26.5067, 24.7333, 2.17728, -26.5067, 24.7333, 2.17728, -27.3067, 23.6333, 3.27728, -25.8067, 23.6333, 3.27728, -22.5067, 25.4333, 3.47728, -22.5067, 25.4333, 3.47728, -25.9067, 25.8333, 2.17728, -21.9067, 33.9333, 2.17728, -21.1067, 26.0333, 2.17728, -22.1067)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(3, 5, 4), PackedInt32Array(2, 0, 7), PackedInt32Array(7, 0, 5), PackedInt32Array(7, 5, 6), PackedInt32Array(6, 5, 3), PackedInt32Array(9, 7, 8), PackedInt32Array(8, 7, 6), PackedInt32Array(11, 10, 0), PackedInt32Array(0, 10, 5), PackedInt32Array(4, 15, 3), PackedInt32Array(3, 15, 12), PackedInt32Array(12, 15, 13), PackedInt32Array(13, 15, 14), PackedInt32Array(15, 16, 14), PackedInt32Array(12, 13, 17), PackedInt32Array(20, 19, 18), PackedInt32Array(18, 21, 20), PackedInt32Array(20, 21, 23), PackedInt32Array(20, 23, 22), PackedInt32Array(26, 25, 24), PackedInt32Array(24, 27, 26), PackedInt32Array(26, 27, 28), PackedInt32Array(28, 27, 29), PackedInt32Array(27, 30, 29), PackedInt32Array(32, 31, 33), PackedInt32Array(33, 31, 34), PackedInt32Array(37, 36, 35), PackedInt32Array(17, 13, 38), PackedInt32Array(38, 39, 17), PackedInt32Array(17, 39, 37), PackedInt32Array(17, 37, 35), PackedInt32Array(17, 35, 34), PackedInt32Array(39, 40, 37), PackedInt32Array(35, 33, 34), PackedInt32Array(41, 25, 42), PackedInt32Array(42, 25, 26), PackedInt32Array(46, 45, 43), PackedInt32Array(43, 45, 44), PackedInt32Array(50, 49, 47), PackedInt32Array(47, 49, 48), PackedInt32Array(54, 53, 51), PackedInt32Array(51, 53, 52), PackedInt32Array(56, 55, 57), PackedInt32Array(57, 55, 58), PackedInt32Array(32, 59, 31), PackedInt32Array(31, 59, 60), PackedInt32Array(19, 20, 61), PackedInt32Array(61, 20, 60), PackedInt32Array(60, 59, 61)]
+geometry_parsed_geometry_type = 1
+geometry_collision_mask = 4294901764
+cell_size = 0.1
+cell_height = 0.1
+agent_radius = 0.25
+region_min_size = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onkwo"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_2it8a")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gquol"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_2it8a")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="GDScript" id="GDScript_f2h1y"]
+resource_name = "Fridge"
+script/source = "extends Node3D
+
+signal abattoir_fridge_door_opened
+
+
+func _on_fridge_door_trigger_interacted() -> void:
+	abattoir_fridge_door_opened.emit()
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s2g7h"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_2it8a")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qdcqs"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_2it8a")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="GDScript" id="GDScript_25ab6"]
+script/source = "class_name Interactable
+extends Node3D
+
+signal interacted
+
+func interact():
+	interacted.emit()
+"
+
+[sub_resource type="GDScript" id="GDScript_e4w4d"]
+resource_name = "FridgeDoorTrigger"
+script/source = "extends Area3D
+
+var interactable : Interactable
+
+func _ready() -> void:
+	interactable = get_parent()
+
+func _on_body_entered(body: Node3D) -> void:
+	if !\"pig\" in body.name.to_lower():
+		return
+	interactable.interacted.emit()
+	set_process(false)
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e4w4d"]
+
 [node name="Dev" type="Node3D"]
 script = ExtResource("1_mp74a")
 
@@ -105,25 +160,26 @@ shadow_enabled = true
 environment = SubResource("Environment_x8peg")
 
 [node name="Player" parent="." instance=ExtResource("4_273jf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01, 1.8746, 3.252)
+transform = Transform3D(-0.0766321, 0, 0.997059, 0, 1, 0, -0.997059, 0, -0.0766321, 13.7636, 2.0746, -33.4833)
 input_ray_pickable = false
+debug_path = true
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 3.01, 5.5446, 6.082)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 13.7636, 5.7446, -31.8233)
 top_level = true
 script = ExtResource("4_35d1g")
 follow_mode = 2
 follow_target = NodePath("../Player")
 tween_resource = SubResource("Resource_273jf")
 camera_3d_resource = SubResource("Resource_t7ade")
-follow_offset = Vector3(0, 3.67, 2.83)
+follow_offset = Vector3(0, 3.67, 1.66)
 follow_damping = true
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 3.01, 5.5446, 6.082)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 13.7636, 5.7446, -31.8233)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
 process_priority = 300
@@ -131,75 +187,32 @@ process_physics_priority = 300
 script = ExtResource("7_t7ade")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("NavigationMesh_hvsbd")
-
-[node name="Floor" type="StaticBody3D" parent="NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-collision_layer = 5
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Floor"]
-transform = Transform3D(120, 0, 0, 0, 1, 0, 0, 0, 120, 0, 0, 0)
-material_override = ExtResource("2_8etgp")
-mesh = SubResource("BoxMesh_5g1ut")
-skeleton = NodePath("../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0059879, 0, -0.0870361)
-shape = SubResource("BoxShape3D_g3ky8")
-
-[node name="ProtoRamp" type="Node3D" parent="NavigationRegion3D"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4, 1, 0)
-script = ExtResource("3_hqxoo")
-type = 0
-collisions_enabled = false
-width = 2.0
-height = 1.0
-depth = 2.001
-anchor = 7
-anchor_fixed = true
-fill = 1.0
-material = ExtResource("2_8etgp")
-metadata/_custom_type_script = "uid://b1unx03vcgyv6"
-
-[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/ProtoRamp"]
-collision_layer = 5
-metadata/material = "metal"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/ProtoRamp/StaticBody3D"]
-transform = Transform3D(1, 7.81024e-08, -4.81448e-08, -7.81024e-08, 0.449288, -0.893387, -4.81448e-08, 0.893387, 0.449288, -1.0058, 0.0187764, -0.841179)
-shape = SubResource("BoxShape3D_6ip0e")
-
-[node name="ProtoCSGBox3D3" parent="NavigationRegion3D" instance=ExtResource("1_x8peg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.003, -3.005)
-size = Vector3(3, 2, 6)
-material = SubResource("StandardMaterial3D_604n7")
-
 [node name="Rails" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.729172, 0)
+visible = false
 
 [node name="MeatHook" parent="Rails" instance=ExtResource("11_mp74a")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.7431, 4.05253, -3)
 
 [node name="HangerRail" parent="Rails" instance=ExtResource("12_mp74a")]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -5.4808, 4.14703, -3)
-surface_material_override/0 = SubResource("StandardMaterial3D_6ip0e")
+surface_material_override/0 = SubResource("StandardMaterial3D_1sof2")
 
 [node name="Junction" parent="Rails/HangerRail" instance=ExtResource("13_1sof2")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="HangerRail2" parent="Rails" instance=ExtResource("12_mp74a")]
 transform = Transform3D(-7.35137e-08, 0, -1, 0, 1, 0, 1, 0, -7.35137e-08, -2.57854, 4.14703, -3)
-surface_material_override/0 = SubResource("StandardMaterial3D_etbdi")
+surface_material_override/0 = SubResource("StandardMaterial3D_6ip0e")
 
 [node name="Pig" parent="." instance=ExtResource("14_6ip0e")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3.02829, 0.919417, 5.76316)
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 21.2747, 1.91942, -27.5016)
 run_speed = 5.0
 max_acceleration = 20.0
-ride_height = 0.055
 debug_path = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 follow_viewport_enabled = true
 
 [node name="BehaviorTreeView" type="BehaviorTreeView" parent="CanvasLayer"]
@@ -212,4 +225,619 @@ grow_horizontal = 0
 grow_vertical = 2
 script = SubResource("GDScript_etbdi")
 
+[node name="NavigationRegion3D2" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_o3qqi")
+navigation_layers = 3
+
+[node name="ProtoCSGBox3D" parent="NavigationRegion3D2" instance=ExtResource("1_x8peg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, -34)
+material = SubResource("StandardMaterial3D_onkwo")
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="NavigationRegion3D2/ProtoCSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.059, 0)
+radius = 1.6
+avoidance_layers = 3
+
+[node name="Abattoir" type="Node3D" parent="NavigationRegion3D2"]
+transform = Transform3D(1, 0, 9.31323e-09, 0, 1, -3.72529e-09, 0, -3.72529e-09, 1, 14, 1, -26)
+
+[node name="CSGBox3D51" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30246e-08, -6.00804e-17, -1, 3.72529e-09, 1.7317, -1.62838e-16, 1, 6.45108e-09, -4.37114e-08, 11.2157, 1.65631, 1.80714)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+collision_layer = 7
+size = Vector3(3.8413, 0.757991, 0.866943)
+
+[node name="Floor" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30246e-08, -6.00804e-17, -1, 3.72529e-09, 1.7317, -1.62838e-16, 1, 6.45108e-09, -4.37114e-08, 11.7706, 0.941139, -2.47313)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+collision_layer = 7
+collision_mask = 5
+size = Vector3(15.8281, 0.0679768, 17.3327)
+
+[node name="OfficeFloor" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30246e-08, -6.00804e-17, -1, 3.72529e-09, 1.7317, -1.62838e-16, 1, 6.45108e-09, -4.37114e-08, 1.4799, 0.946745, -1.55557)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+collision_layer = 7
+size = Vector3(4.23962, 0.0618122, 3.23759)
+
+[node name="CSGBox3D52" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30246e-08, -6.00804e-17, -1, 3.72529e-09, 1.7317, -1.62838e-16, 1, 6.45108e-09, -4.37114e-08, 8.81045, 1.08337, 2.43812)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(0.478271, 0.0982473, 0.47168)
+
+[node name="CSGBox3D53" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-2.22108e-10, -9.18219e-08, -1, -0.999991, 0.00725354, -1.62838e-16, 0.00418882, 1.73168, -4.37114e-08, 5.44414, 6.70686, -6.00917)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(5.21831, 0.0498047, 0.178711)
+
+[node name="CSGBox3D54" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-2.22108e-10, -9.18219e-08, -1, -0.999991, 0.00725354, -1.62838e-16, 0.00418882, 1.73168, -4.37114e-08, 5.44414, 6.74049, 2.02013)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(5.21831, 0.0498047, 0.178711)
+
+[node name="CSGBox3D55" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-2.22108e-10, -9.18219e-08, -1, -0.999991, 0.00725354, -1.62838e-16, 0.00418882, 1.73168, -4.37114e-08, 10.0809, 5.99065, -3.59794)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(6.67091, 0.0498047, 0.178711)
+
+[node name="CSGBox3D56" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-2.22108e-10, -9.18219e-08, -1, -0.999991, 0.00725354, -1.62838e-16, 0.00418882, 1.73168, -4.37114e-08, 10.0809, 6.68213, 0.936162)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(5.32595, 0.0498047, 0.178711)
+
+[node name="CSGBox3D57" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(0.757975, 5.91423e-10, -0.652284, 0.00273234, 1.73168, 0.00317492, 0.652278, -0.00725355, 0.757968, 5.09048, 4.08381, -7.7002)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(1.08212, 0.0498047, 0.178711)
+
+[node name="CSGBox3D59" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-4.79188e-08, -3.93136e-08, -1, -0.428147, 1.56495, -1.62838e-16, 0.903709, 0.741422, -4.37114e-08, 10.0638, 3.35521, -5.11132)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(3.4036, 0.0498047, 0.178711)
+
+[node name="CSGBox3D60" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-2.22108e-10, -9.18219e-08, -1, -0.999991, 0.00725354, -1.62838e-16, 0.00418882, 1.73168, -4.37114e-08, 10.0809, 6.71121, -6.66482)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(5.20411, 0.0498047, 0.178711)
+
+[node name="CSGBox3D61" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30246e-08, -6.00804e-17, -1, 3.72529e-09, 1.7317, -1.62838e-16, 1, 6.45108e-09, -4.37114e-08, 8.51887, 1.47793, -7.91423)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+collision_layer = 7
+size = Vector3(3.8413, 0.551969, 0.866943)
+
+[node name="CSGBox3D62" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-2.22108e-10, -9.18219e-08, -1, -0.999991, 0.00725354, -1.62838e-16, 0.00418882, 1.73168, -4.37114e-08, 5.44414, 6.72326, -2.09402)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(5.21831, 0.0498047, 0.178711)
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30246e-08, -6.00804e-17, -1, 3.72529e-09, 1.7317, -1.62838e-16, 1, 6.45108e-09, -4.37114e-08, 10.0638, 1.4426, -5.75825)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+collision_layer = 7
+size = Vector3(8.17469, 0.511169, 2.04004)
+
+[node name="StunSqueezeChute" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-0.866025, -0.86585, 9.6736e-08, -0.5, 1.4997, -3.72529e-09, -7.26e-08, -7.64435e-08, -1, 18.8731, 3.36218, 1.99275)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(4.5428, 1.28985, 1.67261)
+
+[node name="Boolean" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir/StunSqueezeChute"]
+transform = Transform3D(1, 2.38419e-07, -7.10543e-15, 1.78571e-15, 1, 0, 6.46594e-12, -7.10543e-15, 1, 0.00963783, 0.0139723, -0.00498223)
+material_override = SubResource("StandardMaterial3D_gquol")
+operation = 2
+use_collision = true
+size = Vector3(4.58809, 1.0834, 1.48912)
+
+[node name="Boolean2" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir/StunSqueezeChute"]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -2.35581, -0.411127, -0.0291672)
+material_override = SubResource("StandardMaterial3D_gquol")
+operation = 2
+use_collision = true
+size = Vector3(0.415443, 1.0834, 1.82464)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir/StunSqueezeChute"]
+transform = Transform3D(-0.866025, -0.5, -8.19132e-08, -0.288734, 0.500101, -2.9794e-08, 8.49452e-08, -1.9295e-09, -1, 2.57976, -0.0452371, 0.774706)
+size = Vector3(1.5, 1, 0.074)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir/StunSqueezeChute"]
+transform = Transform3D(-0.866025, -0.5, -8.19132e-08, -0.288734, 0.500101, -2.9794e-08, 8.49452e-08, -1.9295e-09, -1, 2.49315, -0.0741106, -0.793615)
+size = Vector3(1.5, 1, 0.074)
+
+[node name="CSGBox3D34" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30246e-08, -6.00804e-17, -1, 3.72529e-09, 1.7317, -1.62838e-16, 1, 6.45108e-09, -4.37114e-08, 4.82826, 2.1566, -10.0461)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(0.304384, 0.511169, 0.603149)
+
+[node name="CSGBox3D35" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30246e-08, -6.00804e-17, -1, 3.72529e-09, 1.7317, -1.62838e-16, 1, 6.45108e-09, -4.37114e-08, 10.0638, 2.58874, -1.13746)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+collision_layer = 5
+size = Vector3(1.87622, 1.83488, 2.04004)
+
+[node name="CSGBox3D36" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30246e-08, -6.00804e-17, -1, 3.72529e-09, 1.7317, -1.62838e-16, 1, 6.45108e-09, -4.37114e-08, 10.0638, 1.55942, 1.80714)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+collision_layer = 7
+size = Vector3(3.8413, 0.646085, 1.26953)
+
+[node name="CSGBox3D37" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-3.20498e-08, -7.31511e-08, -1, -0.796657, 1.0467, -1.62838e-16, 0.604432, 1.37957, -4.37114e-08, 10.0638, 1.93998, 4.29699)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(2.04382, 0.391704, 1.31934)
+
+[node name="CSGBox3D38" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30246e-08, -6.00804e-17, -1, 3.72529e-09, 1.7317, -1.62838e-16, 1, 6.45108e-09, -4.37114e-08, 1.20747, 1.24864, -1.79573)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(1.87879, 0.287155, 0.78479)
+
+[node name="CSGBox3D39" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-0.287009, -6.00804e-17, -0.957928, 3.56856e-09, 1.7317, -1.06919e-09, 0.957928, 6.45108e-09, -0.287009, 2.04652, 1.1332, 0.0282028)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(0.401337, 0.153831, 1.09564)
+
+[node name="CSGBox3D40" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-4.76566e-08, -4.02582e-08, -1, -0.438434, 1.55639, -1.62838e-16, 0.898764, 0.759236, -4.37114e-08, 10.0638, 3.11644, 3.105)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(1.52768, 0.0498047, 0.178711)
+
+[node name="CSGBox3D41" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-4.91337e-08, -3.45252e-08, -1, -0.375998, 1.60463, -1.62838e-16, 0.926621, 0.651116, -4.37114e-08, 10.0638, 3.66108, 1.88689)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(1.34222, 0.0498047, 0.178711)
+
+[node name="CSGBox3D42" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.24477e-08, -1.35089e-08, -1, -0.147119, 1.71286, -1.62838e-16, 0.989119, 0.254766, -4.37114e-08, 10.0638, 4.01266, 0.526659)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(1.56808, 0.0498047, 0.178711)
+
+[node name="CSGBox3D43" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30241e-08, 3.84621e-10, -1, 0.00418881, 1.73168, -1.62838e-16, 0.999991, -0.00725355, -4.37114e-08, 10.0638, 2.63957, -2.80025)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(1.56808, 0.0498047, 0.178711)
+
+[node name="CSGBox3D44" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(0.933873, -0.178568, 0.342414, 0.311757, 1.21881, -0.638308, -0.175179, 1.21712, 0.689431, 9.05144, 1.20644, 4.59937)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(1.34222, 0.0498047, 0.178711)
+
+[node name="CSGBox3D45" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30241e-08, 3.84621e-10, -1, 0.00418881, 1.73168, -1.62838e-16, 0.999991, -0.00725355, -4.37114e-08, 10.0638, 4.08035, -8.52507)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(3.80385, 0.0498047, 0.178711)
+
+[node name="CSGBox3D46" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.3021e-08, 1.07692e-09, -1, 0.0117283, 1.73158, -1.62838e-16, 0.999931, -0.0203099, -4.37114e-08, 10.0638, 4.10909, -9.0971)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(2.04382, 0.391704, 1.31934)
+
+[node name="CSGBox3D47" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-1, 6.7554e-11, 9.67355e-08, 1.21072e-07, 1.73168, -0.00418869, -8.79281e-08, -0.00725355, -0.999991, 11.5348, 4.07741, -9.22782)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(2.89828, 0.0498047, 0.178711)
+
+[node name="CSGBox3D48" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30241e-08, 3.84621e-10, -1, 0.00418881, 1.73168, -1.62838e-16, 0.999991, -0.00725355, -4.37114e-08, 5.44414, 4.10508, -2.62218)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(9.53622, 0.0498047, 0.178711)
+
+[node name="CSGBox3D49" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(0.965124, -0.00616189, -0.261767, -0.00149199, 1.73138, -0.0190915, 0.261787, 0.0325843, 0.964942, 6.59011, 1.06023, 4.20132)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(3.71994, 0.0498047, 0.178711)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(1, -3.46945e-17, -9.31323e-09, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1, 9.95106, 2.40577, 1.79036)
+radius = 0.784668
+height = 0.205566
+
+[node name="CSGBox3D50" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30246e-08, -6.00804e-17, -1, 3.72529e-09, 1.7317, -1.62838e-16, 1, 6.45108e-09, -4.37114e-08, 8.81045, 1.46034, 1.78524)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+size = Vector3(1.19751, 0.531661, 0.868896)
+
+[node name="ProtoRamp2" type="Node3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-2.2787e-07, -3.46945e-17, -1, 3.72529e-09, 1, -8.14188e-16, 1, 3.72529e-09, -2.18557e-07, 11.6751, 1.01313, 2.85469)
+script = ExtResource("3_hqxoo")
+type = 0
+collisions_enabled = true
+width = 2.0
+height = 1.36142
+depth = 1.99957
+anchor = 7
+anchor_fixed = true
+fill = 1.0
+material = SubResource("StandardMaterial3D_gquol")
+metadata/_custom_type_script = "uid://b1unx03vcgyv6"
+
+[node name="ProtoRamp" type="Node3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(1.40447e-07, -3.46945e-17, 1, -3.72529e-09, 1, 4.88512e-16, -1, 3.72529e-09, 1.31134e-07, 8.04516, 1.01313, -9.10302)
+script = ExtResource("3_hqxoo")
+type = 0
+collisions_enabled = true
+width = 2.0
+height = 1.0
+depth = 2.001
+anchor = 7
+anchor_fixed = true
+fill = 1.0
+material = SubResource("StandardMaterial3D_gquol")
+metadata/_custom_type_script = "uid://b1unx03vcgyv6"
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30246e-08, -6.00804e-17, -1, 3.72529e-09, 1.7317, -1.62838e-16, 1, 6.45108e-09, -4.37114e-08, 3.00983, 5.90595, -1.70709)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+collision_layer = 5
+size = Vector3(2.04397, 3.71765, 0.242188)
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30246e-08, -6.00804e-17, -1, 3.72529e-09, 1.7317, -1.62838e-16, 1, 6.45108e-09, -4.37114e-08, 1.4473, 2.9506, -3.65724)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+collision_layer = 5
+size = Vector3(0.241049, 2.25281, 2.87869)
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30246e-08, -6.00804e-17, -1, 3.72529e-09, 1.7317, -1.62838e-16, 1, 6.45108e-09, -4.37114e-08, 1.4473, 2.9506, 0.608439)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+collision_layer = 5
+size = Vector3(0.241049, 2.25281, 2.87869)
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-1, -6.00804e-17, 9.6736e-08, -3.25675e-16, 1.7317, -3.72529e-09, -8.74228e-08, 6.45108e-09, -1, -0.116891, 2.9506, -1.52543)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+collision_layer = 5
+size = Vector3(0.241049, 2.25281, 4.49648)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30246e-08, -6.00804e-17, -1, 3.72529e-09, 1.7317, -1.62838e-16, 1, 6.45108e-09, -4.37114e-08, 3.00983, 5.32925, 2.84545)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+collision_layer = 5
+size = Vector3(5.23436, 5, 0.242188)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(1, -6.00804e-17, -9.31323e-09, 0, 1.7317, 3.72529e-09, 0, 6.45108e-09, 1, 11.6326, 5.32925, -10.2544)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+collision_layer = 5
+size = Vector3(17.2167, 5, 0.242188)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(1, -6.00804e-17, -9.31323e-09, 0, 1.7317, 3.72529e-09, 0, 6.45108e-09, 1, 11.6326, 5.32925, 5.3327)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+collision_layer = 5
+size = Vector3(17.2167, 5, 0.242188)
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30246e-08, -6.00804e-17, -1, 3.72529e-09, 1.7317, -1.62838e-16, 1, 6.45108e-09, -4.37114e-08, 20.3673, 5.32925, -2.45663)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+collision_layer = 5
+size = Vector3(15.8385, 5, 0.242188)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir/CSGBox3D23"]
+transform = Transform3D(-4.37114e-08, -3.72529e-09, 1, -2.06353e-22, 0.577467, -2.15123e-09, -1, 1.62837e-16, -5.30246e-08, 4.45644, -0.735208, 0)
+operation = 2
+size = Vector3(1, 1.95925, 1.58296)
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.7317, 0, 1, 0, -4.37114e-08, 3.00983, 5.77897, -0.0945044)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+collision_layer = 5
+size = Vector3(0.709227, 3.99316, 0.242188)
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30246e-08, -6.00804e-17, -1, 3.72529e-09, 1.7317, -1.62838e-16, 1, 6.45108e-09, -4.37114e-08, 3.00983, 5.32925, -4.04945)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+collision_layer = 5
+size = Vector3(2.86088, 5, 0.242188)
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30246e-08, -6.00804e-17, -1, 3.72529e-09, 1.7317, -1.62838e-16, 1, 6.45108e-09, -4.37114e-08, 3.00983, 5.32925, -0.589388)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+collision_layer = 5
+size = Vector3(0.275311, 5, 0.242188)
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(-5.30246e-08, -6.00804e-17, -1, 3.72529e-09, 1.7317, -1.62838e-16, 1, 6.45108e-09, -4.37114e-08, 3.00983, 1.28218, -1.59215)
+material_override = SubResource("StandardMaterial3D_gquol")
+use_collision = true
+collision_layer = 5
+size = Vector3(2.04397, 0.325897, 0.242188)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5404, 1.08743, 1.33021)
+size = Vector3(0.158203, 0.539551, 0.0764771)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5404, 1.08743, 2.68707)
+size = Vector3(0.158203, 0.539551, 0.0764771)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2252, 1.23354, 1.20613)
+size = Vector3(0.158203, 0.539551, 0.0764771)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="NavigationRegion3D2/Abattoir"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2252, 1.23354, 2.8003)
+size = Vector3(0.158203, 0.539551, 0.0764771)
+
+[node name="Fridge" type="Node3D" parent="NavigationRegion3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, -26)
+script = SubResource("GDScript_f2h1y")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="NavigationRegion3D2/Fridge"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.7317, 0, 1, 0, -4.37114e-08, -8.36298, 2.9506, -9.56908)
+material_override = SubResource("StandardMaterial3D_s2g7h")
+use_collision = true
+collision_layer = 5
+size = Vector3(1.87528, 2.25281, 0.20752)
+
+[node name="Floor" type="CSGBox3D" parent="NavigationRegion3D2/Fridge"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.7317, 0, 1, 0, -4.37114e-08, -2.66123, 0.949757, -8.01006)
+material_override = SubResource("StandardMaterial3D_qdcqs")
+use_collision = true
+collision_layer = 7
+size = Vector3(4.42671, 0.0837103, 11.611)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="NavigationRegion3D2/Fridge"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.7317, 0, 1, 0, -4.37114e-08, -8.36298, 3.93475, -8.02593)
+material_override = SubResource("StandardMaterial3D_s2g7h")
+use_collision = true
+collision_layer = 5
+size = Vector3(1.68335, 1.11656, 0.20752)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="NavigationRegion3D2/Fridge"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.7317, 0, 1, 0, -4.37114e-08, -8.36298, 2.9506, -6.4283)
+material_override = SubResource("StandardMaterial3D_s2g7h")
+use_collision = true
+collision_layer = 5
+size = Vector3(1.87528, 2.25281, 0.20752)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="NavigationRegion3D2/Fridge"]
+transform = Transform3D(1, 0, 0, 0, 1.7317, 0, 0, 0, 1, -2.6672, 2.9506, -10.2544)
+material_override = SubResource("StandardMaterial3D_s2g7h")
+use_collision = true
+collision_layer = 5
+size = Vector3(11.3161, 2.25281, 0.242188)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="NavigationRegion3D2/Fridge"]
+transform = Transform3D(1, 0, 0, 0, 1.7317, 0, 0, 0, 1, -2.6672, 2.9506, -5.7396)
+material_override = SubResource("StandardMaterial3D_s2g7h")
+use_collision = true
+collision_layer = 5
+size = Vector3(11.3161, 2.25281, 0.242188)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="NavigationRegion3D2/Fridge"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1.7317, 0, -1, 0, 1.31134e-07, 3.02317, 5.32925, -9.5421)
+material_override = SubResource("StandardMaterial3D_s2g7h")
+use_collision = true
+collision_layer = 5
+size = Vector3(1.87528, 5, 0.20752)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="NavigationRegion3D2/Fridge"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1.7317, 0, -1, 0, 1.31134e-07, 3.02317, 6.29612, -7.99895)
+material_override = SubResource("StandardMaterial3D_s2g7h")
+use_collision = true
+collision_layer = 5
+size = Vector3(1.68335, 3.85828, 0.20752)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="NavigationRegion3D2/Fridge/CSGBox3D14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0258179, -1.86696, 0)
+material_override = SubResource("StandardMaterial3D_s2g7h")
+operation = 2
+use_collision = true
+size = Vector3(0.210571, 0.133904, 0.20752)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="NavigationRegion3D2/Fridge"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1.7317, 0, -1, 0, 1.31134e-07, 3.02317, 5.32925, -6.40133)
+material_override = SubResource("StandardMaterial3D_s2g7h")
+use_collision = true
+collision_layer = 5
+size = Vector3(1.87528, 5, 0.20752)
+
+[node name="FridgeEndDoorRight" type="Node3D" parent="NavigationRegion3D2/Fridge"]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.03748, 1.98696, -7.3658)
+visible = false
+
+[node name="FridgeEndDoorRight" type="CSGBox3D" parent="NavigationRegion3D2/Fridge/FridgeEndDoorRight"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1.7317, 0, -1, 0, -4.37114e-08, 0, 0, -0.288384)
+material_override = SubResource("StandardMaterial3D_s2g7h")
+size = Vector3(0.629333, 1.11656, 0.0760498)
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="NavigationRegion3D2/Fridge/FridgeEndDoorRight/FridgeEndDoorRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305852, -0.572386, -0.100766)
+vertices = PackedVector3Array(0.615, 0, 0, 0, 0, 0, 0, 0, 0.2, 0.615, 0, 0.2)
+avoidance_layers = 3
+
+[node name="FridgeEndDoorLeft" type="Node3D" parent="NavigationRegion3D2/Fridge"]
+process_mode = 4
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 3.03748, 2.16879, -8.57942)
+visible = false
+
+[node name="FridgeEndDoorLeft" type="CSGBox3D" parent="NavigationRegion3D2/Fridge/FridgeEndDoorLeft"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1.7317, 0, -1, 0, -4.37114e-08, 0, -0.18496, -0.292583)
+material_override = SubResource("StandardMaterial3D_s2g7h")
+size = Vector3(0.629333, 1.11656, 0.0760498)
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="NavigationRegion3D2/Fridge/FridgeEndDoorLeft"]
+transform = Transform3D(4.37114e-08, 0, -1, 0, 1.7317, 0, 1, 0, 4.37114e-08, 0.100053, -1.17237, -0.604377)
+vertices = PackedVector3Array(0.615, 0, 0, 0, 0, 0, 0, 0, 0.2, 0.615, 0, 0.2)
+avoidance_layers = 3
+
+[node name="CentralHangerRail" parent="NavigationRegion3D2/Fridge" instance=ExtResource("12_mp74a")]
+transform = Transform3D(1.39091e-08, 0, -2.35984, 0, 1, 0, 1, 0, 3.28233e-08, -1.3429, 3.085, -7.972)
+
+[node name="HangerRail2" parent="NavigationRegion3D2/Fridge/CentralHangerRail" instance=ExtResource("12_mp74a")]
+transform = Transform3D(-4.37114e-08, 0, -0.77, 0, 1, 0, 0.423757, 0, -1.42627e-08, -0.0130048, 2.19345e-05, -1.41658)
+
+[node name="Junction10" parent="NavigationRegion3D2/Fridge/CentralHangerRail" instance=ExtResource("13_1sof2")]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, 4.44089e-16, 0, 1, -4.76837e-07, 0, -1.41644)
+
+[node name="HangerRail3" parent="NavigationRegion3D2/Fridge/CentralHangerRail" instance=ExtResource("12_mp74a")]
+transform = Transform3D(-4.37114e-08, 0, -0.77, 0, 1, 0, 0.423757, 0, -1.42627e-08, -0.0130048, 2.19345e-05, -0.992821)
+
+[node name="Junction9" parent="NavigationRegion3D2/Fridge/CentralHangerRail" instance=ExtResource("13_1sof2")]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, 4.44089e-16, 0, 1, -4.76837e-07, 0, -0.992685)
+
+[node name="HangerRail4" parent="NavigationRegion3D2/Fridge/CentralHangerRail" instance=ExtResource("12_mp74a")]
+transform = Transform3D(-4.37114e-08, 0, -0.77, 0, 1, 0, 0.423757, 0, -1.42627e-08, -0.0130048, 2.19345e-05, -0.569064)
+
+[node name="Junction8" parent="NavigationRegion3D2/Fridge/CentralHangerRail" instance=ExtResource("13_1sof2")]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, 4.44089e-16, 0, 1, -4.76837e-07, 0, -0.568928)
+
+[node name="HangerRail5" parent="NavigationRegion3D2/Fridge/CentralHangerRail" instance=ExtResource("12_mp74a")]
+transform = Transform3D(-4.37114e-08, 0, -0.77, 0, 1, 0, 0.423757, 0, -1.42627e-08, -0.0130048, 2.19345e-05, -0.145307)
+
+[node name="Junction7" parent="NavigationRegion3D2/Fridge/CentralHangerRail" instance=ExtResource("13_1sof2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.145171)
+
+[node name="HangerRail6" parent="NavigationRegion3D2/Fridge/CentralHangerRail" instance=ExtResource("12_mp74a")]
+transform = Transform3D(-4.37114e-08, 0, -0.77, 0, 1, 0, 0.423757, 0, -1.42627e-08, -0.0130048, 2.19345e-05, 0.27845)
+
+[node name="Junction6" parent="NavigationRegion3D2/Fridge/CentralHangerRail" instance=ExtResource("13_1sof2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.278587)
+
+[node name="HangerRail7" parent="NavigationRegion3D2/Fridge/CentralHangerRail" instance=ExtResource("12_mp74a")]
+transform = Transform3D(-4.37114e-08, 0, -0.77, 0, 1, 0, 0.423757, 0, -1.42627e-08, -0.0130048, 2.19345e-05, 0.702207)
+
+[node name="Junction5" parent="NavigationRegion3D2/Fridge/CentralHangerRail" instance=ExtResource("13_1sof2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.702344)
+
+[node name="HangerRail8" parent="NavigationRegion3D2/Fridge/CentralHangerRail" instance=ExtResource("12_mp74a")]
+transform = Transform3D(-4.37114e-08, 0, -0.77, 0, 1, 0, 0.423757, 0, -1.42627e-08, -0.0130048, 2.19345e-05, 1.12596)
+
+[node name="Junction4" parent="NavigationRegion3D2/Fridge/CentralHangerRail" instance=ExtResource("13_1sof2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1261)
+
+[node name="HangerRail9" parent="NavigationRegion3D2/Fridge/CentralHangerRail" instance=ExtResource("12_mp74a")]
+transform = Transform3D(-4.37114e-08, 0, -0.77, 0, 1, 0, 0.423757, 0, -1.42627e-08, -0.0130048, 2.19345e-05, 1.54972)
+
+[node name="Junction3" parent="NavigationRegion3D2/Fridge/CentralHangerRail" instance=ExtResource("13_1sof2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.54986)
+
+[node name="HangerRail10" parent="NavigationRegion3D2/Fridge/CentralHangerRail" instance=ExtResource("12_mp74a")]
+transform = Transform3D(-4.37114e-08, 0, -0.77, 0, 1, 0, 0.423757, 0, -1.42627e-08, -0.0130048, 2.19345e-05, 1.97348)
+
+[node name="Junction2" parent="NavigationRegion3D2/Fridge/CentralHangerRail" instance=ExtResource("13_1sof2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.97361)
+
+[node name="HangerRail11" parent="NavigationRegion3D2/Fridge/CentralHangerRail" instance=ExtResource("12_mp74a")]
+transform = Transform3D(-4.37114e-08, 0, -0.77, 0, 1, 0, 0.423757, 0, -1.42627e-08, -0.0130048, 2.19345e-05, 2.39724)
+
+[node name="Junction" parent="NavigationRegion3D2/Fridge/CentralHangerRail" instance=ExtResource("13_1sof2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.39737)
+
+[node name="Pigs" type="Node3D" parent="NavigationRegion3D2/Fridge/CentralHangerRail"]
+transform = Transform3D(1.39091e-08, 0, 1, 0, 1, 0, -0.423758, 0, 5.89409e-09, 7.972, -3.085, -0.569064)
+
+[node name="HangingPig" parent="NavigationRegion3D2/Fridge/CentralHangerRail/Pigs" instance=ExtResource("11_mp74a")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -1.99905, 2.99975, -15.5465)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig2" parent="NavigationRegion3D2/Fridge/CentralHangerRail/Pigs" instance=ExtResource("11_mp74a")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -0.999045, 2.99975, -14.544)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig3" parent="NavigationRegion3D2/Fridge/CentralHangerRail/Pigs" instance=ExtResource("11_mp74a")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -1.99905, 2.99975, -14.8887)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig4" parent="NavigationRegion3D2/Fridge/CentralHangerRail/Pigs" instance=ExtResource("11_mp74a")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -6.99904, 2.99975, -6.29562)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig11" parent="NavigationRegion3D2/Fridge/CentralHangerRail/Pigs" instance=ExtResource("11_mp74a")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -6.99904, 2.99975, -7.21101)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig5" parent="NavigationRegion3D2/Fridge/CentralHangerRail/Pigs" instance=ExtResource("11_mp74a")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -2.99904, 2.99975, -13.1062)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig6" parent="NavigationRegion3D2/Fridge/CentralHangerRail/Pigs" instance=ExtResource("11_mp74a")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -4.99904, 2.99975, -14.9343)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig7" parent="NavigationRegion3D2/Fridge/CentralHangerRail/Pigs" instance=ExtResource("11_mp74a")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -5.99904, 2.99975, -9.72801)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig8" parent="NavigationRegion3D2/Fridge/CentralHangerRail/Pigs" instance=ExtResource("11_mp74a")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -6.99904, 2.99975, -8.9139)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig9" parent="NavigationRegion3D2/Fridge/CentralHangerRail/Pigs" instance=ExtResource("11_mp74a")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, 1.00096, 2.99975, -9.39325)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig10" parent="NavigationRegion3D2/Fridge/CentralHangerRail/Pigs" instance=ExtResource("11_mp74a")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, 2.00096, 2.99975, -8.71274)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="FridgeDoorTrigger" type="Node3D" parent="NavigationRegion3D2/Fridge/CentralHangerRail"]
+transform = Transform3D(1.39091e-08, 0, 1, 0, 1, 0, -0.423758, 0, 5.89409e-09, -0.0279999, -0.085, -1.8578)
+script = SubResource("GDScript_25ab6")
+metadata/_custom_type_script = "uid://nja0mmweopro"
+
+[node name="Area3D" type="Area3D" parent="NavigationRegion3D2/Fridge/CentralHangerRail/FridgeDoorTrigger"]
+input_ray_pickable = false
+monitorable = false
+script = SubResource("GDScript_e4w4d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D2/Fridge/CentralHangerRail/FridgeDoorTrigger/Area3D"]
+shape = SubResource("BoxShape3D_e4w4d")
+
 [connection signal="footstep" from="Player" to="." method="_on_player_footstep"]
+[connection signal="body_entered" from="NavigationRegion3D2/Fridge/CentralHangerRail/FridgeDoorTrigger/Area3D" to="NavigationRegion3D2/Fridge/CentralHangerRail/FridgeDoorTrigger/Area3D" method="_on_body_entered"]

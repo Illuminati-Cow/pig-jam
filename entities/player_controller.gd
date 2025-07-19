@@ -12,16 +12,17 @@ signal died
 var raycast_this_frame: bool = false
 var ray_origin: Vector2
 var indicator: Node3D
+var input_disabled: bool = false
 
 func _ready():
-	move_modifier = MoveMode.WALK
+	super._ready()
 	indicator = indicator_resource.instantiate()
 	get_tree().root.add_child.call_deferred(indicator)
 	right_foot_raycast.add_exception($".")
 	left_foot_raycast.add_exception($".")
-	groundcast.target_position.y = -ride_height
 	assert(speed_dir_curve)
 	assert(acceleration_dir_factor)
+	debug_path = debug_path
  
 func _input(event):
 	if event is not InputEventMouseButton or not event.pressed:
@@ -39,6 +40,11 @@ func _physics_process(delta: float):
 	if nav.is_navigation_finished() and navigating:
 		stop_navigation()
 	
+	apply_ride_force()
+	
+	if input_disabled:
+		return
+	
 	var locomotion_input := Input.get_axis("walk_backward", "walk_forward")
 	var rotation_input := Input.get_axis("rotate_counter-clockwise", "rotate_clockwise")
 	
@@ -48,15 +54,11 @@ func _physics_process(delta: float):
 	if navigating:
 		var next_path_position: Vector3 = nav.get_next_path_position()
 		var direction := global_position.direction_to(next_path_position)
-		var rot_delta: float = basis.z.signed_angle_to(direction, transform.basis.y)
-		rotation.y = rotate_toward(rotation.y, rotation.y + rot_delta, deg_to_rad(rotate_speed))
 		locomotion_input = speed_dir_curve.sample_baked(basis.z.dot(direction))
+		apply_rotation(delta)
 	else:
-		#velocity = basis.z * locomotion_input * walk_speed\
-			#* (backward_walk_speed_modifier if locomotion_input < 0 else 1.)
 		rotate_y(-rotation_input * deg_to_rad(rotate_speed))
 	
-	apply_ride_force()
 	apply_locomotion_force(locomotion_input)
 
 func start_navigation(target_pos: Vector3):
@@ -73,6 +75,7 @@ func stop_navigation():
 	indicator.visible = false
 
 func kill():
+	input_disabled = true
 	died.emit()
 
 func do_footstep(is_left: bool) -> void:
@@ -109,6 +112,7 @@ func apply_locomotion_force(locomotion_input: float) -> void:
 	var max_accel := acceleration_dir_factor.sample_baked(vel_dot) * max_acceleration
 	needed_accel = needed_accel.limit_length(max_accel)
 	apply_central_force(needed_accel * mass)
+	nav.velocity = linear_velocity
 	#DebugDraw2D.set_text("ground_vel", "%2.2f" % ground_vel.length())
 	#DebugDraw2D.set_text("goal_vel", "%2.2f" % goal_vel.length())
 	#DebugDraw2D.set_text("goal_vel", "%2.2f" % goal_vel.length())
@@ -119,6 +123,7 @@ func _nav_raycast():
 	var camera := get_viewport().get_camera_3d()
 	var params = PhysicsRayQueryParameters3D.new()
 	params.exclude = [self]
+	params.collision_mask = 1 << 1
 	var results := Utilities.pointer_raycast(camera, ray_origin, 1000, params)
 	if results:
 		start_navigation(results.position)

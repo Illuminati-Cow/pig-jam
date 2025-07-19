@@ -12,3 +12,10 @@ static func pointer_raycast(camera: Camera3D, ray_origin: Vector2, ray_length: f
 		query.from = temp.from
 		
 	return space_state.intersect_ray(query)
+
+## Returns false if a child of the specified type is not found, or the child if found
+static func has_child(node: Node, type: String, recursive=false):
+	var children = node.find_children("", type, true, recursive)
+	if len(children) == 0:
+		return false
+	return children[0] if children[0] else false

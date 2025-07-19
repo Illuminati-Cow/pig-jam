@@ -35,9 +35,9 @@ var debug_path: bool:
 	get:
 		return nav.debug_enabled if nav else false
 	set(value):
-		if !is_node_ready():
-			return
-		nav.debug_enabled = value
+		debug_path = value
+		if nav:
+			nav.debug_enabled = value
 
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 @onready var collider: CollisionShape3D = $CollisionShape3D
@@ -54,8 +54,9 @@ var move_modifier:
 func _ready():
 	move_modifier = MoveMode.WALK
 	groundcast.target_position.y = -ride_height
+	debug_path = debug_path
  
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if nav.is_navigation_finished() and navigating:
 		stop_navigation()
 	
@@ -66,10 +67,9 @@ func _physics_process(_delta: float) -> void:
 		
 	var next_path_position: Vector3 = nav.get_next_path_position()
 	var direction := global_position.direction_to(next_path_position)
-	var rot_delta: float = basis.z.signed_angle_to(direction, transform.basis.y)
-	rotation.y = rotate_toward(rotation.y, rotation.y + rot_delta, deg_to_rad(rotate_speed))
 	var locomotion_input := speed_dir_curve.sample_baked(basis.z.dot(direction))
 	
+	apply_rotation(delta)
 	apply_locomotion_force(locomotion_input)
 
 func start_navigation(target_pos: Vector3) -> void:
@@ -94,7 +94,7 @@ func apply_ride_force() -> void:
 		DebugDraw2D.set_text("ground_force", "%2.2f" % spring_force)
 	else:
 		DebugDraw2D.set_text("ground_force", "not grounded")
-		
+
 func apply_locomotion_force(locomotion_input: float) -> void:
 	var ground_vel: Vector3 = Vector3(linear_velocity.x, 0, linear_velocity.z)
 	var goal_vel: Vector3 = basis.z * locomotion_input * move_modifier
@@ -106,3 +106,10 @@ func apply_locomotion_force(locomotion_input: float) -> void:
 	var max_accel := acceleration_dir_factor.sample_baked(vel_dot) * max_acceleration
 	needed_accel = needed_accel.limit_length(max_accel)
 	apply_central_force(needed_accel * mass)
+
+func apply_rotation(delta: float):
+	# Smooth rotation towards target (Y-axis rotation)
+	var direction = (nav.get_next_path_position() - global_transform.origin).normalized()
+	var target_angle = Vector3.BACK.signed_angle_to(direction, basis.y)
+	var smoothed_rotation = lerp_angle(rotation.y, target_angle, rotate_speed * delta)
+	rotation.y = smoothed_rotation

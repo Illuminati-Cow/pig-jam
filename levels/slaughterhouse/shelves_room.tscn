@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cf3k8djntuu4e"]
+[gd_scene load_steps=12 format=3 uid="uid://cf3k8djntuu4e"]
 
 [ext_resource type="Material" uid="uid://btxabr306nljn" path="res://materials/brick_wall.tres" id="1_wxg1b"]
 [ext_resource type="Material" uid="uid://5d51qp3q5u5r" path="res://materials/chopped_wall.tres" id="2_bbnnf"]
@@ -8,20 +8,15 @@
 [ext_resource type="Material" uid="uid://14ncnu8ki0k0" path="res://materials/chiller_LDoor.tres" id="4_s3880"]
 [ext_resource type="Material" uid="uid://c1tav0fg50llc" path="res://materials/concrete.tres" id="4_wu3sy"]
 [ext_resource type="PackedScene" uid="uid://dqwt7liu4t4k6" path="res://models/props/pig_wood_boxtest.tscn" id="5_kmst5"]
-[ext_resource type="Texture2D" uid="uid://cej3yoosomfd2" path="res://addons/proto-csgs/textures/dark/texture_13.png" id="9_s3880"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wxg1b"]
+size = Vector3(0.215, 1.8, 1.3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwm13"]
 albedo_texture = ExtResource("3_wxg1b")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tye7w"]
 size = Vector3(10.1868, 0.0877686, 9.12671)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mnyb6"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("9_s3880")
-uv1_offset = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-uv1_world_triplanar = true
 
 [node name="ShelvesRoom" type="Node3D"]
 
@@ -64,14 +59,29 @@ material_override = ExtResource("2_bbnnf")
 use_collision = true
 size = Vector3(7.02088, 2.25281, 0.20752)
 
-[node name="RDoor" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.646708, 0, -0.791361, 0, 1.772, 0, 0.791361, 0, -0.646708, -8.71154, 1.979, -7.12039)
+[node name="DoorCollider" type="StaticBody3D" parent="."]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.30274, 1.979, -8.04019)
+collision_mask = 9
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.19209e-07, 0.0500011)
+shape = SubResource("BoxShape3D_wxg1b")
+
+[node name="RDoorPivot" type="Node3D" parent="."]
+transform = Transform3D(-0.646708, 0, -0.791361, 0, 1.772, 0, 0.791361, 0, -0.646708, -8.51753, 1.979, -7.3578)
+
+[node name="RDoor" type="CSGBox3D" parent="RDoorPivot"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0.3, 0, 9.53674e-07)
 material_override = SubResource("StandardMaterial3D_bwm13")
 use_collision = true
 size = Vector3(0.629333, 1.11656, 0.0760498)
 
-[node name="LDoor" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.678052, 0, 0.764676, 0, 1.77, 0, -0.764676, 0, -0.678052, -8.70824, 1.97897, -8.87299)
+[node name="LDoorPivot" type="Node3D" parent="."]
+transform = Transform3D(-0.670492, 0, 0.771313, 0, 1.77, 0, -0.771313, 0, -0.670492, -8.50482, 1.97897, -8.64359)
+
+[node name="LDoor" type="CSGBox3D" parent="LDoorPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, -4.76837e-07)
 material_override = ExtResource("4_s3880")
 use_collision = true
 size = Vector3(0.629333, 1.11656, 0.0760498)
@@ -140,18 +150,18 @@ transform = Transform3D(-1.95498, 0, -0.421967, 0, 2, 0, 0.421967, 0, -1.95498, 
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.7317, 0, 1, 0, -4.37114e-08, -8.36298, 2.9506, -9.56908)
-material_override = SubResource("StandardMaterial3D_mnyb6")
+material_override = ExtResource("1_wxg1b")
 use_collision = true
 size = Vector3(1.87528, 2.25281, 0.20752)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.7317, 0, 1, 0, -4.37114e-08, -8.36298, 3.93475, -8.02593)
-material_override = SubResource("StandardMaterial3D_mnyb6")
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.7317, 0, 1, 0, -4.37114e-08, -8.363, 3.935, -8.025)
+material_override = ExtResource("1_wxg1b")
 use_collision = true
 size = Vector3(1.68335, 1.11656, 0.20752)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.7317, 0, 1, 0, -4.37114e-08, -8.36298, 2.9506, -3.8555)
-material_override = SubResource("StandardMaterial3D_mnyb6")
+material_override = ExtResource("1_wxg1b")
 use_collision = true
 size = Vector3(7.02088, 2.25281, 0.20752)

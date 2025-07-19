@@ -31,19 +31,20 @@ func _generate_name() -> String:
 
 func _tick(_delta: float) -> Status:
 	var hearing_collisions := _get_collisions(hearing)
-	DebugDraw2D.set_text("hearing_results", hearing_collisions)
+	#DebugDraw2D.set_text("hearing_results", hearing_collisions)
 	if hearing_collisions.any(func(e): return e is PlayerController):
 		var player = hearing_collisions[hearing_collisions.find_custom(func(e): return e is PlayerController)]
 		blackboard.set_var(target_position_var, player.global_position)
+		agent.emit_signal("spotted_player")
 		return SUCCESS
 	var vision_collisions := _get_collisions(vision)
-	DebugDraw2D.set_text("vision_results", vision_collisions)
+	#DebugDraw2D.set_text("vision_results", vision_collisions)
 	if vision_collisions.any(func(e): return e is PlayerController):
 		var player = vision_collisions[vision_collisions.find_custom(func(e): return e is PlayerController)]
-		los.target_position =  los.to_local(player.global_position) + Vector3.UP
-		los.force_raycast_update()
+		los.target_position =  los.to_local(player.global_position) + Vector3.UP * 0.5
 		if los.is_colliding() and los.get_collider() is PlayerController:
 			blackboard.set_var(target_position_var, player.global_position)
+			agent.emit_signal("spotted_player")
 			return SUCCESS
 	return FAILURE
 

@@ -7,11 +7,14 @@ extends BTAction
 @export var desired_distance_var: BBFloat
 ## Max distance from target before considering task a failure
 @export var max_distance_var: BBFloat
+## Minimum distance from target before the agent will begin running
+@export var run_distance_threshold_var: BBFloat
 
 var target: RigidBody3D
 var nav: NavigationAgent3D
 var desired_distance_squared: float
 var max_distance_squared: float
+var run_distance_threshold_squared: float
 var ready_to_pathfind: bool
 
 func _generate_name() -> String:
@@ -21,10 +24,9 @@ func _generate_name() -> String:
 
 func _setup():
 	nav = nav_var.get_value(scene_root, blackboard)
-	desired_distance_squared = desired_distance_var.get_value(scene_root, blackboard, 0.5)
-	desired_distance_squared *= desired_distance_squared
-	max_distance_squared = max_distance_var.get_value(scene_root, blackboard, 20)
-	max_distance_squared *= max_distance_squared
+	desired_distance_squared = desired_distance_var.get_value(scene_root, blackboard, 0.5) ** 2
+	max_distance_squared = max_distance_var.get_value(scene_root, blackboard, 20) ** 2
+	run_distance_threshold_squared = run_distance_threshold_var.get_value(scene_root, blackboard) ** 2
 	ready_to_pathfind = true
 	assert(nav)
 	
@@ -38,11 +40,17 @@ func _tick(delta):
 	if dist_sq > max_distance_squared:
 		agent.stop_navigation()
 		return FAILURE
+	
+	if run_distance_threshold_squared < dist_sq:
+		agent.move_modifier = PhysicsCharacterController3D.MoveMode.RUN
+	else:
+		agent.move_modifier = PhysicsCharacterController3D.MoveMode.WALK
+		
+	
 	if !ready_to_pathfind:
 		return RUNNING
 	ready_to_pathfind = false
-	scene_root.get_tree().create_timer(1, false).timeout.connect(func(): ready_to_pathfind = true)
-	target = blackboard.get_var(target_var)
+	scene_root.get_tree().create_timer(0.1, false).timeout.connect(func(): ready_to_pathfind = true)
 	if target.global_position != nav.target_position:
 		var lead_target := target.global_position + target.linear_velocity
 		agent.start_navigation(lead_target)
