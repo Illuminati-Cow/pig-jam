@@ -855,8 +855,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2050,
 "label": "Node",
-"target_class": "Node",
-"dv": null
+"target_class": "Node"
 }, {
 "pin_name": &"return_value",
 "type": 24,
@@ -918,8 +917,7 @@ pin_data = Array[Dictionary]([{
 "pin_name": &"object",
 "type": 24,
 "flags": 2,
-"target_class": "Object",
-"dv": null
+"target_class": "Object"
 }, {
 "pin_name": &"property",
 "type": 22,
@@ -974,8 +972,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2050,
 "label": "Node",
-"target_class": "Node",
-"dv": null
+"target_class": "Node"
 }, {
 "pin_name": &"return_value",
 "type": 24,
@@ -983,7 +980,6 @@ pin_data = Array[Dictionary]([{
 "flags": 2,
 "label": "Tween",
 "target_class": "Tween",
-"dv": null,
 "hint": 17,
 "hint_string": "Tween"
 }])
@@ -1038,8 +1034,7 @@ pin_data = Array[Dictionary]([{
 "pin_name": &"object",
 "type": 24,
 "flags": 2,
-"target_class": "Object",
-"dv": null
+"target_class": "Object"
 }, {
 "pin_name": &"property",
 "type": 22,
@@ -1088,8 +1083,7 @@ pin_data = Array[Dictionary]([{
 "pin_name": &"return_value",
 "type": 3,
 "dir": 1,
-"flags": 1026,
-"dv": 0.0
+"flags": 1026
 }])
 
 [obj type="OScriptNodeSceneNode" id="OScriptNodeSceneNode_0j0yg"]
@@ -1102,8 +1096,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"target_class": "StaticBody3D",
-"dv": null
+"target_class": "StaticBody3D"
 }])
 
 [obj type="OScriptNodeSceneNode" id="OScriptNodeSceneNode_c8iiy"]
@@ -1116,8 +1109,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"target_class": "Node3D",
-"dv": null
+"target_class": "Node3D"
 }])
 
 [obj type="OScriptNodeSceneNode" id="OScriptNodeSceneNode_jgo00"]
@@ -1130,8 +1122,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"target_class": "Node3D",
-"dv": null
+"target_class": "Node3D"
 }])
 
 [obj type="OScriptNodeCallMemberFunction" id="OScriptNodeCallMemberFunction_2paeb"]
@@ -1161,8 +1152,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2050,
 "label": "Node",
-"target_class": "Node",
-"dv": null
+"target_class": "Node"
 }, {
 "pin_name": &"enable",
 "type": 1,
@@ -1190,14 +1180,12 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2050,
 "label": "Node3D",
-"target_class": "Node3D",
-"dv": null
+"target_class": "Node3D"
 }, {
 "pin_name": &"return_value",
 "type": 9,
 "dir": 1,
-"flags": 1026,
-"dv": Vector3(0, 0, 0)
+"flags": 1026
 }])
 
 [obj type="OScriptNodeDecompose" id="OScriptNodeDecompose_7r2l5"]
@@ -1273,8 +1261,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2050,
 "label": "Node3D",
-"target_class": "Node3D",
-"dv": null
+"target_class": "Node3D"
 }, {
 "pin_name": &"return_value",
 "type": 9,
@@ -1438,8 +1425,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"target_class": "AnimationPlayer",
-"dv": null
+"target_class": "AnimationPlayer"
 }])
 
 [obj type="OScriptNodeSceneNode" id="OScriptNodeSceneNode_k81ed"]
@@ -1452,8 +1438,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"target_class": "PigController",
-"dv": null
+"target_class": "PigController"
 }])
 
 [obj type="OScriptNodeCallMemberFunction" id="OScriptNodeCallMemberFunction_moh7v"]
@@ -1483,8 +1468,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2050,
 "label": "Node",
-"target_class": "Node",
-"dv": null
+"target_class": "Node"
 }, {
 "pin_name": &"enable",
 "type": 1,
@@ -1518,8 +1502,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2050,
 "label": "Node3D",
-"target_class": "Node3D",
-"dv": null
+"target_class": "Node3D"
 }, {
 "pin_name": &"visible",
 "type": 1,
@@ -1536,8 +1519,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"target_class": "PigController",
-"dv": null
+"target_class": "PigController"
 }])
 
 [obj type="OScriptNodeCallMemberFunction" id="OScriptNodeCallMemberFunction_10lrb"]
@@ -1567,8 +1549,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2050,
 "label": "Node",
-"target_class": "Node",
-"dv": null
+"target_class": "Node"
 }, {
 "pin_name": &"enable",
 "type": 1,

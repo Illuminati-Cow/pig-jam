@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cp83y54q6sna1"]
+[gd_scene load_steps=8 format=3 uid="uid://cp83y54q6sna1"]
 
 [ext_resource type="Theme" uid="uid://65buv1polm1k" path="res://settings/theme.tres" id="1_0byv1"]
+[ext_resource type="Shader" uid="uid://b0axuxncfc8s6" path="res://shaders/VHS.gdshader" id="1_gwl5o"]
+[ext_resource type="FontFile" uid="uid://berqhcvbdhbal" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="1_k86xs"]
+[ext_resource type="Texture2D" uid="uid://d1ejgagq0m3xj" path="res://textures/pigsmile.png" id="4_525av"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_e6com"]
 font_size = 128
@@ -13,6 +16,30 @@ var game_scene:= preload(\"res://levels/slaughterhouse.tscn\")
 func _on_pressed() -> void:
 	get_tree().change_scene_to_packed(game_scene)
 "
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_525av"]
+shader = ExtResource("1_gwl5o")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.074
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 3.0
+shader_parameter/roll_size = 1.7
+shader_parameter/roll_variation = 0.651
+shader_parameter/distort_intensity = 0.003
+shader_parameter/noise_opacity = 0.235
+shader_parameter/noise_speed = 2.0
+shader_parameter/static_noise_intensity = 0.145
+shader_parameter/aberration = -0.00499995
+shader_parameter/brightness = 1.275
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.435
+shader_parameter/vignette_opacity = 1.0
 
 [node name="Title" type="Node3D"]
 
@@ -34,12 +61,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -562.5
-offset_top = -257.0
-offset_right = 562.5
-offset_bottom = -82.0
+offset_left = -562.0
+offset_top = -379.0
+offset_right = 563.0
+offset_bottom = -260.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_k86xs")
 text = "THE PIGS HUNGER"
 label_settings = SubResource("LabelSettings_e6com")
 
@@ -50,14 +78,31 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -158.0
-offset_top = 309.0
+offset_top = -176.0
 offset_right = 157.0
-offset_bottom = 414.0
+offset_bottom = -71.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0byv1")
+theme_override_fonts/font = ExtResource("1_k86xs")
 text = "PLAY"
 script = SubResource("GDScript_0byv1")
+
+[node name="VHS" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_525av")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="backgroundColor" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.0605303, 0.0605303, 0.0605303, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(810, 727)
+scale = Vector2(2.1381, 2.14934)
+texture = ExtResource("4_525av")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 current = true
