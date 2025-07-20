@@ -81,6 +81,13 @@ cell_height = 0.1
 agent_max_climb = 0.3
 region_min_size = 1.0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2n2gr"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("8_r8h7o")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ga2bi"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("8_r8h7o")
@@ -89,13 +96,6 @@ uv1_triplanar = true
 uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nslk"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("8_r8h7o")
-uv1_offset = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-uv1_world_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owbdd"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("8_r8h7o")
 uv1_offset = Vector3(0.5, 0.5, 0.5)
@@ -448,37 +448,17 @@ navigation_mesh = SubResource("NavigationMesh_e434m")
 
 [node name="Fridge" parent="NavigationRegion3D" instance=ExtResource("7_r8h7o")]
 
-[node name="CSGBox3D4" parent="NavigationRegion3D/Fridge" index="0"]
-material_override = SubResource("StandardMaterial3D_ga2bi")
+[node name="S_wall2" parent="NavigationRegion3D/Fridge/ShelfWall" index="0"]
+material_override = SubResource("StandardMaterial3D_2n2gr")
 
-[node name="CSGBox3D7" parent="NavigationRegion3D/Fridge" index="1"]
-material_override = SubResource("StandardMaterial3D_3nslk")
+[node name="S_wall" parent="NavigationRegion3D/Fridge/ShelfWall" index="1"]
+material_override = SubResource("StandardMaterial3D_2n2gr")
 
-[node name="CSGBox3D5" parent="NavigationRegion3D/Fridge" index="2"]
-material_override = SubResource("StandardMaterial3D_ga2bi")
+[node name="A_wall2" parent="NavigationRegion3D/Fridge/Walls/AbbatoirWall" index="0"]
+material_override = SubResource("StandardMaterial3D_2n2gr")
 
-[node name="CSGBox3D6" parent="NavigationRegion3D/Fridge" index="3"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.7317, 0, 1, 0, -4.37114e-08, -8.36298, 2.9506, -3.8555)
-material_override = SubResource("StandardMaterial3D_ga2bi")
-size = Vector3(7.02088, 2.25281, 0.20752)
-
-[node name="CSGBox3D15" parent="NavigationRegion3D/Fridge" index="4"]
-material_override = SubResource("StandardMaterial3D_ga2bi")
-
-[node name="CSGBox3D16" parent="NavigationRegion3D/Fridge" index="5"]
-material_override = SubResource("StandardMaterial3D_ga2bi")
-
-[node name="CSGBox3D12" parent="NavigationRegion3D/Fridge" index="6"]
-material_override = SubResource("StandardMaterial3D_ga2bi")
-
-[node name="CSGBox3D14" parent="NavigationRegion3D/Fridge" index="7"]
-material_override = SubResource("StandardMaterial3D_ga2bi")
-
-[node name="CSGBox3D18" parent="NavigationRegion3D/Fridge/CSGBox3D14" index="0"]
-material_override = SubResource("StandardMaterial3D_owbdd")
-
-[node name="CSGBox3D17" parent="NavigationRegion3D/Fridge" index="8"]
-material_override = SubResource("StandardMaterial3D_ga2bi")
+[node name="A_wall" parent="NavigationRegion3D/Fridge/Walls/AbbatoirWall" index="1"]
+material_override = SubResource("StandardMaterial3D_2n2gr")
 
 [node name="FridgeEndDoorRight" parent="NavigationRegion3D/Fridge/FridgeEndDoorRight" index="0"]
 material_override = SubResource("StandardMaterial3D_ga2bi")

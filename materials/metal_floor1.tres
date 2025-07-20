@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c3w2rlcgiqrqg"]
+
+[ext_resource type="Texture2D" uid="uid://dufnwy6ru2syu" path="res://textures/metal_floor1.png" id="1_meltv"]
+
+[resource]
+albedo_texture = ExtResource("1_meltv")
+uv1_triplanar = true
