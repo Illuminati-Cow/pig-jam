@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://dubxigc1flb3f"]
+[gd_scene load_steps=46 format=3 uid="uid://dubxigc1flb3f"]
 
 [ext_resource type="Script" uid="uid://qgf4fvlghuru" path="res://scripts/slaughterhouse.torch" id="1_7v8ig"]
 [ext_resource type="PackedScene" uid="uid://gy25w82lmvhy" path="res://entities/player.tscn" id="1_oxja1"]
@@ -97,12 +97,6 @@ metadata/_custom_type_script = "uid://b8hhnqsugykly"
 [sub_resource type="BoxShape3D" id="BoxShape3D_7osvu"]
 size = Vector3(1.70235, 1.86731, 1.47498)
 
-[sub_resource type="Resource" id="Resource_y6me3"]
-script = ExtResource("3_71xrq")
-duration = 0.5
-transition = 1
-ease = 1
-
 [sub_resource type="Resource" id="Resource_kbjfv"]
 script = ExtResource("4_y6me3")
 keep_aspect = 1
@@ -117,21 +111,8 @@ near = 0.05
 far = 4000.0
 metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
-[sub_resource type="Curve3D" id="Curve3D_7v8ig"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.014, 0, 0, 0, 0, 0, 0, 0, 0, 8.88795, 0, 0),
-"tilts": PackedFloat32Array(0, 0)
-}
-point_count = 2
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_y6me3"]
 size = Vector3(9.43066, 2.07898, 4.32849)
-
-[sub_resource type="Resource" id="Resource_75kdm"]
-script = ExtResource("3_71xrq")
-duration = 1.0
-transition = 0
-ease = 2
 
 [sub_resource type="Resource" id="Resource_bx8v1"]
 script = ExtResource("4_y6me3")
@@ -167,14 +148,15 @@ metadata/_custom_type_script = "uid://b8hhnqsugykly"
 [sub_resource type="BoxShape3D" id="BoxShape3D_75kdm"]
 size = Vector3(5.79337, 1.88367, 8.69427)
 
-[sub_resource type="Resource" id="Resource_8qxxj"]
-script = ExtResource("3_71xrq")
-duration = 1.0
-transition = 0
-ease = 2
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_cb3iw"]
 size = Vector3(5.69581, 0.93924, 9.54918)
+
+[sub_resource type="Curve3D" id="Curve3D_7v8ig"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.014, 0, 0, 0, 0, 0, 0, 0, 0, 8.88795, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
 
 [sub_resource type="Resource" id="Resource_g1xdf"]
 script = ExtResource("4_y6me3")
@@ -330,11 +312,11 @@ script = ExtResource("1_7v8ig")
 environment = SubResource("Environment_0miny")
 
 [node name="Player" parent="." instance=ExtResource("1_oxja1")]
-transform = Transform3D(0.999999, 0.000382883, -0.00169445, -0.0003819, 1, 0.000583958, 0.00169468, -0.000583314, 0.999998, 8.34202, 1.02823, -7.3505)
+transform = Transform3D(0.999999, 0.000382883, -0.00169445, -0.0003819, 1, 0.000583958, 0.00169468, -0.000583314, 0.999998, -16.1749, 1.02823, -9.71431)
 debug_path = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.805406, -0.302131, 0.509939, 0.0133545, 0.869363, 0.493992, -0.592573, -0.391054, 0.704225, -15.021, 5.36635, -7.98675)
+transform = Transform3D(0.805406, -0.302131, 0.509939, 0.0133545, 0.869363, 0.493992, -0.592573, -0.391054, 0.704226, -15.021, 5.36635, -7.98675)
 attributes = SubResource("CameraAttributesPractical_lex12")
 fov = 57.3
 
@@ -431,7 +413,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.024, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.023, 0)
 
 [node name="FridgeCorridorShot" type="Node3D" parent="NavigationRegion3D/Fridge" node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.0976, 2.77823, -7.3505)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.34202, 2.77823, -7.3505)
 top_level = true
 script = ExtResource("2_4q7qq")
 follow_mode = 5
@@ -454,24 +436,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.657429, -1.18864, 0.259927)
 shape = SubResource("BoxShape3D_7osvu")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
-[node name="FridgeDollyShot" type="Node3D" parent="NavigationRegion3D/Fridge" node_paths=PackedStringArray("follow_target", "follow_path")]
+[node name="FridgeDollyShot" type="Node3D" parent="NavigationRegion3D/Fridge" node_paths=PackedStringArray("follow_target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3211, 2.45148, -5.915)
 top_level = true
 script = ExtResource("2_4q7qq")
 follow_mode = 4
 follow_target = NodePath("../../../Player")
-follow_path = NodePath("Path3D")
-tween_resource = SubResource("Resource_y6me3")
+tween_resource = ExtResource("11_7osvu")
 tween_on_load = false
 camera_3d_resource = SubResource("Resource_kbjfv")
 follow_damping = true
 follow_axis_lock = 2
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="Path3D" type="Path3D" parent="NavigationRegion3D/Fridge/FridgeDollyShot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.56685, 2.45148, -5.915)
-top_level = true
-curve = SubResource("Curve3D_7v8ig")
 
 [node name="ShotTrigger" parent="NavigationRegion3D/Fridge/FridgeDollyShot" node_paths=PackedStringArray("camera") instance=ExtResource("10_y6me3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.58085, 2.45148, -6.17066)
@@ -487,7 +463,7 @@ shape = SubResource("BoxShape3D_y6me3")
 transform = Transform3D(-0.793276, 0.346168, -0.50088, -1.49012e-08, 0.82265, 0.56855, 0.608861, 0.451017, -0.652588, 1.93994, 4.50169, -10.9258)
 script = ExtResource("2_4q7qq")
 look_at_mode = 3
-tween_resource = SubResource("Resource_75kdm")
+tween_resource = ExtResource("11_7osvu")
 camera_3d_resource = SubResource("Resource_bx8v1")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
@@ -543,7 +519,7 @@ shape = SubResource("BoxShape3D_75kdm")
 [node name="Abattiorwideshot" type="Node3D" parent="NavigationRegion3D/Abattoir"]
 transform = Transform3D(-0.129614, -0.582542, 0.8024, -0.0153649, 0.810311, 0.585803, -0.991447, 0.0636, -0.113978, 20.1652, 5.79811, -3.35331)
 script = ExtResource("2_4q7qq")
-tween_resource = SubResource("Resource_8qxxj")
+tween_resource = ExtResource("11_7osvu")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="ShotTrigger2" parent="NavigationRegion3D/Abattoir/Abattiorwideshot" node_paths=PackedStringArray("camera") instance=ExtResource("10_y6me3")]
@@ -560,6 +536,11 @@ shape = SubResource("BoxShape3D_cb3iw")
 
 [node name="HoldingArea" parent="NavigationRegion3D" instance=ExtResource("11_ga2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.0816, 0.626827, 2.00056)
+
+[node name="FridgeDollyShot#Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.857796, 0.51399, 0, -0.51399, 0.857796, -6.56685, 2.7174, -4.66199)
+top_level = true
+curve = SubResource("Curve3D_7v8ig")
 
 [node name="ShelvesIntroShot" type="Node3D" parent="."]
 physics_interpolation_mode = 1

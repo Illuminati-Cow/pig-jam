@@ -36,7 +36,7 @@ id = 71
 
 [obj type="OScriptGraph" id="OScriptGraph_74inb"]
 graph_name = &"EventGraph"
-offset = Vector2(165.422, -461.866)
+offset = Vector2(165.422, -3.00009)
 zoom = 0.232568
 flags = 8
 nodes = Array[int]([2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 29, 30, 31, 32, 33, 35, 36, 40, 41, 45, 47, 48, 49, 52, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80])
@@ -1663,8 +1663,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"target_class": "Node3D",
-"dv": null
+"target_class": "Node3D"
 }])
 
 [obj type="OScriptNodeSceneNode" id="OScriptNodeSceneNode_moh7v"]
@@ -1677,8 +1676,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"target_class": "Node3D",
-"dv": null
+"target_class": "Node3D"
 }])
 
 [obj type="OScriptNodeSceneNode" id="OScriptNodeSceneNode_hn0hq"]
@@ -1691,8 +1689,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "dir": 1,
 "flags": 2050,
-"target_class": "Node3D",
-"dv": null
+"target_class": "Node3D"
 }])
 
 [obj type="OScriptNodeCallMemberFunction" id="OScriptNodeCallMemberFunction_xorb6"]
@@ -1722,8 +1719,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2050,
 "label": "Node3D",
-"target_class": "Node3D",
-"dv": null
+"target_class": "Node3D"
 }, {
 "pin_name": &"visible",
 "type": 1,
@@ -1758,8 +1754,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2050,
 "label": "Node3D",
-"target_class": "Node3D",
-"dv": null
+"target_class": "Node3D"
 }, {
 "pin_name": &"visible",
 "type": 1,
@@ -1794,8 +1789,7 @@ pin_data = Array[Dictionary]([{
 "type": 24,
 "flags": 2050,
 "label": "Node3D",
-"target_class": "Node3D",
-"dv": null
+"target_class": "Node3D"
 }, {
 "pin_name": &"visible",
 "type": 1,
