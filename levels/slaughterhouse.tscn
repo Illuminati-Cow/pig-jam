@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dubxigc1flb3f"]
+[gd_scene load_steps=51 format=3 uid="uid://dubxigc1flb3f"]
 
 [ext_resource type="Script" uid="uid://qgf4fvlghuru" path="res://scripts/slaughterhouse.torch" id="1_7v8ig"]
 [ext_resource type="PackedScene" uid="uid://gy25w82lmvhy" path="res://entities/player.tscn" id="1_oxja1"]
@@ -172,12 +172,6 @@ metadata/_custom_type_script = "uid://b8hhnqsugykly"
 [sub_resource type="BoxShape3D" id="BoxShape3D_7osvu"]
 size = Vector3(1.70235, 1.86731, 1.47498)
 
-[sub_resource type="Resource" id="Resource_y6me3"]
-script = ExtResource("3_71xrq")
-duration = 0.5
-transition = 1
-ease = 1
-
 [sub_resource type="Resource" id="Resource_kbjfv"]
 script = ExtResource("4_y6me3")
 keep_aspect = 1
@@ -202,12 +196,6 @@ point_count = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_y6me3"]
 size = Vector3(9.43066, 2.07898, 4.32849)
 
-[sub_resource type="Resource" id="Resource_75kdm"]
-script = ExtResource("3_71xrq")
-duration = 1.0
-transition = 0
-ease = 2
-
 [sub_resource type="Resource" id="Resource_bx8v1"]
 script = ExtResource("4_y6me3")
 keep_aspect = 1
@@ -223,7 +211,7 @@ far = 4000.0
 metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_owbdd"]
-size = Vector3(1.75847, 1, 4.25709)
+size = Vector3(3.10026, 1, 6.61994)
 
 [sub_resource type="Resource" id="Resource_ga2bi"]
 script = ExtResource("4_y6me3")
@@ -240,16 +228,13 @@ far = 4000.0
 metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_75kdm"]
-size = Vector3(5.79337, 1.88367, 8.69427)
-
-[sub_resource type="Resource" id="Resource_8qxxj"]
-script = ExtResource("3_71xrq")
-duration = 1.0
-transition = 0
-ease = 2
+size = Vector3(6.25887, 1.88367, 9.96091)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cb3iw"]
 size = Vector3(5.69581, 0.93924, 9.54918)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p1vgd"]
+size = Vector3(10.7489, 2.08667, 5.36182)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2n2gr"]
 size = Vector3(1.2, 1, 2.5)
@@ -553,13 +538,13 @@ shape = SubResource("BoxShape3D_7osvu")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="FridgeDollyShot" type="Node3D" parent="." node_paths=PackedStringArray("follow_target", "follow_path")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.58085, 2.45148, -5.915)
+transform = Transform3D(1, 0, 0, 0, 0.946452, 0.322844, 0, -0.322844, 0.946452, -6.58085, 2.7174, -4.66199)
 top_level = true
 script = ExtResource("2_4q7qq")
 follow_mode = 4
 follow_target = NodePath("../Player")
 follow_path = NodePath("Path3D")
-tween_resource = SubResource("Resource_y6me3")
+tween_resource = ExtResource("11_7osvu")
 tween_on_load = false
 camera_3d_resource = SubResource("Resource_kbjfv")
 follow_damping = true
@@ -567,7 +552,7 @@ follow_axis_lock = 2
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Path3D" type="Path3D" parent="FridgeDollyShot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.56685, 2.45148, -5.915)
+transform = Transform3D(1, 0, 0, 0, 0.857796, 0.51399, 0, -0.51399, 0.857796, -6.56685, 2.7174, -4.66199)
 top_level = true
 curve = SubResource("Curve3D_7v8ig")
 
@@ -581,21 +566,21 @@ active = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0936, 0.53949, -1.85266)
 shape = SubResource("BoxShape3D_y6me3")
 
-[node name="FridgeCornerShot" type="Node3D" parent="."]
-transform = Transform3D(-0.580729, -0.449411, 0.678811, 0.00389093, 0.832279, 0.554344, -0.814087, 0.324565, -0.48158, 2.93547, 4.47869, -9.97224)
+[node name="FridgepuzzleShot" type="Node3D" parent="."]
+transform = Transform3D(-0.437544, 0.383667, -0.813238, 0.103016, 0.919838, 0.378533, 0.893276, 0.0818485, -0.441994, -0.862476, 4.04015, -9.97224)
 script = ExtResource("2_4q7qq")
 look_at_mode = 3
-tween_resource = SubResource("Resource_75kdm")
+tween_resource = ExtResource("11_7osvu")
 camera_3d_resource = SubResource("Resource_bx8v1")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="ShotTriggerInitial" parent="FridgeCornerShot" node_paths=PackedStringArray("camera") instance=ExtResource("10_y6me3")]
+[node name="ShotTriggerInitial" parent="FridgepuzzleShot" node_paths=PackedStringArray("camera") instance=ExtResource("10_y6me3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45836, 2.04273, -7.89301)
 shot_priority = 2
 camera = NodePath("..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FridgeCornerShot/ShotTriggerInitial"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525875, -0.690938, -0.0817232)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FridgepuzzleShot/ShotTriggerInitial"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19677, -0.690938, -0.0733328)
 shape = SubResource("BoxShape3D_owbdd")
 
 [node name="AbattoirOpeningShot" type="Node3D" parent="."]
@@ -615,7 +600,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76153, 0.441833, 1.9408)
 shape = SubResource("BoxShape3D_75kdm")
 
 [node name="AbattoirLeftShot" type="Node3D" parent="AbattoirOpeningShot"]
-transform = Transform3D(-0.602459, 0.150611, -0.783812, -0.527849, 0.66143, 0.532814, 0.598683, 0.734732, -0.318983, -10.3284, 8.07084, -7.96834)
+transform = Transform3D(-0.57573, 0.481849, -0.660575, -0.55446, 0.363696, 0.748536, 0.600928, 0.797216, 0.0577762, -10.3284, 8.9069, -7.16131)
 script = ExtResource("2_4q7qq")
 tween_resource = ExtResource("11_7osvu")
 tween_on_load = false
@@ -628,26 +613,40 @@ shot_priority = 2
 camera = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AbattoirOpeningShot/AbattoirLeftShot/ShotTrigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43329, -2.02906, 3.0409)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20054, -2.02906, 3.67422)
 shape = SubResource("BoxShape3D_75kdm")
 
 [node name="Abattiorwideshot" type="Node3D" parent="."]
 transform = Transform3D(-0.129614, -0.582542, 0.8024, -0.0153649, 0.810311, 0.585803, -0.991447, 0.0636, -0.113978, 20.1652, 5.79811, -3.35331)
 script = ExtResource("2_4q7qq")
-tween_resource = SubResource("Resource_8qxxj")
+tween_resource = ExtResource("11_7osvu")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="ShotTrigger2" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("10_y6me3")]
+[node name="ShotTrigger2" parent="Abattiorwideshot" node_paths=PackedStringArray("camera") instance=ExtResource("10_y6me3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.29938, 1.8789, -9.25724)
-camera = NodePath("../Abattiorwideshot")
+camera = NodePath("..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ShotTrigger2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Abattiorwideshot/ShotTrigger2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99718, 0.62623, 3.31102)
 shape = SubResource("BoxShape3D_cb3iw")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="ShotTrigger2"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Abattiorwideshot/ShotTrigger2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.84445, -0.288582, 4.27459)
 shape = SubResource("BoxShape3D_cb3iw")
+
+[node name="AbattiorShootShot" type="Node3D" parent="."]
+transform = Transform3D(-0.014673, 0.588618, -0.808278, 0.0106837, 0.808411, 0.588521, 0.999835, 0, -0.0181505, 10.3914, 5.63799, 0.891489)
+script = ExtResource("2_4q7qq")
+tween_resource = ExtResource("11_7osvu")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="ShotTrigger2" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("10_y6me3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7294, 1.58, 1.97625)
+camera = NodePath("../AbattiorShootShot")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShotTrigger2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0524445, 0.488273, 0.527832)
+shape = SubResource("BoxShape3D_p1vgd")
 
 [node name="WalkdownEndTrigger" type="Area3D" parent="."]
 process_mode = 4
