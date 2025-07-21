@@ -65,19 +65,19 @@ size = Vector3(1.68335, 1.11656, 0.20752)
 [node name="Walls" type="Node3D" parent="."]
 
 [node name="L_wall" type="CSGBox3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1.7317, 0, 0, 0, 1, -2.6672, 2.9506, -11.4576)
+transform = Transform3D(1, 0, 0, 0, 1.7317, 0, 0, 0, 1, -1.12525, 2.9506, -11.4576)
 material_override = ExtResource("2_25ab6")
 use_collision = true
-size = Vector3(11.3161, 2.25281, 0.242188)
+size = Vector3(14.4, 2.25281, 0.242188)
 
 [node name="R_wall" type="CSGBox3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1.7317, 0, 0, 0, 1, -2.6672, 2.9506, -4.51159)
+transform = Transform3D(1, 0, 0, 0, 1.7317, 0, 0, 0, 1, -1.12525, 2.9506, -4.51159)
 use_collision = true
-size = Vector3(11.3161, 2.25281, 0.242188)
+size = Vector3(14.4, 2.25281, 0.242188)
 material = ExtResource("2_25ab6")
 
 [node name="AbbatoirWall" type="CSGBox3D" parent="Walls"]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1.7317, 0, -1, 0, 1.31134e-07, 3.02317, 6.29612, -7.99895)
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1.7317, 0, -1, 0, 1.31134e-07, 6.02317, 6.29612, -7.99895)
 material_override = ExtResource("2_25ab6")
 use_collision = true
 size = Vector3(1.68335, 3.85828, 0.20752)
@@ -89,7 +89,7 @@ use_collision = true
 size = Vector3(2.94824, 5, 0.20752)
 
 [node name="A_wall" type="CSGBox3D" parent="Walls/AbbatoirWall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.09031, -0.558336, -1.19209e-06)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.09031, -0.558336, -1.43051e-06)
 material_override = ExtResource("1_lumq2")
 use_collision = true
 size = Vector3(2.9696, 5, 0.20752)
@@ -101,10 +101,10 @@ use_collision = true
 size = Vector3(0.210571, 0.133904, 0.20752)
 
 [node name="Floor" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.7317, 0, 1, 0, -4.37114e-08, -2.66182, 0.949757, -7.97233)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.7317, 0, 1, 0, -4.37114e-08, -1.173, 0.949757, -7.97233)
 material_override = ExtResource("3_sv2fm")
 use_collision = true
-size = Vector3(7, 0.0837103, 11.6122)
+size = Vector3(7, 0.0837103, 14.5898)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
 collision_layer = 7
@@ -114,12 +114,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.231354, -0.00100487, 0.030
 shape = SubResource("BoxShape3D_f2h1y")
 
 [node name="FridgeEndDoorRight" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.03748, 1.98696, -7.3658)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.03748, 1.98696, -7.3658)
 
 [node name="FridgeEndDoorRight" type="CSGBox3D" parent="FridgeEndDoorRight"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1.7317, 0, -1, 0, -4.37114e-08, 0, 0, -0.288384)
 material_override = ExtResource("4_55s15")
 use_collision = true
+collision_layer = 0
 size = Vector3(0.629333, 1.11656, 0.0760498)
 
 [node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="FridgeEndDoorRight/FridgeEndDoorRight"]
@@ -127,151 +128,201 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305852, -0.572386, -0.1007
 vertices = PackedVector3Array(0.615, 0, 0, 0, 0, 0, 0, 0, 0.2, 0.615, 0, 0.2)
 
 [node name="FridgeEndDoorLeft" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.03748, 2.16879, -8.57942)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.03748, 2.16879, -8.57942)
 
 [node name="FridgeEndDoorLeft" type="CSGBox3D" parent="FridgeEndDoorLeft"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1.7317, 0, -1, 0, -4.37114e-08, 0, -0.18496, -0.292583)
 material_override = ExtResource("4_55s15")
 use_collision = true
+collision_layer = 0
 size = Vector3(0.629333, 1.11656, 0.0760498)
 
 [node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="FridgeEndDoorLeft"]
 transform = Transform3D(4.37114e-08, 0, -1, 0, 1.7317, 0, 1, 0, 4.37114e-08, 0.100053, -1.17237, -0.604377)
 vertices = PackedVector3Array(0.615, 0, 0, 0, 0, 0, 0, 0, 0.2, 0.615, 0, 0.2)
 
-[node name="CentralHangerRail" parent="." instance=ExtResource("2_7tstf")]
-transform = Transform3D(1.39091e-08, 0, -2.35984, 0, 1, 0, 1, 0, 3.28233e-08, -1.3429, 3.085, -7.972)
+[node name="Rails" type="Node3D" parent="."]
 
-[node name="HangerRail2" parent="CentralHangerRail" instance=ExtResource("2_7tstf")]
-transform = Transform3D(-1.8523e-08, 0, -1.12135, 0, 1, 0, 0.423757, 0, -4.90156e-08, -0.0130048, 2.19345e-05, -1.41658)
+[node name="CentralHangerRail" parent="Rails" instance=ExtResource("2_7tstf")]
+transform = Transform3D(-5.10986e-08, 0, -2.76, 0, 1.169, 0, 1.169, 0, -1.20643e-07, -0.1429, 3.085, -7.972)
 
-[node name="Junction10" parent="CentralHangerRail" instance=ExtResource("3_ipb87")]
-transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, 4.44089e-16, 0, 1, -4.76837e-07, 0, -1.41644)
+[node name="HangerRail2" parent="Rails" instance=ExtResource("2_7tstf")]
+transform = Transform3D(-1.12, 0, -9.79135e-08, 0, 1.12, 0, 9.79135e-08, 0, -1.12, 5, 3.08502, -7.985)
 
-[node name="HangerRail3" parent="CentralHangerRail" instance=ExtResource("2_7tstf")]
-transform = Transform3D(-1.85336e-08, 0, -1.121, 0, 1, 0, 0.424, 0, -4.90005e-08, -0.0130048, 2.19345e-05, -0.992821)
+[node name="Junction10" parent="Rails" instance=ExtResource("3_ipb87")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.99967, 3.085, -7.972)
 
-[node name="Junction9" parent="CentralHangerRail" instance=ExtResource("3_ipb87")]
-transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, 4.44089e-16, 0, 1, -4.76837e-07, 0, -0.992685)
+[node name="HangerRail3" parent="Rails" instance=ExtResource("2_7tstf")]
+transform = Transform3D(-1.00057, 0, -9.80009e-08, 0, 1, 0, 8.74728e-08, 0, -1.121, 3.5, 3.08502, -7.985)
 
-[node name="HangerRail4" parent="CentralHangerRail" instance=ExtResource("2_7tstf")]
-transform = Transform3D(-1.85336e-08, 0, -1.121, 0, 1, 0, 0.424, 0, -4.90005e-08, -0.0130048, 2.19345e-05, -0.569064)
+[node name="Junction9" parent="Rails" instance=ExtResource("3_ipb87")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.999678, 3.085, -7.972)
 
-[node name="Junction8" parent="CentralHangerRail" instance=ExtResource("3_ipb87")]
-transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, 4.44089e-16, 0, 1, -4.76837e-07, 0, -0.568928)
+[node name="HangerRail4" parent="Rails" instance=ExtResource("2_7tstf")]
+transform = Transform3D(-1.00057, 0, -9.80009e-08, 0, 1, 0, 8.74728e-08, 0, -1.121, 2, 3.08502, -7.985)
 
-[node name="HangerRail5" parent="CentralHangerRail" instance=ExtResource("2_7tstf")]
-transform = Transform3D(-1.85336e-08, 0, -1.121, 0, 1, 0, 0.424, 0, -4.90005e-08, -0.0130048, 2.19345e-05, -0.145307)
+[node name="Junction8" parent="Rails" instance=ExtResource("3_ipb87")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.000321031, 3.085, -7.972)
 
-[node name="Junction7" parent="CentralHangerRail" instance=ExtResource("3_ipb87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.145171)
+[node name="HangerRail5" parent="Rails" instance=ExtResource("2_7tstf")]
+transform = Transform3D(-1.00057, 0, -9.80009e-08, 0, 1, 0, 8.74728e-08, 0, -1.121, 0.500001, 3.08502, -7.985)
 
-[node name="HangerRail6" parent="CentralHangerRail" instance=ExtResource("2_7tstf")]
-transform = Transform3D(-1.85336e-08, 0, -1.121, 0, 1, 0, 0.424, 0, -4.90005e-08, -0.0130048, 2.19345e-05, 0.27845)
+[node name="Junction7" parent="Rails" instance=ExtResource("3_ipb87")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.00032, 3.085, -7.972)
 
-[node name="Junction6" parent="CentralHangerRail" instance=ExtResource("3_ipb87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.278587)
+[node name="HangerRail6" parent="Rails" instance=ExtResource("2_7tstf")]
+transform = Transform3D(-1.00057, 0, -9.80009e-08, 0, 1, 0, 8.74728e-08, 0, -1.121, -0.999997, 3.08502, -7.985)
 
-[node name="HangerRail7" parent="CentralHangerRail" instance=ExtResource("2_7tstf")]
-transform = Transform3D(-1.85336e-08, 0, -1.121, 0, 1, 0, 0.424, 0, -4.90005e-08, -0.0130048, 2.19345e-05, 0.702207)
+[node name="Junction6" parent="Rails" instance=ExtResource("3_ipb87")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.00032, 3.085, -7.972)
 
-[node name="Junction5" parent="CentralHangerRail" instance=ExtResource("3_ipb87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.702344)
+[node name="HangerRail7" parent="Rails" instance=ExtResource("2_7tstf")]
+transform = Transform3D(-1.00057, 0, -9.80009e-08, 0, 1, 0, 8.74728e-08, 0, -1.121, -2.5, 3.08502, -7.985)
 
-[node name="HangerRail8" parent="CentralHangerRail" instance=ExtResource("2_7tstf")]
-transform = Transform3D(-1.85336e-08, 0, -1.121, 0, 1, 0, 0.424, 0, -4.90005e-08, -0.0130048, 2.19345e-05, 1.12596)
+[node name="Junction5" parent="Rails" instance=ExtResource("3_ipb87")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.00032, 3.085, -7.972)
 
-[node name="Junction4" parent="CentralHangerRail" instance=ExtResource("3_ipb87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1261)
+[node name="HangerRail8" parent="Rails" instance=ExtResource("2_7tstf")]
+transform = Transform3D(-1.00057, 0, -9.80009e-08, 0, 1, 0, 8.74728e-08, 0, -1.121, -3.99999, 3.08502, -7.985)
 
-[node name="HangerRail9" parent="CentralHangerRail" instance=ExtResource("2_7tstf")]
-transform = Transform3D(-1.85336e-08, 0, -1.121, 0, 1, 0, 0.424, 0, -4.90005e-08, -0.0130048, 2.19345e-05, 1.54972)
+[node name="Junction4" parent="Rails" instance=ExtResource("3_ipb87")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.00032, 3.085, -7.972)
 
-[node name="Junction3" parent="CentralHangerRail" instance=ExtResource("3_ipb87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.54986)
+[node name="HangerRail9" parent="Rails" instance=ExtResource("2_7tstf")]
+transform = Transform3D(-1.00057, 0, -9.80009e-08, 0, 1, 0, 8.74728e-08, 0, -1.121, -5.49999, 3.08502, -7.985)
 
-[node name="HangerRail10" parent="CentralHangerRail" instance=ExtResource("2_7tstf")]
-transform = Transform3D(-1.85336e-08, 0, -1.121, 0, 1, 0, 0.424, 0, -4.90005e-08, -0.0130048, 2.19345e-05, 1.97348)
+[node name="Junction3" parent="Rails" instance=ExtResource("3_ipb87")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.00032, 3.085, -7.972)
 
-[node name="Junction2" parent="CentralHangerRail" instance=ExtResource("3_ipb87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.97361)
+[node name="HangerRail10" parent="Rails" instance=ExtResource("2_7tstf")]
+transform = Transform3D(-1.00057, 0, -9.80009e-08, 0, 1, 0, 8.74728e-08, 0, -1.121, -7, 3.08502, -7.985)
 
-[node name="HangerRail11" parent="CentralHangerRail" instance=ExtResource("2_7tstf")]
-transform = Transform3D(-1.85336e-08, 0, -1.121, 0, 1, 0, 0.424, 0, -4.90005e-08, -0.0130048, 2.19345e-05, 2.39724)
+[node name="Junction2" parent="Rails" instance=ExtResource("3_ipb87")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.0003, 3.085, -7.972)
 
-[node name="Junction" parent="CentralHangerRail" instance=ExtResource("3_ipb87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.39737)
+[node name="Junction" parent="Rails" instance=ExtResource("3_ipb87")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.00031, 3.085, -7.972)
 
-[node name="Pigs" type="Node3D" parent="CentralHangerRail"]
-transform = Transform3D(1.39091e-08, 0, 1, 0, 1, 0, -0.423758, 0, 5.89409e-09, 7.972, -3.085, -0.569064)
+[node name="Pigs" type="Node3D" parent="Rails"]
+transform = Transform3D(1, 0, -9.76996e-15, 0, 1, 0, -3.73035e-14, 0, 1, 0.0258071, -0.115, 0)
 
-[node name="HangingPig" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
-transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -1.99905, 2.99975, -9.54652)
+[node name="HangingPig" parent="Rails/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -2.49905, 2.99975, -10.2465)
 axis_lock_linear_x = true
 axis_lock_linear_z = false
 
-[node name="HangingPig2" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
-transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -0.999045, 2.99975, -8.544)
+[node name="HangingPig2" parent="Rails/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -0.999045, 2.99975, -9.494)
 axis_lock_linear_x = true
 axis_lock_linear_z = false
 
-[node name="HangingPig3" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
-transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -1.99905, 2.99975, -8.88874)
+[node name="HangingPig19" parent="Rails/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -0.999045, 2.99975, -10.144)
 axis_lock_linear_x = true
 axis_lock_linear_z = false
 
-[node name="HangingPig4" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
+[node name="HangingPig3" parent="Rails/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -2.49905, 2.99975, -8.88874)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig4" parent="Rails/Pigs" instance=ExtResource("2_e4w4d")]
 transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -6.99904, 2.99975, -6.29562)
 axis_lock_linear_x = true
 axis_lock_linear_z = false
 
-[node name="HangingPig11" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
+[node name="HangingPig11" parent="Rails/Pigs" instance=ExtResource("2_e4w4d")]
 transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -6.99904, 2.99975, -7.21101)
 axis_lock_linear_x = true
 axis_lock_linear_z = false
 
-[node name="HangingPig5" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
-transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -2.99904, 2.99975, -7.10624)
+[node name="HangingPig5" parent="Rails/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -3.99904, 2.99975, -6.10624)
 axis_lock_linear_x = true
 axis_lock_linear_z = false
 
-[node name="HangingPig6" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
-transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -4.99904, 2.99975, -8.93429)
+[node name="HangingPig6" parent="Rails/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -3.99904, 2.99975, -10.8343)
 axis_lock_linear_x = true
 axis_lock_linear_z = false
 
-[node name="HangingPig7" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
-transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -5.99904, 2.99975, -9.72801)
+[node name="HangingPig20" parent="Rails/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -3.99904, 2.99975, -10.1843)
 axis_lock_linear_x = true
 axis_lock_linear_z = false
 
-[node name="HangingPig8" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
-transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -6.99904, 2.99975, -8.9139)
+[node name="HangingPig21" parent="Rails/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -3.99904, 2.99975, -9.43429)
 axis_lock_linear_x = true
 axis_lock_linear_z = false
 
-[node name="HangingPig9" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
-transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, 1.00096, 2.99975, -9.39325)
+[node name="HangingPig7" parent="Rails/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -5.49904, 2.99975, -10.228)
 axis_lock_linear_x = true
 axis_lock_linear_z = false
 
-[node name="HangingPig10" parent="CentralHangerRail/Pigs" instance=ExtResource("2_e4w4d")]
-transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, 2.00096, 2.99975, -8.71274)
+[node name="HangingPig8" parent="Rails/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -6.99904, 2.99975, -9.4139)
 axis_lock_linear_x = true
 axis_lock_linear_z = false
 
-[node name="FridgeDoorTrigger" type="Node3D" parent="CentralHangerRail"]
-transform = Transform3D(1.39091e-08, 0, 1, 0, 1, 0, -0.423758, 0, 5.89409e-09, -0.0279999, -0.085, -1.8578)
+[node name="HangingPig9" parent="Rails/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, 0.500961, 2.99975, -9.19325)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig10" parent="Rails/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, 2.00096, 2.99975, -9.61274)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig12" parent="Rails/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, 2.00096, 2.99975, -10.6127)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig13" parent="Rails/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, 3.50096, 2.99975, -10.6127)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig14" parent="Rails/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, 3.50096, 2.99975, -9.21274)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig15" parent="Rails/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, 3.50096, 2.99975, -6.51274)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig16" parent="Rails/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, 0.500962, 2.99975, -6.41274)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig17" parent="Rails/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -0.999037, 2.99975, -5.86274)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="HangingPig18" parent="Rails/Pigs" instance=ExtResource("2_e4w4d")]
+transform = Transform3D(-6.17951e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 6.17951e-08, 2.70115e-15, -0.999037, 2.99975, -6.61274)
+axis_lock_linear_x = true
+axis_lock_linear_z = false
+
+[node name="FridgeDoorTrigger" type="Node3D" parent="Rails"]
+transform = Transform3D(1, 0, -9.76996e-15, 0, 1, 0, -3.73035e-14, 0, 1, 3.04121, 3, -8)
 script = ExtResource("5_f2h1y")
 metadata/_custom_type_script = "uid://nja0mmweopro"
 
-[node name="Area3D" type="Area3D" parent="CentralHangerRail/FridgeDoorTrigger"]
+[node name="Area3D" type="Area3D" parent="Rails/FridgeDoorTrigger"]
 input_ray_pickable = false
 monitorable = false
 script = SubResource("GDScript_e4w4d")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CentralHangerRail/FridgeDoorTrigger/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rails/FridgeDoorTrigger/Area3D"]
 shape = SubResource("BoxShape3D_e4w4d")
 
-[connection signal="interacted" from="CentralHangerRail/FridgeDoorTrigger" to="." method="_on_fridge_door_trigger_interacted"]
-[connection signal="body_entered" from="CentralHangerRail/FridgeDoorTrigger/Area3D" to="CentralHangerRail/FridgeDoorTrigger/Area3D" method="_on_body_entered"]
+[connection signal="interacted" from="Rails/FridgeDoorTrigger" to="." method="_on_fridge_door_trigger_interacted"]
+[connection signal="body_entered" from="Rails/FridgeDoorTrigger/Area3D" to="Rails/FridgeDoorTrigger/Area3D" method="_on_body_entered"]

@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://ch4htauors71g"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_1sof2"]
-size = Vector3(0.2, 0.2, 6)
+[ext_resource type="PackedScene" uid="uid://4d465ms8p0r0" path="res://models/props/rail.tscn" id="1_kf7ty"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hvsbd"]
 size = Vector3(0.1, 0.102026, 0.0177734)
 
-[node name="HangerRail" type="MeshInstance3D"]
+[node name="HangerRail" type="Node3D"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_1sof2")
-skeleton = NodePath("")
+
+[node name="rail" parent="." instance=ExtResource("1_kf7ty")]
+transform = Transform3D(0.151, 0, 1.77636e-15, 0, 0.151, 0, -4.44089e-16, 0, 0.8, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

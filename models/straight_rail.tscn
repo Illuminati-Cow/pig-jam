@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfi3ii6ay6u2i"]
+
+[ext_resource type="PackedScene" uid="uid://xc3blyh4gabu" path="res://models/imports/PIG_ceiling_rail_straight.glb" id="1_ladxn"]
+[ext_resource type="Material" uid="uid://3eb4i6lrg5ko" path="res://materials/straight_rail.tres" id="2_k738i"]
+
+[node name="rail" instance=ExtResource("1_ladxn")]
+
+[node name="Stright" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_k738i")

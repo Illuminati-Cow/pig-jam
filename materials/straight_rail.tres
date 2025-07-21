@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://3eb4i6lrg5ko"]
+
+[ext_resource type="Texture2D" uid="uid://juv2jlf85u1y" path="res://models/imports/PIG_ceiling_rail_straight_PIG_ceiling_rail_Stright_BaseColor.png" id="1_wsgrj"]
+[ext_resource type="Texture2D" uid="uid://b13ahovkm3w70" path="res://models/imports/PIG_ceiling_rail_straight_PIG_ceiling_rail_Stright_Metallic.png" id="2_je3ln"]
+
+[resource]
+resource_name = "Stright"
+cull_mode = 2
+albedo_texture = ExtResource("1_wsgrj")
+metallic = 1.0
+metallic_texture = ExtResource("2_je3ln")
+metallic_texture_channel = 2
+roughness = 0.9
+roughness_texture = ExtResource("2_je3ln")
+roughness_texture_channel = 1
+uv1_offset = Vector3(0.38, 0.785, 0.5)
