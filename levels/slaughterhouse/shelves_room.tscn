@@ -1,13 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://cf3k8djntuu4e"]
+[gd_scene load_steps=15 format=3 uid="uid://cf3k8djntuu4e"]
 
 [ext_resource type="Material" uid="uid://btxabr306nljn" path="res://materials/brick_wall.tres" id="1_wxg1b"]
 [ext_resource type="Material" uid="uid://5d51qp3q5u5r" path="res://materials/chopped_wall.tres" id="2_bbnnf"]
+[ext_resource type="PackedScene" uid="uid://b8twud700j2qs" path="res://models/props/rope_coil.tscn" id="2_bwm13"]
+[ext_resource type="PackedScene" uid="uid://cwucupyvcq776" path="res://models/imports/pig.glb" id="3_mnyb6"]
 [ext_resource type="PackedScene" uid="uid://b2vur0845eo44" path="res://models/props/barrel.tscn" id="3_woq20"]
 [ext_resource type="Texture2D" uid="uid://cvxd5t7dvqd34" path="res://textures/chiller_LDoor.png" id="3_wxg1b"]
 [ext_resource type="PackedScene" uid="uid://e5u6ichghfvi" path="res://models/props/pig_shelf.tscn" id="4_8wvfn"]
 [ext_resource type="Material" uid="uid://14ncnu8ki0k0" path="res://materials/chiller_LDoor.tres" id="4_s3880"]
 [ext_resource type="Material" uid="uid://c1tav0fg50llc" path="res://materials/concrete.tres" id="4_wu3sy"]
 [ext_resource type="PackedScene" uid="uid://dqwt7liu4t4k6" path="res://models/props/pig_wood_boxtest.tscn" id="5_kmst5"]
+[ext_resource type="PackedScene" uid="uid://dcll6sfvdn8gt" path="res://models/props/rope_straight.tscn" id="6_s3880"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wxg1b"]
 size = Vector3(0.215, 1.8, 1.3)
@@ -28,6 +31,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0110693, 0, 0)
 material_override = ExtResource("1_wxg1b")
 use_collision = true
 size = Vector3(8.82306, 2.25281, 0.22168)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Walls/Wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3, 0.672554, -0.0233154)
+operation = 2
+size = Vector3(1, 0.338672, 0.278564)
 
 [node name="Wall1" type="CSGBox3D" parent="Walls"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.28076, 0, 5.09337)
@@ -63,6 +71,7 @@ size = Vector3(7.02088, 2.25281, 0.20752)
 [node name="DoorCollider" type="StaticBody3D" parent="."]
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.30274, 1.979, -8.04019)
+collision_layer = 0
 collision_mask = 9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DoorCollider"]
@@ -103,6 +112,9 @@ shape = SubResource("BoxShape3D_tye7w")
 
 [node name="Props" type="Node3D" parent="."]
 transform = Transform3D(0.0421967, 0, 0.195498, 0, 0.2, 0, -0.195498, 0, 0.0421967, -16.4562, 1.02401, -1.18051)
+
+[node name="RopeStraight" parent="Props" instance=ExtResource("6_s3880")]
+transform = Transform3D(-4.88745, 0, -1.05492, 0, 6.62225, 0, 1.05492, 0, -4.88745, 44.5361, -0.0268022, -7.85247)
 
 [node name="barrel" parent="Props" instance=ExtResource("3_woq20")]
 transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 0, 0, 0)
@@ -148,3 +160,11 @@ transform = Transform3D(-1.95498, 0, -0.421967, 0, 2, 0, 0.421967, 0, -1.95498, 
 
 [node name="Box5" parent="Props" instance=ExtResource("5_kmst5")]
 transform = Transform3D(-1.95498, 0, -0.421967, 0, 2, 0, 0.421967, 0, -1.95498, 10.902, 12.958, 35.585)
+
+[node name="CoiledRope" parent="Props" instance=ExtResource("2_bwm13")]
+transform = Transform3D(-2.71001, 0, -4.20189, 0, 5, 0, 4.20189, 0, -2.71001, 41.7855, -0.0731177, -8.01116)
+visible = false
+
+[node name="RopeEatingPig" parent="Props" instance=ExtResource("3_mnyb6")]
+transform = Transform3D(0.110697, 0, 2.24727, 0, 2.25987, 0, -2.24727, 0, 0.110697, 37, 2.15367, -6.15437)
+visible = false

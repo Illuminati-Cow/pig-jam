@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bp6njn070l14i"]
+[gd_scene load_steps=4 format=3 uid="uid://bp6njn070l14i"]
 
 [ext_resource type="Material" uid="uid://b12qc2augolq8" path="res://materials/prototype_material.tres" id="1_yag12"]
 [ext_resource type="Script" uid="uid://b1unx03vcgyv6" path="res://addons/proto_shape/proto_ramp/proto_ramp.gd" id="2_xif3x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yag12"]
+size = Vector3(1.79507, 1.05603, 0.968475)
 
 [node name="Abattoir" type="Node3D"]
 transform = Transform3D(1, 0, 9.31323e-09, 0, 1, -3.72529e-09, 0, -3.72529e-09, 1, 0, 0, 0)
@@ -225,11 +228,18 @@ transform = Transform3D(1, -3.46945e-17, -9.31323e-09, 0, 1, 3.72529e-09, 0, 3.7
 radius = 0.784668
 height = 0.205566
 
-[node name="CSGBox3D50" type="CSGBox3D" parent="."]
-transform = Transform3D(-5.30246e-08, -6.00804e-17, -1, 3.72529e-09, 1.7317, -1.62838e-16, 1, 6.45108e-09, -4.37114e-08, 8.81045, 1.46034, 1.78524)
+[node name="PushBox" type="RigidBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 3.25675e-16, -1, 3.72529e-09, 1, 1.62837e-16, 1, -3.72529e-09, -4.37114e-08, 8.81045, 1.44396, 1.78524)
+mass = 100.0
+
+[node name="CSGBox3D50" type="CSGBox3D" parent="PushBox"]
+transform = Transform3D(1.4866, 0, 0, 1.05707e-28, 1.69253, -6.00277e-31, 0, 2.64698e-23, 1.22585, 0, 0.0825727, 0)
 material_override = ExtResource("1_yag12")
-use_collision = true
-size = Vector3(1.19751, 0.531661, 0.868896)
+size = Vector3(1.19751, 0.629234, 0.868896)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PushBox"]
+transform = Transform3D(1, 0, 0, 7.88861e-31, 1, -2.64698e-23, 0, 2.64698e-23, 1, -0.00468445, 0.0840564, 0.052597)
+shape = SubResource("BoxShape3D_yag12")
 
 [node name="ProtoRamp2" type="Node3D" parent="."]
 transform = Transform3D(-2.2787e-07, -3.46945e-17, -1, 3.72529e-09, 1, -8.14188e-16, 1, 3.72529e-09, -2.18557e-07, 11.6751, 1.01313, 2.85469)
@@ -254,28 +264,29 @@ transform = Transform3D(-4.37114e-08, -1.58819e-22, -1, 1.58819e-22, 1, -1.58819
 depth = 2.0
 polygon = PackedVector2Array(0, 1.355, -2, 0, 0, 0)
 
-[node name="ProtoRamp" type="Node3D" parent="."]
-transform = Transform3D(1.40447e-07, -3.46945e-17, 1, -3.72529e-09, 1, 4.88512e-16, -1, 3.72529e-09, 1.31134e-07, 8.04516, 0.98316, -9.10302)
+[node name="PushSteps" type="Node3D" parent="."]
+transform = Transform3D(0.2, -9.38138e-16, 0.480644, -1.29048e-09, 0.65, 1.03377e-09, -0.34641, -2.42144e-09, 0.2775, 6.65642, 0.999997, 1.3203)
 script = ExtResource("2_xif3x")
 type = 0
-collisions_enabled = true
+collisions_enabled = false
 width = 2.0
-height = 1.0
-depth = 2.001
+height = 1.36142
+depth = 1.99957
 anchor = 7
 anchor_fixed = true
-fill = 1.0
+fill = 0.937771
 material = ExtResource("1_yag12")
 metadata/_custom_type_script = "uid://b1unx03vcgyv6"
 
-[node name="StaticBody3D" type="StaticBody3D" parent="ProtoRamp"]
+[node name="RigidBody3D" type="RigidBody3D" parent="PushSteps"]
 transform = Transform3D(1, 0, 0, 0, 1, -1.26439e-35, 0, 0, 1, 0, 0, 0)
-collision_layer = 7
+collision_mask = 9
+mass = 25.0
 
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="ProtoRamp/StaticBody3D"]
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="PushSteps/RigidBody3D"]
 transform = Transform3D(-4.37114e-08, -1.58819e-22, -1, 1.58819e-22, 1, -1.58819e-22, 1, -1.58819e-22, -4.37114e-08, -0.999855, 0.00458288, 0.00519848)
 depth = 2.0
-polygon = PackedVector2Array(0, 1, -2, 0, 0, 0)
+polygon = PackedVector2Array(0, 1.355, -2, 0, 0, 0)
 
 [node name="CSGBox3D28" type="CSGBox3D" parent="."]
 transform = Transform3D(-5.30246e-08, -6.00804e-17, -1, 3.72529e-09, 1.7317, -1.62838e-16, 1, 6.45108e-09, -4.37114e-08, 3.00983, 5.90595, -1.70709)
@@ -309,7 +320,6 @@ size = Vector3(5.23436, 5, 0.242188)
 
 [node name="CSGBox3D21" type="CSGBox3D" parent="."]
 transform = Transform3D(1, -6.00804e-17, -9.31323e-09, 0, 1.7317, 3.72529e-09, 0, 6.45108e-09, 1, 11.6326, 5.32925, -10.2544)
-visible = false
 material_override = ExtResource("1_yag12")
 use_collision = true
 size = Vector3(17.2167, 5, 0.242188)
