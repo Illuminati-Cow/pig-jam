@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dce2bdw2kvd10"]
+
+[ext_resource type="Texture2D" uid="uid://dhma423lu8wek" path="res://textures/musty_wall.png" id="1_im6lu"]
+
+[resource]
+albedo_texture = ExtResource("1_im6lu")
+uv1_scale = Vector3(0.785, 0.785, 0.785)
+uv1_triplanar = true

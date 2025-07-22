@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://4d465ms8p0r0"]
 
 [ext_resource type="PackedScene" uid="uid://xc3blyh4gabu" path="res://models/imports/PIG_ceiling_rail_straight.glb" id="1_u4oat"]
-[ext_resource type="Material" uid="uid://3eb4i6lrg5ko" path="res://materials/straight_rail.tres" id="2_20gdc"]
+[ext_resource type="Material" uid="uid://b7qp0hx6qvlmi" path="res://materials/rail_texture.tres" id="2_20gdc"]
 
 [node name="rail" instance=ExtResource("1_u4oat")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)

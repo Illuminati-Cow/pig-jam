@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b7qp0hx6qvlmi"]
+
+[ext_resource type="Texture2D" uid="uid://d2sc6tioly6td" path="res://textures/rail_texture.jpg" id="1_aqa85"]
+
+[resource]
+albedo_texture = ExtResource("1_aqa85")
+metallic = 0.18
+metallic_specular = 0.05
+metallic_texture = ExtResource("1_aqa85")
+roughness = 0.84
+roughness_texture = ExtResource("1_aqa85")
+uv1_triplanar = true
+uv1_world_triplanar = true
