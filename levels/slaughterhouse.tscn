@@ -409,7 +409,7 @@ transform = Transform3D(0.999999, 0.000382883, -0.00169445, -0.0003819, 1, 0.000
 collision_mask = 21
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.965366, -0.164666, 0.202369, -0.0761332, 0.564103, 0.822187, -0.249543, -0.809118, 0.53203, -15.7827, 4.13773, -8.60226)
+transform = Transform3D(-0.981223, -0.13508, 0.137675, -0.0271065, 0.803294, 0.594965, -0.190962, 0.580062, -0.791872, -15.7543, 3.85861, -10.2557)
 attributes = SubResource("CameraAttributesPractical_3nslk")
 fov = 57.3
 

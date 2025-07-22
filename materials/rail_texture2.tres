@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d2sc6tioly6td" path="res://textures/rail_texture.jpg" id="1_mle6f"]
 
 [resource]
-albedo_color = Color(0.303233, 0.303233, 0.303233, 1)
+albedo_color = Color(0.408329, 0.408329, 0.408329, 1)
 albedo_texture = ExtResource("1_mle6f")
 metallic = 0.18
 metallic_specular = 0.05
