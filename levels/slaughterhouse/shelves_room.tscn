@@ -76,7 +76,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.19209e-07, 0.0500011)
 shape = SubResource("BoxShape3D_wxg1b")
 
 [node name="RDoorPivot" type="Node3D" parent="."]
-transform = Transform3D(-0.646708, 0, -0.791361, 0, 1.772, 0, 0.791361, 0, -0.646708, -8.51753, 1.979, -7.3578)
+transform = Transform3D(-0.722663, 0, -0.722663, 0, 1.772, 0, 0.722663, 0, -0.722663, -8.51753, 1.979, -7.3578)
 
 [node name="RDoor" type="CSGBox3D" parent="RDoorPivot"]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0.3, 0, 9.53674e-07)
@@ -85,7 +85,7 @@ use_collision = true
 size = Vector3(0.629333, 1.11656, 0.0760498)
 
 [node name="LDoorPivot" type="Node3D" parent="."]
-transform = Transform3D(-0.670492, 0, 0.771313, 0, 1.77, 0, -0.771313, 0, -0.670492, -8.50482, 1.97897, -8.64359)
+transform = Transform3D(-0.722663, 0, 0.722663, 0, 1.77, 0, -0.722663, 0, -0.722663, -8.50482, 1.97897, -8.64359)
 
 [node name="LDoor" type="CSGBox3D" parent="LDoorPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, -4.76837e-07)

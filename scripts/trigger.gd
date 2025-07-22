@@ -26,15 +26,13 @@ func _ready():
 		collision_shape.shape = BoxShape3D.new()
 		undo_redo.commit_action()
 
-	if !body_entered.is_connected(_on_body_entered):
-		body_entered.connect(_on_body_entered)
-		EditorInterface.edit_node(self)
-
 func _on_body_entered(body: Node3D):
 	if one_shot and fired:
 		return
+		
 	for group in body.get_groups():
 		if group in groups:
 			triggered.emit(body)
 			fired = true
+			print("Triggered " + name)
 			break
