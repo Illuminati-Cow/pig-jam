@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://pidibbjycllu"]
+[gd_scene load_steps=29 format=3 uid="uid://pidibbjycllu"]
 
 [ext_resource type="Script" uid="uid://di5uw2k8bytm4" path="res://scripts/dev.torch" id="1_mp74a"]
 [ext_resource type="PackedScene" uid="uid://dxw7cledbpiia" path="res://addons/proto-csgs/proto_csg_box_3d.tscn" id="1_x8peg"]
@@ -45,20 +45,6 @@ frustum_offset = Vector2(0, 0)
 near = 0.05
 far = 4000.0
 metadata/_custom_type_script = "uid://b8hhnqsugykly"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1sof2"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("2_2it8a")
-uv1_offset = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-uv1_world_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ip0e"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("2_2it8a")
-uv1_offset = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-uv1_world_triplanar = true
 
 [sub_resource type="GDScript" id="GDScript_etbdi"]
 resource_name = "BTTreeView"
@@ -196,14 +182,12 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.743
 
 [node name="HangerRail" parent="Rails" instance=ExtResource("12_mp74a")]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -5.4808, 4.14703, -3)
-surface_material_override/0 = SubResource("StandardMaterial3D_1sof2")
 
 [node name="Junction" parent="Rails/HangerRail" instance=ExtResource("13_1sof2")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="HangerRail2" parent="Rails" instance=ExtResource("12_mp74a")]
 transform = Transform3D(-7.35137e-08, 0, -1, 0, 1, 0, 1, 0, -7.35137e-08, -2.57854, 4.14703, -3)
-surface_material_override/0 = SubResource("StandardMaterial3D_6ip0e")
 
 [node name="Pig" parent="." instance=ExtResource("14_6ip0e")]
 transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 21.2747, 1.91942, -27.5016)

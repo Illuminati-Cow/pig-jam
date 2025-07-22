@@ -7,6 +7,8 @@ signal triggered(body: Node3D)
 @export var one_shot := false
 @export var groups: Array[StringName] = []
 
+var fired := false
+
 func _ready():
 	if !is_inside_tree() or self == get_tree().edited_scene_root or !Engine.is_editor_hint():
 		return
@@ -29,7 +31,10 @@ func _ready():
 		EditorInterface.edit_node(self)
 
 func _on_body_entered(body: Node3D):
+	if one_shot and fired:
+		return
 	for group in body.get_groups():
 		if group in groups:
 			triggered.emit(body)
+			fired = true
 			break

@@ -31,7 +31,7 @@ var active: bool:
 	set(value):
 		set_deferred(&"monitoring", value)
 		if !Engine.is_editor_hint() and camera:
-			print(camera.name + " trigger is now %s" % ("active" if active else "inactive"))
+			print(camera.name + " " + name + " is now %s" % ("active" if active else "inactive"))
 		if !value and _fired_timer:
 			_fired_timer.stop()
 
@@ -80,8 +80,9 @@ func _on_body_entered(body: Node3D) -> void:
 func _on_body_exited(body: Node3D) -> void:
 	if body is not PlayerController:
 		return
-	camera.priority = 0
-	camera.visible = false
+	if !linked_shot or linked_shot.camera != camera:
+		camera.priority = 0
+		camera.visible = false
 	_fired_timer.stop()
 	if _fired_once and one_shot:
 		active = false
