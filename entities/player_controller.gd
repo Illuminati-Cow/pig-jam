@@ -118,6 +118,17 @@ func apply_locomotion_force(locomotion_input: float) -> void:
 	#DebugDraw2D.set_text("goal_vel", "%2.2f" % goal_vel.length())
 	#DebugDraw2D.set_text("needed_accel", "%2.2f" % needed_accel.length())
 
+func set_ragdoll(active: bool) -> void:
+	var simulator: PhysicalBoneSimulator3D = $CharacterModel/rig_001/Skeleton3D/PhysicalBoneSimulator3D
+	simulator.active = active
+	collider.disabled = active
+	input_disabled = active
+	$AnimationPlayer/AnimationTree.active = !active
+	if active:
+		simulator.physical_bones_start_simulation()
+	else:
+		simulator.physical_bones_stop_simulation()
+
 func _nav_raycast():
 	raycast_this_frame = false
 	var camera := get_viewport().get_camera_3d()
