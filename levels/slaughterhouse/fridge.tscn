@@ -113,6 +113,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1.7317, 0, -1, 0, -4.37114e-08, 0
 material_override = ExtResource("4_55s15")
 use_collision = true
 collision_layer = 0
+collision_mask = 9
 size = Vector3(0.629333, 1.11656, 0.0760498)
 
 [node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="FridgeEndDoorRight/FridgeEndDoorRight"]
@@ -127,6 +128,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1.7317, 0, -1, 0, -4.37114e-08, 0
 material_override = ExtResource("4_55s15")
 use_collision = true
 collision_layer = 0
+collision_mask = 9
 size = Vector3(0.629333, 1.11656, 0.0760498)
 
 [node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="FridgeEndDoorLeft"]
