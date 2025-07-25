@@ -1,9 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqwt7liu4t4k6"]
+[gd_scene load_steps=3 format=3 uid="uid://dqwt7liu4t4k6"]
 
 [ext_resource type="PackedScene" uid="uid://ctu5yg4np2adt" path="res://models/imports/PIG_wood_box.glb" id="1_8i5co"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8i5co"]
+size = Vector3(4.13821, 1.98334, 1.98675)
 
 [node name="PIG_wood_box" instance=ExtResource("1_8i5co")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 
 [node name="Cube" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000137314, 0.0207214, -0.0132637)
+shape = SubResource("BoxShape3D_8i5co")

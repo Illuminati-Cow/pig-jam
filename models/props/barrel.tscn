@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2vur0845eo44"]
+[gd_scene load_steps=3 format=3 uid="uid://b2vur0845eo44"]
 
 [ext_resource type="PackedScene" uid="uid://csdi2wjscshx4" path="res://models/imports/PIG_barrel.glb" id="1_518w0"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_518w0"]
+radius = 1.02051
+height = 4.07237
+
 [node name="barrel" instance=ExtResource("1_518w0")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cylinder" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder/StaticBody3D" index="0"]
+shape = SubResource("CapsuleShape3D_518w0")
