@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cp83y54q6sna1"]
+[gd_scene load_steps=9 format=3 uid="uid://cp83y54q6sna1"]
 
 [ext_resource type="Theme" uid="uid://65buv1polm1k" path="res://settings/theme.tres" id="1_0byv1"]
 [ext_resource type="Shader" uid="uid://b0axuxncfc8s6" path="res://shaders/VHS.gdshader" id="1_gwl5o"]
+[ext_resource type="Script" uid="uid://c1p0855ty00m1" path="res://scripts/title.torch" id="1_k5sll"]
 [ext_resource type="FontFile" uid="uid://berqhcvbdhbal" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="1_k86xs"]
 [ext_resource type="Texture2D" uid="uid://d1ejgagq0m3xj" path="res://textures/pigsmile.png" id="4_525av"]
 
@@ -42,6 +43,7 @@ shader_parameter/vignette_intensity = 0.435
 shader_parameter/vignette_opacity = 1.0
 
 [node name="Title" type="Node3D"]
+script = ExtResource("1_k5sll")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true

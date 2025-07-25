@@ -1,0 +1,200 @@
+[orchestration type="OScript" load_steps=10 format=3 uid="uid://c1p0855ty00m1"]
+
+[obj type="OScriptFunction" id="OScriptFunction_0fu2d"]
+guid = "63CBBBFA-EDA9-4742-B664-D91E8948B880"
+method = {
+"name": &"_ready",
+"flags": 8
+}
+id = 0
+
+[obj type="OScriptGraph" id="OScriptGraph_3otah"]
+graph_name = &"EventGraph"
+offset = Vector2(96, -147)
+zoom = 0.564474
+flags = 8
+nodes = Array[int]([0, 1, 3, 4, 5, 6])
+functions = Array[int]([0])
+
+[obj type="OScriptNodeEvent" id="OScriptNodeEvent_tr8eo"]
+function_id = "63CBBBFA-EDA9-4742-B664-D91E8948B880"
+id = 0
+position = Vector2(200, 260)
+pin_data = Array[Dictionary]([{
+"pin_name": &"ExecOut",
+"dir": 1,
+"flags": 4
+}])
+
+[obj type="OScriptNodePreload" id="OScriptNodePreload_35hlb"]
+path = "res://audio/ambience/title_ambience.mp3"
+id = 1
+position = Vector2(800, 420)
+pin_data = Array[Dictionary]([{
+"pin_name": &"path",
+"type": 24,
+"dir": 1,
+"flags": 2050,
+"label": "res://audio/ambience/title_ambience.mp3",
+"target_class": "AudioStreamMP3",
+"dv": "res://audio/ambience/title_ambience.mp3",
+"gdv": ""
+}])
+
+[obj type="OScriptNodeAutoload" id="OScriptNodeAutoload_pa1c3"]
+autoload = "SoundManager"
+id = 3
+position = Vector2(420, 380)
+pin_data = Array[Dictionary]([{
+"pin_name": &"autoload",
+"type": 24,
+"dir": 1,
+"flags": 2050,
+"label": "SoundManager",
+"target_class": "Node"
+}])
+
+[obj type="OScriptNodeTypeCast" id="OScriptNodeTypeCast_a0x0q"]
+type = "OSoundManager"
+id = 4
+position = Vector2(660, 260)
+pin_data = Array[Dictionary]([{
+"pin_name": &"ExecIn",
+"flags": 4
+}, {
+"pin_name": &"instance",
+"type": 24,
+"flags": 2,
+"target_class": "Object"
+}, {
+"pin_name": &"yes",
+"dir": 1,
+"flags": 516
+}, {
+"pin_name": &"no",
+"dir": 1,
+"flags": 516
+}, {
+"pin_name": &"output",
+"type": 24,
+"dir": 1,
+"flags": 2050,
+"label": "as OSoundManager",
+"target_class": "OSoundManager"
+}])
+
+[obj type="OScriptNodeVariableSet" id="OScriptNodeVariableSet_d481b"]
+variable_name = &"SoundManager"
+id = 5
+position = Vector2(980, 260)
+pin_data = Array[Dictionary]([{
+"pin_name": &"ExecIn",
+"flags": 4
+}, {
+"pin_name": &"SoundManager",
+"type": 24,
+"flags": 2050,
+"target_class": "OSoundManager",
+"hint": 34,
+"hint_string": "OSoundManager",
+"usage": 4102
+}, {
+"pin_name": &"ExecOut",
+"dir": 1,
+"flags": 4
+}, {
+"pin_name": &"value",
+"type": 24,
+"dir": 1,
+"flags": 1026,
+"target_class": "OSoundManager",
+"hint": 34,
+"hint_string": "OSoundManager",
+"usage": 4102
+}])
+
+[obj type="OScriptNodeCallMemberFunction" id="OScriptNodeCallMemberFunction_w7db6"]
+function_name = &"play_music"
+target_class_name = "OSoundManager"
+target_type = 24
+flags = 520
+method = {
+"name": &"play_music",
+"return": {
+"type": 24,
+"class_name": &"AudioStreamPlayer",
+"usage": 0
+},
+"default_args": [0.0, ""],
+"args": [{
+"name": &"resource",
+"type": 24,
+"class_name": &"AudioStream",
+"usage": 0
+}, {
+"name": &"crossfade_duration",
+"type": 3,
+"usage": 0
+}, {
+"name": &"override_bus",
+"type": 4,
+"usage": 0
+}]
+}
+chain = false
+id = 6
+position = Vector2(1300, 260)
+pin_data = Array[Dictionary]([{
+"pin_name": &"ExecIn",
+"flags": 4
+}, {
+"pin_name": &"ExecOut",
+"dir": 1,
+"flags": 4
+}, {
+"pin_name": &"target",
+"type": 24,
+"flags": 2050,
+"label": "OSoundManager",
+"target_class": "OSoundManager"
+}, {
+"pin_name": &"resource",
+"type": 24,
+"flags": 2,
+"target_class": "AudioStream",
+"usage": 0
+}, {
+"pin_name": &"crossfade_duration",
+"type": 3,
+"flags": 2,
+"dv": 0.5,
+"usage": 0
+}, {
+"pin_name": &"override_bus",
+"type": 4,
+"flags": 2,
+"dv": "",
+"usage": 0
+}, {
+"pin_name": &"return_value",
+"type": 24,
+"dir": 1,
+"flags": 2,
+"label": "AudioStreamPlayer",
+"target_class": "AudioStreamPlayer",
+"usage": 0
+}])
+
+[obj type="OScriptVariable" id="OScriptVariable_0hl1r"]
+name = "SoundManager"
+category = "Default"
+classification = "class:OSoundManager"
+type = 24
+
+[resource]
+base_type = &"Node3D"
+variables = Array[OScriptVariable]([SubResource("OScriptVariable_0hl1r")])
+functions = Array[OScriptFunction]([SubResource("OScriptFunction_0fu2d")])
+connections = Array[int]([0, 0, 4, 0, 4, 0, 5, 0, 5, 0, 6, 0, 3, 0, 4, 1, 4, 2, 5, 1, 5, 1, 6, 1, 1, 0, 6, 2])
+nodes = Array[OScriptNode]([SubResource("OScriptNodeEvent_tr8eo"), SubResource("OScriptNodePreload_35hlb"), SubResource("OScriptNodeAutoload_pa1c3"), SubResource("OScriptNodeTypeCast_a0x0q"), SubResource("OScriptNodeVariableSet_d481b"), SubResource("OScriptNodeCallMemberFunction_w7db6")])
+graphs = Array[OScriptGraph]([SubResource("OScriptGraph_3otah")])
